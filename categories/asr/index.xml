@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ASR on Muzic</title>
+    <link>https://ai-muzic.github.io/categories/asr/</link>
+    <description>Recent content in ASR on Muzic</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 02 Sep 2019 00:02:05 +0800</lastBuildDate><atom:link href="https://ai-muzic.github.io/categories/asr/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>HiFiSinger: Towards High-Fidelity Neural Singing Voice Synthesis</title>
+      <link>https://ai-muzic.github.io/hifisinger/</link>
+      <pubDate>Mon, 02 Sep 2019 00:02:05 +0800</pubDate>
+      
+      <guid>https://ai-muzic.github.io/hifisinger/</guid>
+      <description>ArXiv: arXiv:2009.01776
+Authors  Microsoft STC Asia &amp; Microsoft Research Asia -- Jiawei Chen (Microsoft STC Asia) t-jiawch@microsoft.com Xu Tan* (Microsoft Research) xuta@microsoft.com Jian Luan (Microsoft STC Asia) jianluan@microsoft.com Tao Qin (Microsoft Research) taoqin@microsoft.com Tie-Yan Liu (Microsoft Research) tyliu@microsoft.com  *Corresponding author Abstract High-fidelity singing voices usually require higher sampling rate (e.g., 48kHz, compared with 16kHz or 24kHz in speaking voices) with large range of frequency to convey expression and emotion.</description>
+    </item>
+    
+  </channel>
+</rss>

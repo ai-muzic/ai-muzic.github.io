@@ -1,37 +1,62 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>My New Hugo Site</title>
+    <title>Muzic</title>
     <link>https://ai-muzic.github.io/</link>
-    <description>Recent content on My New Hugo Site</description>
+    <description>Recent content on Muzic</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 21 Sep 2021 12:20:45 +0800</lastBuildDate><atom:link href="https://ai-muzic.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 21 Sep 2021 12:30:00 +0901</lastBuildDate><atom:link href="https://ai-muzic.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>About1</title>
-      <link>https://ai-muzic.github.io/about1/</link>
-      <pubDate>Tue, 21 Sep 2021 12:34:57 +0800</pubDate>
+      <title>TeleMelody: Lyric-to-Melody Generation with a Template-Based Two-Stage Method</title>
+      <link>https://ai-muzic.github.io/telemelody/</link>
+      <pubDate>Tue, 21 Sep 2021 12:30:00 +0901</pubDate>
       
-      <guid>https://ai-muzic.github.io/about1/</guid>
-      <description>scsdfdsgergregergegfa</description>
+      <guid>https://ai-muzic.github.io/telemelody/</guid>
+      <description>ArXiv: arXiv:2109.09617
+Authors  Zeqian Ju (University of Science and Technology of China) juzeqian@mail.ustc.edu.cn Peiling Lu (Microsoft Research Asia) peil@microsoft.com Xu Tan^ (Microsoft Research Asia ) xuta@microsoft.com Rui Wang (Microsoft Research Asia ) ruiwa@microsoft.com Chen Zhang (Zhejiang University ) zc99@zju.edu.cn Songruoyao Wu (Zhejiang University ) 22021296@zju.edu.cn Kejun Zhang (Zhejiang University ) zhangkejun@zju.edu.cn Xiangyang Li (University of Science and Technology of China ) xiangyangli@ustc.edu.cn Tao Qin (Microsoft Research Asia ) taoqin@microsoft.</description>
     </item>
     
     <item>
-      <title>First</title>
-      <link>https://ai-muzic.github.io/post/first/</link>
-      <pubDate>Tue, 21 Sep 2021 12:20:45 +0800</pubDate>
+      <title>DeepRapper: Neural Rap Generation with Rhyme and Rhythm Modeling</title>
+      <link>https://ai-muzic.github.io/deeprapper/</link>
+      <pubDate>Mon, 16 Aug 2021 12:25:00 +0901</pubDate>
       
-      <guid>https://ai-muzic.github.io/post/first/</guid>
-      <description>hello hello      sdsdsdsdsdddddddddddddddddddddddddd adsadadasdasdssd</description>
+      <guid>https://ai-muzic.github.io/deeprapper/</guid>
+      <description>ArXiv: arXiv:2107.01875
+Authors  Lanqing Xue (Hong Kong University of Science and Technology) lxueaa@cse.ust.hk Kaitao Song (Nanjing University of Science and Technology) kt.song@njust.edu.cn Duocai Wu (Fudan University) dcwu18@fudan.edu.cn Xu Tan^ (Microsoft Research) xuta@microsoft.com Nevin L. Zhang (Hong Kong University of Science and Technology) lzhang@cse.ust.hk Wei-Qiang Zhang (Tsinghua University) wqzhang@tsinghua.edu.cn Tao Qin (Microsoft Research) taoqin@microsoft.com Tie-Yan Liu (Microsoft Research) tyliu@microsoft.com  ^ Corresponding author.
+Abstract Rap generation, which aims to produce lyrics and corresponding singing beats, needs to model both rhymes and rhythms.</description>
     </item>
     
     <item>
-      <title>About</title>
-      <link>https://ai-muzic.github.io/about/</link>
-      <pubDate>Tue, 21 Sep 2021 12:20:28 +0800</pubDate>
+      <title>SongMASS: Automatic Song Writing with Pre-training and Alignment Constraint</title>
+      <link>https://ai-muzic.github.io/songmass/</link>
+      <pubDate>Mon, 14 Dec 2020 15:30:00 +0901</pubDate>
       
-      <guid>https://ai-muzic.github.io/about/</guid>
-      <description>hello world!      </description>
+      <guid>https://ai-muzic.github.io/songmass/</guid>
+      <description>ArXiv: arXiv:2012.05168
+Authors  Zhonghao Sheng* (Peking University) zhonghao.sheng@pku.edu.cn Kaitao Song* (Nanjing University of Science and Technology) kt.song@njust.edu.cn Xu Tan^ (Microsoft Research) xuta@microsoft.com Yi Ren (Zhejiang University) rayeren@zju.edu.cn Wei Ye (Peking University) wye@pku.edu.cn Shikun Zhang (Peking University) zhangsk@pku.edu.cn Tao Qin (Microsoft Research) taoqin@microsoft.com  * Equal contribution. ^ Corresponding author.
+Abstract Automatic song writing aims to compose a song (lyric and/or melody) by machine, which is an interesting topic in both academia and industry.</description>
+    </item>
+    
+    <item>
+      <title>PopMAG: Pop Music Accompaniment Generation</title>
+      <link>https://ai-muzic.github.io/popmag/</link>
+      <pubDate>Sat, 01 Aug 2020 15:30:00 +0901</pubDate>
+      
+      <guid>https://ai-muzic.github.io/popmag/</guid>
+      <description>Arxiv: https://arxiv.org/abs/2008.07703
+Audio   / Melody (Input) PopMAG Ground-Truth   Sample 1 Your browser does not support the audio element. Your browser does not support the audio element. Your browser does not support the audio element.   Sample 2 Your browser does not support the audio element. Your browser does not support the audio element. Your browser does not support the audio element.   Sample 3 Your browser does not support the audio element.</description>
+    </item>
+    
+    <item>
+      <title>HiFiSinger: Towards High-Fidelity Neural Singing Voice Synthesis</title>
+      <link>https://ai-muzic.github.io/hifisinger/</link>
+      <pubDate>Mon, 02 Sep 2019 00:02:05 +0800</pubDate>
+      
+      <guid>https://ai-muzic.github.io/hifisinger/</guid>
+      <description>ArXiv: arXiv:2009.01776
+Authors  Microsoft STC Asia &amp; Microsoft Research Asia -- Jiawei Chen (Microsoft STC Asia) t-jiawch@microsoft.com Xu Tan* (Microsoft Research) xuta@microsoft.com Jian Luan (Microsoft STC Asia) jianluan@microsoft.com Tao Qin (Microsoft Research) taoqin@microsoft.com Tie-Yan Liu (Microsoft Research) tyliu@microsoft.com  *Corresponding author Abstract High-fidelity singing voices usually require higher sampling rate (e.g., 48kHz, compared with 16kHz or 24kHz in speaking voices) with large range of frequency to convey expression and emotion.</description>
     </item>
     
   </channel>
