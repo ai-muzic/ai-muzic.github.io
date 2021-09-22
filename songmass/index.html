@@ -2,7 +2,7 @@
 <html lang="en-us">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.88.1" />
+<meta name="generator" content="Hugo 0.16-DEV" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
@@ -30,9 +30,14 @@
             <h1 class="entry-title" itemprop="headline">SongMASS: Automatic Song Writing with Pre-training and Alignment Constraint</h1>
 			
 			<section itemprop="entry-text">
-				<br>
+				
+
+<p><br></p>
+
 <p>ArXiv: <a href="https://arxiv.org/abs/2012.05168">arXiv:2012.05168</a></p>
-<h2 id="authors">Authors</h2>
+
+<h2 id="authors:215e30d2c5ec6f4b187d3e61f3c6f76e">Authors</h2>
+
 <ul>
 <li>Zhonghao Sheng* (Peking University) <a href="mailto:zhonghao.sheng@pku.edu.cn">zhonghao.sheng@pku.edu.cn</a></li>
 <li>Kaitao Song* (Nanjing University of Science and Technology) <a href="mailto:kt.song@njust.edu.cn">kt.song@njust.edu.cn</a></li>
@@ -42,12 +47,18 @@
 <li>Shikun Zhang (Peking University) <a href="mailto:zhangsk@pku.edu.cn">zhangsk@pku.edu.cn</a></li>
 <li>Tao Qin (Microsoft Research) <a href="mailto:taoqin@microsoft.com">taoqin@microsoft.com</a></li>
 </ul>
+
 <p><small>* Equal contribution.</small>
 <small>^ Corresponding author.</small></p>
-<h2 id="abstract">Abstract</h2>
+
+<h2 id="abstract:215e30d2c5ec6f4b187d3e61f3c6f76e">Abstract</h2>
+
 <p>Automatic song writing aims to compose a song (lyric and/or melody) by machine, which is an interesting topic in both academia and industry. In automatic song writing, lyric-to-melody generation and melody-to-lyric generation are two important tasks, both of which usually suffer from the following challenges: 1) the paired lyric and melody data are limited, which affects the generation quality of the two tasks, considering a lot of paired training data are needed due to the weak correlation between lyric and melody; 2) Strict alignments are required between lyric and melody, which relies on specific alignment modeling. In this paper, we propose SongMASS to address the above challenges, which leverages masked sequence to sequence (MASS) pre-training and attention based alignment modeling for lyric-to-melody and melody-to-lyric generation. Specifically, 1) we extend the original sentence-level MASS pre-training to song level to better capture long contextual information in music, and use a separate encoder and decoder for each modality (lyric or melody); 2) we leverage sentence-level attention mask and token-level attention constraint during training to enhance the alignment between lyric and melody. During inference, we use a dynamic programming strategy to obtain the alignment between each word/syllable in lyric and note in melody. We pre-train SongMASS on unpaired lyric and melody datasets, and both objective and subjective evaluations demonstrate that SongMASS generates lyric and melody with significantly better quality than the baseline method.</p>
-<h2 id="lyric-to-melody-generation">Lyric-to-melody generation</h2>
-<h3 id="example-1">Example 1</h3>
+
+<h2 id="lyric-to-melody-generation:215e30d2c5ec6f4b187d3e61f3c6f76e">Lyric-to-melody generation</h2>
+
+<h3 id="example-1:215e30d2c5ec6f4b187d3e61f3c6f76e">Example 1</h3>
+
 <table>
 <thead>
 <tr>
@@ -62,7 +73,9 @@
 </tr>
 </thead>
 </table>
-<h3 id="example-2">Example 2</h3>
+
+<h3 id="example-2:215e30d2c5ec6f4b187d3e61f3c6f76e">Example 2</h3>
+
 <table>
 <thead>
 <tr>
@@ -77,7 +90,9 @@
 </tr>
 </thead>
 </table>
-<h3 id="example-3">Example 3</h3>
+
+<h3 id="example-3:215e30d2c5ec6f4b187d3e61f3c6f76e">Example 3</h3>
+
 <table>
 <thead>
 <tr>
@@ -92,9 +107,12 @@
 </tr>
 </thead>
 </table>
-<h2 id="melody-to-lyric-generation">Melody-to-lyric generation</h2>
-<h3 id="example-1-1">Example 1</h3>
-<p><audio controls="controls"><source src="../audio/songmass/M2L/240.mp3" autoplay="">Your browser does not support the audio element.</audio></p>
+
+<h2 id="melody-to-lyric-generation:215e30d2c5ec6f4b187d3e61f3c6f76e">Melody-to-lyric generation</h2>
+
+<h3 id="example-1-1:215e30d2c5ec6f4b187d3e61f3c6f76e">Example 1</h3>
+
+<p><audio controls="controls"><source src="../audio/songmass/M2L/240.mp3" autoplay="">Your browser does not support the audio element.</audio>
 <table>
 <thead>
 <tr>
@@ -106,9 +124,11 @@
 <td><img src="../audio/songmass/M2L/240.png" width="60%" height="10px"></td>
 </tr>
 </thead>
-</table>
-<h3 id="example-2-1">Example 2</h3>
-<p><audio controls="controls"><source src="../audio/songmass/M2L/314.mp3" autoplay="">Your browser does not support the audio element.</audio></p>
+</table></p>
+
+<h3 id="example-2-1:215e30d2c5ec6f4b187d3e61f3c6f76e">Example 2</h3>
+
+<p><audio controls="controls"><source src="../audio/songmass/M2L/314.mp3" autoplay="">Your browser does not support the audio element.</audio>
 <table>
 <thead>
 <tr>
@@ -120,9 +140,11 @@
 <td><img src="../audio/songmass/M2L/385.png" width="60%" height="10px"></td>
 </tr>
 </thead>
-</table>
-<h3 id="example-3-1">Example 3</h3>
-<p><audio controls="controls"><source src="../audio/songmass/M2L/385.mp3" autoplay="">Your browser does not support the audio element.</audio></p>
+</table></p>
+
+<h3 id="example-3-1:215e30d2c5ec6f4b187d3e61f3c6f76e">Example 3</h3>
+
+<p><audio controls="controls"><source src="../audio/songmass/M2L/385.mp3" autoplay="">Your browser does not support the audio element.</audio>
 <table>
 <thead>
 <tr>
@@ -134,8 +156,10 @@
 <td><img src="../audio/songmass/M2L/314.png" width="60%" height="10px"></td>
 </tr>
 </thead>
-</table>
-<h2 id="attention-visualization">Attention visualization</h2>
+</table></p>
+
+<h2 id="attention-visualization:215e30d2c5ec6f4b187d3e61f3c6f76e">Attention visualization</h2>
+
 <table>
   <tr>
     <td>Case #1:</td><td><img src="../images/songmass/attn1.png" width="60%" height="20px"></td>

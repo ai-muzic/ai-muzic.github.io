@@ -1,20 +1,113 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>MusicGeneration on Muzic</title>
+    <title>Musicgeneration on Muzic</title>
     <link>https://ai-muzic.github.io/categories/musicgeneration/</link>
-    <description>Recent content in MusicGeneration on Muzic</description>
+    <description>Recent content in Musicgeneration on Muzic</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 21 Sep 2021 12:30:00 +0901</lastBuildDate><atom:link href="https://ai-muzic.github.io/categories/musicgeneration/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 21 Sep 2021 12:30:00 +0901</lastBuildDate>
+    <atom:link href="https://ai-muzic.github.io/categories/musicgeneration/index.xml" rel="self" type="application/rss+xml" />
+    
     <item>
       <title>TeleMelody: Lyric-to-Melody Generation with a Template-Based Two-Stage Method</title>
       <link>https://ai-muzic.github.io/telemelody/</link>
       <pubDate>Tue, 21 Sep 2021 12:30:00 +0901</pubDate>
       
       <guid>https://ai-muzic.github.io/telemelody/</guid>
-      <description>ArXiv: arXiv:2109.09617
-Authors  Zeqian Ju (University of Science and Technology of China) juzeqian@mail.ustc.edu.cn Peiling Lu (Microsoft Research Asia) peil@microsoft.com Xu Tan^ (Microsoft Research Asia ) xuta@microsoft.com Rui Wang (Microsoft Research Asia ) ruiwa@microsoft.com Chen Zhang (Zhejiang University ) zc99@zju.edu.cn Songruoyao Wu (Zhejiang University ) 22021296@zju.edu.cn Kejun Zhang (Zhejiang University ) zhangkejun@zju.edu.cn Xiangyang Li (University of Science and Technology of China ) xiangyangli@ustc.edu.cn Tao Qin (Microsoft Research Asia ) taoqin@microsoft.</description>
+      <description>
+
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+
+&lt;p&gt;ArXiv: &lt;a href=&#34;https://arxiv.org/pdf/2109.09617.pdf&#34;&gt;arXiv:2109.09617&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;authors:60ec057d35c67f07cc4edbe46427ec55&#34;&gt;Authors&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Zeqian Ju (University of Science and Technology of China) &lt;a href=&#34;mailto:juzeqian@mail.ustc.edu.cn&#34;&gt;juzeqian@mail.ustc.edu.cn&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Peiling Lu (Microsoft Research Asia) &lt;a href=&#34;mailto:peil@microsoft.com&#34;&gt;peil@microsoft.com&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Xu Tan^ (Microsoft Research Asia ) &lt;a href=&#34;mailto:xuta@microsoft.com&#34;&gt;xuta@microsoft.com&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Rui Wang (Microsoft Research Asia ) &lt;a href=&#34;mailto:ruiwa@microsoft.com&#34;&gt;ruiwa@microsoft.com&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Chen Zhang (Zhejiang University ) &lt;a href=&#34;mailto:zc99@zju.edu.cn&#34;&gt;zc99@zju.edu.cn&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Songruoyao Wu (Zhejiang University ) &lt;a href=&#34;mailto:22021296@zju.edu.cn&#34;&gt;22021296@zju.edu.cn&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Kejun Zhang (Zhejiang University ) &lt;a href=&#34;mailto:zhangkejun@zju.edu.cn&#34;&gt;zhangkejun@zju.edu.cn&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Xiangyang Li (University of Science and Technology of China ) &lt;a href=&#34;mailto:xiangyangli@ustc.edu.cn&#34;&gt;xiangyangli@ustc.edu.cn&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Tao Qin (Microsoft Research Asia ) &lt;a href=&#34;mailto:taoqin@microsoft.com&#34;&gt;taoqin@microsoft.com&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Tie-Yan Liu (Microsoft Research ) &lt;a href=&#34;mailto:tyliu@microsoft.com&#34;&gt;tyliu@microsoft.com&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;small&gt;^ Corresponding author.&lt;/small&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;abstract:60ec057d35c67f07cc4edbe46427ec55&#34;&gt;Abstract&lt;/h2&gt;
+
+&lt;p&gt;Lyric-to-melody generation is an important task in automatic songwriting. Previous lyric-to-melody generation systems usually adopt end-to-end models that directly generate melodies from lyrics, which suffer from several issues: 1) lack of paired lyric-melody training data; 2) lack of control on generated melodies. In this paper, we develop TeleMelody, a two-stage lyric-to-melody generation system with music structure information (e.g., tonality, chord, rhythm and cadence) as the bridge between lyric and melody, i.e., the system consists of a lyric-to-template module and a template-to-melody module. TeleMelody has two advantages. First, it is data efficient. The template-to-melody module is trained in a self-supervised way (i.e., the source template data is extracted from the target melody) that does not need any paired data, and the lyric-to-template module is made up of some rule-based modules and a lyric-to-rhythm model trained with paired lyric and rhythm, which is easier to obtain than the paired lyric-melody data. Second, it is controllable. The designs of template and alignment regularization guided by musical knowledge ensure that the generated melodies are under the control of musical elements that can be adjusted at will. Both subjective and objective experimental evaluations demonstrate that TeleMelody can generate melody with higher quality, better controllability, and less requirement on paired lyric-melody data than previous generation systems.&lt;/p&gt;
+
+&lt;h2 id=&#34;generated-samples:60ec057d35c67f07cc4edbe46427ec55&#34;&gt;Generated Samples&lt;/h2&gt;
+
+&lt;h3 id=&#34;english-demo:60ec057d35c67f07cc4edbe46427ec55&#34;&gt;English Demo&lt;/h3&gt;
+
+&lt;h4 id=&#34;example-1:60ec057d35c67f07cc4edbe46427ec55&#34;&gt;Example 1&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;object data=&#34;../audio/telemelody/en/sheet/5.pdf&#34; type=&#34;application/pdf&#34; width=&#34;700px&#34; height=&#34;600px&#34;&gt;
+    &lt;embed src=&#34;../audio/telemelody/en/sheet/5.pdf&#34;&gt;
+        &lt;p&gt;This browser does not support PDFs. Please download the PDF to view it: &lt;a href=&#34;../audio/telemelody/en/sheet/5.pdf&#34;&gt;Download PDF&lt;/a&gt;.&lt;/p&gt;
+    &lt;/embed&gt;
+&lt;/object&gt;
+&lt;td&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;../audio/telemelody/en/mp3/5.mp3&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element. &lt;/audio&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;example-2:60ec057d35c67f07cc4edbe46427ec55&#34;&gt;Example 2&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;object data=&#34;../audio/telemelody/en/sheet/7.pdf&#34; type=&#34;application/pdf&#34; width=&#34;700px&#34; height=&#34;600px&#34;&gt;
+    &lt;embed src=&#34;../audio/telemelody/en/sheet/7.pdf&#34;&gt;
+        &lt;p&gt;This browser does not support PDFs. Please download the PDF to view it: &lt;a href=&#34;../audio/telemelody/en/sheet/7.pdf&#34;&gt;Download PDF&lt;/a&gt;.&lt;/p&gt;
+    &lt;/embed&gt;
+&lt;/object&gt;
+&lt;td&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;../audio/telemelody/en/mp3/7.mp3&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element. &lt;/audio&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&#34;chinese-demo:60ec057d35c67f07cc4edbe46427ec55&#34;&gt;Chinese Demo&lt;/h3&gt;
+
+&lt;h4 id=&#34;example-1-1:60ec057d35c67f07cc4edbe46427ec55&#34;&gt;Example 1&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;object data=&#34;../audio/telemelody/zh/sheet/0.pdf&#34; type=&#34;application/pdf&#34; width=&#34;700px&#34; height=&#34;600px&#34;&gt;
+    &lt;embed src=&#34;../audio/telemelody/zh/sheet/0.pdf&#34;&gt;
+        &lt;p&gt;This browser does not support PDFs. Please download the PDF to view it: &lt;a href=&#34;../audio/telemelody/zh/sheet/0.pdf&#34;&gt;Download PDF&lt;/a&gt;.&lt;/p&gt;
+    &lt;/embed&gt;
+&lt;/object&gt;
+&lt;td&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;../audio/telemelody/zh/mp3/0.mp3&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element. &lt;/audio&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;/table&gt;
+
+&lt;h4 id=&#34;example-2-1:60ec057d35c67f07cc4edbe46427ec55&#34;&gt;Example 2&lt;/h4&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;object data=&#34;../audio/telemelody/zh/sheet/1.pdf&#34; type=&#34;application/pdf&#34; width=&#34;700px&#34; height=&#34;600px&#34;&gt;
+    &lt;embed src=&#34;../audio/telemelody/zh/sheet/1.pdf&#34;&gt;
+        &lt;p&gt;This browser does not support PDFs. Please download the PDF to view it: &lt;a href=&#34;../audio/telemelody/zh/sheet/1.pdf&#34;&gt;Download PDF&lt;/a&gt;.&lt;/p&gt;
+    &lt;/embed&gt;
+&lt;/object&gt;
+&lt;td&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;../audio/telemelody/zh/mp3/1.mp3&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element. &lt;/audio&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;/table&gt;
+</description>
     </item>
     
     <item>
@@ -23,9 +116,148 @@ Authors  Zeqian Ju (University of Science and Technology of China) juzeqian@mail
       <pubDate>Mon, 14 Dec 2020 15:30:00 +0901</pubDate>
       
       <guid>https://ai-muzic.github.io/songmass/</guid>
-      <description>ArXiv: arXiv:2012.05168
-Authors  Zhonghao Sheng* (Peking University) zhonghao.sheng@pku.edu.cn Kaitao Song* (Nanjing University of Science and Technology) kt.song@njust.edu.cn Xu Tan^ (Microsoft Research) xuta@microsoft.com Yi Ren (Zhejiang University) rayeren@zju.edu.cn Wei Ye (Peking University) wye@pku.edu.cn Shikun Zhang (Peking University) zhangsk@pku.edu.cn Tao Qin (Microsoft Research) taoqin@microsoft.com  * Equal contribution. ^ Corresponding author.
-Abstract Automatic song writing aims to compose a song (lyric and/or melody) by machine, which is an interesting topic in both academia and industry.</description>
+      <description>
+
+&lt;p&gt;&lt;br&gt;&lt;/p&gt;
+
+&lt;p&gt;ArXiv: &lt;a href=&#34;https://arxiv.org/abs/2012.05168&#34;&gt;arXiv:2012.05168&lt;/a&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;authors:215e30d2c5ec6f4b187d3e61f3c6f76e&#34;&gt;Authors&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Zhonghao Sheng* (Peking University) &lt;a href=&#34;mailto:zhonghao.sheng@pku.edu.cn&#34;&gt;zhonghao.sheng@pku.edu.cn&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Kaitao Song* (Nanjing University of Science and Technology) &lt;a href=&#34;mailto:kt.song@njust.edu.cn&#34;&gt;kt.song@njust.edu.cn&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Xu Tan^ (Microsoft Research) &lt;a href=&#34;mailto:xuta@microsoft.com&#34;&gt;xuta@microsoft.com&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Yi Ren (Zhejiang University) &lt;a href=&#34;mailto:rayeren@zju.edu.cn&#34;&gt;rayeren@zju.edu.cn&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Wei Ye (Peking University) &lt;a href=&#34;mailto:wye@pku.edu.cn&#34;&gt;wye@pku.edu.cn&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Shikun Zhang (Peking University) &lt;a href=&#34;mailto:zhangsk@pku.edu.cn&#34;&gt;zhangsk@pku.edu.cn&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Tao Qin (Microsoft Research) &lt;a href=&#34;mailto:taoqin@microsoft.com&#34;&gt;taoqin@microsoft.com&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;small&gt;* Equal contribution.&lt;/small&gt;
+&lt;small&gt;^ Corresponding author.&lt;/small&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;abstract:215e30d2c5ec6f4b187d3e61f3c6f76e&#34;&gt;Abstract&lt;/h2&gt;
+
+&lt;p&gt;Automatic song writing aims to compose a song (lyric and/or melody) by machine, which is an interesting topic in both academia and industry. In automatic song writing, lyric-to-melody generation and melody-to-lyric generation are two important tasks, both of which usually suffer from the following challenges: 1) the paired lyric and melody data are limited, which affects the generation quality of the two tasks, considering a lot of paired training data are needed due to the weak correlation between lyric and melody; 2) Strict alignments are required between lyric and melody, which relies on specific alignment modeling. In this paper, we propose SongMASS to address the above challenges, which leverages masked sequence to sequence (MASS) pre-training and attention based alignment modeling for lyric-to-melody and melody-to-lyric generation. Specifically, 1) we extend the original sentence-level MASS pre-training to song level to better capture long contextual information in music, and use a separate encoder and decoder for each modality (lyric or melody); 2) we leverage sentence-level attention mask and token-level attention constraint during training to enhance the alignment between lyric and melody. During inference, we use a dynamic programming strategy to obtain the alignment between each word/syllable in lyric and note in melody. We pre-train SongMASS on unpaired lyric and melody datasets, and both objective and subjective evaluations demonstrate that SongMASS generates lyric and melody with significantly better quality than the baseline method.&lt;/p&gt;
+
+&lt;h2 id=&#34;lyric-to-melody-generation:215e30d2c5ec6f4b187d3e61f3c6f76e&#34;&gt;Lyric-to-melody generation&lt;/h2&gt;
+
+&lt;h3 id=&#34;example-1:215e30d2c5ec6f4b187d3e61f3c6f76e&#34;&gt;Example 1&lt;/h3&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;Baseline&lt;/td&gt;
+&lt;td&gt;&lt;img src=&#34;../audio/songmass/L2M/10_base.png&#34; width=&#34;100%&#34; height=&#34;10px&#34;&gt;&lt;/td&gt;
+&lt;td&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;../audio/songmass/L2M/10_base.mp3&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;SongMASS&lt;/td&gt;
+&lt;td&gt;&lt;img src=&#34;../audio/songmass/L2M/10.png&#34; width=&#34;100%&#34; height=&#34;10px&#34;&gt;&lt;/td&gt;
+&lt;td&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;../audio/songmass/L2M/10.mp3&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&#34;example-2:215e30d2c5ec6f4b187d3e61f3c6f76e&#34;&gt;Example 2&lt;/h3&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;Baseline&lt;/td&gt;
+&lt;td&gt;&lt;img src=&#34;../audio/songmass/L2M/88_base.png&#34; width=&#34;100%&#34; height=&#34;10px&#34;&gt;&lt;/td&gt;
+&lt;td&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;../audio/songmass/L2M/88_base.mp3&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;SongMASS&lt;/td&gt;
+&lt;td&gt;&lt;img src=&#34;../audio/songmass/L2M/88.png&#34; width=&#34;100%&#34; height=&#34;10px&#34;&gt;&lt;/td&gt;
+&lt;td&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;../audio/songmass/L2M/88.mp3&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;/table&gt;
+
+&lt;h3 id=&#34;example-3:215e30d2c5ec6f4b187d3e61f3c6f76e&#34;&gt;Example 3&lt;/h3&gt;
+
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;Baseline&lt;/td&gt;
+&lt;td&gt;&lt;img src=&#34;../audio/songmass/L2M/333_base.png&#34; width=&#34;100%&#34; height=&#34;10px&#34;&gt;&lt;/td&gt;
+&lt;td&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;../audio/songmass/L2M/333_base.mp3&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;SongMASS&lt;/td&gt;
+&lt;td&gt;&lt;img src=&#34;../audio/songmass/L2M/333.png&#34; width=&#34;100%&#34; height=&#34;10px&#34;&gt;&lt;/td&gt;
+&lt;td&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;../audio/songmass/L2M/333.mp3&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;/table&gt;
+
+&lt;h2 id=&#34;melody-to-lyric-generation:215e30d2c5ec6f4b187d3e61f3c6f76e&#34;&gt;Melody-to-lyric generation&lt;/h2&gt;
+
+&lt;h3 id=&#34;example-1-1:215e30d2c5ec6f4b187d3e61f3c6f76e&#34;&gt;Example 1&lt;/h3&gt;
+
+&lt;p&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;../audio/songmass/M2L/240.mp3&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;Baseline&lt;/td&gt;
+&lt;td&gt;&lt;img src=&#34;../audio/songmass/M2L/240_base.png&#34; width=&#34;60%&#34; height=&#34;10px&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;SongMASS&lt;/td&gt;
+&lt;td&gt;&lt;img src=&#34;../audio/songmass/M2L/240.png&#34; width=&#34;60%&#34; height=&#34;10px&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;/table&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;example-2-1:215e30d2c5ec6f4b187d3e61f3c6f76e&#34;&gt;Example 2&lt;/h3&gt;
+
+&lt;p&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;../audio/songmass/M2L/314.mp3&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;Baseline&lt;/td&gt;
+&lt;td&gt;&lt;img src=&#34;../audio/songmass/M2L/385_base.png&#34; width=&#34;60%&#34; height=&#34;10px&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;SongMASS&lt;/td&gt;
+&lt;td&gt;&lt;img src=&#34;../audio/songmass/M2L/385.png&#34; width=&#34;60%&#34; height=&#34;10px&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;/table&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;example-3-1:215e30d2c5ec6f4b187d3e61f3c6f76e&#34;&gt;Example 3&lt;/h3&gt;
+
+&lt;p&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;../audio/songmass/M2L/385.mp3&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;Baseline&lt;/td&gt;
+&lt;td&gt;&lt;img src=&#34;../audio/songmass/M2L/314_base.png&#34; width=&#34;60%&#34; height=&#34;10px&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;SongMASS&lt;/td&gt;
+&lt;td&gt;&lt;img src=&#34;../audio/songmass/M2L/314.png&#34; width=&#34;60%&#34; height=&#34;10px&#34;&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;/table&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;attention-visualization:215e30d2c5ec6f4b187d3e61f3c6f76e&#34;&gt;Attention visualization&lt;/h2&gt;
+
+&lt;table&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Case #1:&lt;/td&gt;&lt;td&gt;&lt;img src=&#34;../images/songmass/attn1.png&#34; width=&#34;60%&#34; height=&#34;20px&#34;&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Case #2:&lt;/td&gt;&lt;td&gt;&lt;img src=&#34;../images/songmass/attn2.png&#34; width=&#34;60%&#34; height=&#34;20px&#34;&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+  &lt;tr&gt;
+    &lt;td&gt;Case #3:&lt;/td&gt;&lt;td&gt;&lt;img src=&#34;../images/songmass/attn3.png&#34; width=&#34;60%&#34; height=&#34;20px&#34;&gt;&lt;/td&gt;
+  &lt;/tr&gt;
+&lt;/table&gt;
+</description>
     </item>
     
     <item>
@@ -34,8 +266,76 @@ Abstract Automatic song writing aims to compose a song (lyric and/or melody) by 
       <pubDate>Sat, 01 Aug 2020 15:30:00 +0901</pubDate>
       
       <guid>https://ai-muzic.github.io/popmag/</guid>
-      <description>Arxiv: https://arxiv.org/abs/2008.07703
-Audio   / Melody (Input) PopMAG Ground-Truth   Sample 1 Your browser does not support the audio element. Your browser does not support the audio element. Your browser does not support the audio element.   Sample 2 Your browser does not support the audio element. Your browser does not support the audio element. Your browser does not support the audio element.   Sample 3 Your browser does not support the audio element.</description>
+      <description>
+
+&lt;p&gt;Arxiv: &lt;a href=&#34;https://arxiv.org/abs/2008.07703&#34;&gt;https://arxiv.org/abs/2008.07703&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;audio:5235174b1b444bed79f65b35b58276f2&#34;&gt;Audio&lt;/h3&gt;
+
+&lt;table&gt;&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;/&lt;/th&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;Melody (Input)&lt;/th&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;PopMAG&lt;/th&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;Ground-Truth&lt;/th&gt;
+&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Sample 1&lt;/td&gt;
+&lt;td&gt;&lt;audio controls=&#34;controls&#34; &gt;&lt;source src=&#34;../audio/popmag/audio/4_lead.mp3&#34; autoplay/&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;td&gt;&lt;audio controls=&#34;controls&#34; &gt;&lt;source src=&#34;../audio/popmag/audio/4_pred.mp3&#34; autoplay/&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;td&gt;&lt;audio controls=&#34;controls&#34; &gt;&lt;source src=&#34;../audio/popmag/audio/4_gt.mp3&#34; autoplay/&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Sample 2&lt;/td&gt;
+&lt;td&gt;&lt;audio controls=&#34;controls&#34; &gt;&lt;source src=&#34;../audio/popmag/audio/2_lead.mp3&#34; autoplay/&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;td&gt;&lt;audio controls=&#34;controls&#34; &gt;&lt;source src=&#34;../audio/popmag/audio/2_pred.mp3&#34; autoplay/&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;td&gt;&lt;audio controls=&#34;controls&#34; &gt;&lt;source src=&#34;../audio/popmag/audio/2_gt.mp3&#34; autoplay/&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Sample 3&lt;/td&gt;
+&lt;td&gt;&lt;audio controls=&#34;controls&#34; &gt;&lt;source src=&#34;../audio/popmag/audio/3_lead.mp3&#34; autoplay/&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;td&gt;&lt;audio controls=&#34;controls&#34; &gt;&lt;source src=&#34;../audio/popmag/audio/3_pred.mp3&#34; autoplay/&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;td&gt;&lt;audio controls=&#34;controls&#34; &gt;&lt;source src=&#34;../audio/popmag/audio/3_gt.mp3&#34; autoplay/&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Sample 4&lt;/td&gt;
+&lt;td&gt;&lt;audio controls=&#34;controls&#34; &gt;&lt;source src=&#34;../audio/popmag/audio/1_lead.mp3&#34; autoplay/&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;td&gt;&lt;audio controls=&#34;controls&#34; &gt;&lt;source src=&#34;../audio/popmag/audio/1_pred.mp3&#34; autoplay/&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;td&gt;&lt;audio controls=&#34;controls&#34; &gt;&lt;source src=&#34;../audio/popmag/audio/1_gt.mp3&#34; autoplay/&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+ 
+
+&lt;h3 id=&#34;midi-pianoroll:5235174b1b444bed79f65b35b58276f2&#34;&gt;MIDI (Pianoroll)&lt;/h3&gt;
+
+&lt;table&gt;&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;/&lt;/th&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;PopMAG&lt;/th&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;Ground-Truth&lt;/th&gt;
+&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Sample 1&lt;/td&gt;
+&lt;td&gt; &lt;img src=&#39;../audio/popmag/pianoroll/4_pred.png&#39;/&gt;&lt;br&gt;&lt;/td&gt;
+&lt;td&gt; &lt;img src=&#39;../audio/popmag/pianoroll/4_gt.png&#39;/&gt;&lt;br&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;td&gt;Sample 2&lt;/td&gt;
+&lt;td&gt; &lt;img src=&#39;../audio/popmag/pianoroll/2_pred.png&#39;/&gt;&lt;br&gt;&lt;/td&gt;
+&lt;td&gt; &lt;img src=&#39;../audio/popmag/pianoroll/2_gt.png&#39;/&gt;&lt;br&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;td&gt;Sample 3&lt;/td&gt;
+&lt;td&gt; &lt;img src=&#39;../audio/popmag/pianoroll/3_pred.png&#39;/&gt;&lt;br&gt;&lt;/td&gt;
+&lt;td&gt; &lt;img src=&#39;../audio/popmag/pianoroll/3_gt.png&#39;/&gt;&lt;br&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tr&gt;
+&lt;td&gt;Sample 4&lt;/td&gt;
+&lt;td&gt; &lt;img src=&#39;../audio/popmag/pianoroll/1_pred.png&#39;/&gt;&lt;br&gt;&lt;/td&gt;
+&lt;td&gt; &lt;img src=&#39;../audio/popmag/pianoroll/1_gt.png&#39;/&gt;&lt;br&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+</description>
     </item>
     
   </channel>

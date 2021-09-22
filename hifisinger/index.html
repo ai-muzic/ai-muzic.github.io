@@ -2,7 +2,7 @@
 <html lang="en-us">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.88.1" />
+<meta name="generator" content="Hugo 0.16-DEV" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
@@ -30,10 +30,14 @@
             <h1 class="entry-title" itemprop="headline">HiFiSinger: Towards High-Fidelity Neural Singing Voice Synthesis</h1>
 			
 			<section itemprop="entry-text">
-				<br>
-<img src="https://hifisinger.github.io/LRSpeech_%20Extremely%20Low-Resource%20Speech%20Synthesis%20and%20Recognition%20-%20SpeechResearch_files/HiFiSinger.png"  width="90%" height="40px"  alt="HiFiSinger_pipline" />
+				
+
+<p><br>
+<img src="https://hifisinger.github.io/LRSpeech_%20Extremely%20Low-Resource%20Speech%20Synthesis%20and%20Recognition%20-%20SpeechResearch_files/HiFiSinger.png"  width="90%" height="40px"  alt="HiFiSinger_pipline" /></p>
+
 <p>ArXiv: <a href="https://arxiv.org/pdf/2009.01776.pdf">arXiv:2009.01776</a></p>
-<h2 id="authors">Authors</h2>
+
+<p><h2 id="authors">Authors</h2>
 <ul>
 <!-- <li>Microsoft STC Asia & Microsoft Research Asia  -->
 <li>Jiawei Chen (Microsoft STC Asia) <a href="mailto:t-jiawch@microsoft.com">t-jiawch@microsoft.com</a></li>
@@ -42,11 +46,13 @@
 <li>Tao Qin (Microsoft Research) <a href="mailto:taoqin@microsoft.com">taoqin@microsoft.com</a></li>
 <li>Tie-Yan Liu (Microsoft Research) <a href="mailto:tyliu@microsoft.com">tyliu@microsoft.com</a></li>
 </ul>
-<small>*Corresponding author</small>
-<h2 id="abstract">Abstract</h2>
-<p>High-fidelity singing voices usually require higher sampling rate (e.g., 48kHz, compared with 16kHz or 24kHz in speaking voices) with large range of frequency to convey expression and emotion. However, higher sampling rate causes the wider frequency band and longer waveform sequences and throws challenges for singing modeling in both frequency and time domains in singing voice synthesis (SVS). Conventional SVS systems that adopt moderate sampling rate (e.g., 16kHz or 24kHz) cannot well address the above challenges. In this paper, we develop HiFiSinger, an SVS system towards high-fidelity singing voice using 48kHz sampling rate. HiFiSinger consists of a FastSpeech based neural acoustic model and a Parallel WaveGAN based neural vocoder to ensure fast training and inference and also high voice quality. To tackle the difficulty of singing modeling caused by high sampling rate (wider frequency band and longer waveform), we introduce multi-scale adversarial training in both the acoustic model and vocoder to improve singing modeling. Specifically, 1) To handle the larger range of frequencies caused by higher sampling rate (e.g., 48kHz vs. 24kHz), we propose a novel sub-frequency GAN (SF-GAN) on mel-spectrogram generation, which splits the full 80-dimensional mel-frequency into multiple sub-bands (e.g. low, middle and high frequency bands) and models each sub-band with a separate discriminator. 2) To model longer waveform sequences caused by higher sampling rate, we propose a multi-length GAN (ML-GAN) for waveform generation to model different lengths of waveform sequences with separate discriminators. 3) We also introduce several additional designs and findings in HiFiSinger that are crucial for high-fidelity voices, such as adding F0 (pitch) and V/UV (voiced/unvoiced flag) as acoustic features, choosing an appropriate window/hop size for mel-spectrogram, and increasing the receptive field in vocoder for long vowel modeling in singing voices. 
-Experiment results show that HiFiSinger synthesizes high-fidelity singing voices with much higher quality: 0.32/0.44 MOS gain over 48kHz/24kHz baseline and 0.83 MOS gain over previous SVS systems. Audio samples are available at <a href="https://speechresearch.github.io/hifisinger"><i>https://speechresearch.github.io/hifisinger</i></a>.</p>
-<h2 id="abstract">Contents</h2>
+<small>*Corresponding author</small></p>
+
+<p><h2 id="abstract">Abstract</h2>
+<p>High-fidelity singing voices usually require higher sampling rate (e.g., 48kHz, compared with 16kHz or 24kHz in speaking voices) with large range of frequency to convey expression and emotion. However, higher sampling rate causes the wider frequency band and longer waveform sequences and throws challenges for singing modeling in both frequency and time domains in singing voice synthesis (SVS). Conventional SVS systems that adopt moderate sampling rate (e.g., 16kHz or 24kHz) cannot well address the above challenges. In this paper, we develop HiFiSinger, an SVS system towards high-fidelity singing voice using 48kHz sampling rate. HiFiSinger consists of a FastSpeech based neural acoustic model and a Parallel WaveGAN based neural vocoder to ensure fast training and inference and also high voice quality. To tackle the difficulty of singing modeling caused by high sampling rate (wider frequency band and longer waveform), we introduce multi-scale adversarial training in both the acoustic model and vocoder to improve singing modeling. Specifically, 1) To handle the larger range of frequencies caused by higher sampling rate (e.g., 48kHz vs. 24kHz), we propose a novel sub-frequency GAN (SF-GAN) on mel-spectrogram generation, which splits the full 80-dimensional mel-frequency into multiple sub-bands (e.g. low, middle and high frequency bands) and models each sub-band with a separate discriminator. 2) To model longer waveform sequences caused by higher sampling rate, we propose a multi-length GAN (ML-GAN) for waveform generation to model different lengths of waveform sequences with separate discriminators. 3) We also introduce several additional designs and findings in HiFiSinger that are crucial for high-fidelity voices, such as adding F0 (pitch) and V/UV (voiced/unvoiced flag) as acoustic features, choosing an appropriate window/hop size for mel-spectrogram, and increasing the receptive field in vocoder for long vowel modeling in singing voices.
+Experiment results show that HiFiSinger synthesizes high-fidelity singing voices with much higher quality: 0.<sup>32</sup>&frasl;<sub>0</sub>.44 MOS gain over 48kHz/24kHz baseline and 0.83 MOS gain over previous SVS systems. Audio samples are available at <a href="https://speechresearch.github.io/hifisinger"><i><a href="https://speechresearch.github.io/hifisinger">https://speechresearch.github.io/hifisinger</a></i></a>.</p></p>
+
+<p><h2 id="abstract">Contents</h2>
 <b><a href="#audio-samples">Audio Samples</a></b><br>
 <a href="#audio-quality">1.1 Audio Quality</a><br>
 <b><a href="#ablation-studies">Ablation Studies</a></b><br>
@@ -55,15 +61,20 @@ Experiment results show that HiFiSinger synthesizes high-fidelity singing voices
 <a href="#pitch-input">2.3 Pitch input</a><br>
 <a href="#win-hop-size">2.4 Window/hop size</a><br>
 <a href="#pitch-control">2.5 Pitch Control</a><br>
-<a href="#duration-control">2.6 Duration control</a><br>
-<p><span id="audio-samples" name="audio-samples"></span></p>
+<a href="#duration-control">2.6 Duration control</a><br></p>
+
+<p><span id="audio-samples" name="audio-samples"></span>
 <h2 id="audio-samples">Audio Samples</h2>
-48kHz sampling rate is used unless otherwise stated.
-<p><span id="audio-quality" name="audio-quality"></span></p>
-<h3 id="audio-quality">Audio Quality</h3>
-<img src="https://hifisinger.github.io/LRSpeech_%20Extremely%20Low-Resource%20Speech%20Synthesis%20and%20Recognition%20-%20SpeechResearch_files/MOS.png" width="40%" height="20px" alt="HiFiSinger_pipline">
-<br>
+48kHz sampling rate is used unless otherwise stated.</p>
+
+<p><span id="audio-quality" name="audio-quality"></span>
+<h3 id="audio-quality">Audio Quality</h3></p>
+
+<p><img src="https://hifisinger.github.io/LRSpeech_%20Extremely%20Low-Resource%20Speech%20Synthesis%20and%20Recognition%20-%20SpeechResearch_files/MOS.png" width="40%" height="20px" alt="HiFiSinger_pipline">
+<br></p>
+
 <p><ruby>这么说来很不单纯，你陪我看海<rt style="font-size: 15px;">zhè me shuō lái hěn bú dān chún, nǐ péi wǒ kàn hǎi</rt></ruby></p>
+
 <table><thead>
 <tr>
 <th style="text-align: center">Recording (48kHz)</th>
@@ -92,8 +103,10 @@ Experiment results show that HiFiSinger synthesizes high-fidelity singing voices
 <td style="text-align: center"><audio controls="controls"><source src="https://hifisinger.github.io/newaudio/HiFiSinger-24k/7000000184-0_gen.wav" autoplay="">Your browser does not support the audio element.</audio></td>
 </tr>
 </tbody></table>
+
 <!-- <p><em>宁静的夏天，天空中繁星点点</em></p> -->
-<p><ruby>宁静的夏天，天空中繁星点点<rt style="font-size: 15px;">níng jìng de xià tiān, tiān kōng zhōng fán xīng diǎn diǎn</rt></ruby></p>
+
+<p><ruby>宁静的夏天，天空中繁星点点<rt style="font-size: 15px;">níng jìng de xià tiān, tiān kōng zhōng fán xīng diǎn diǎn</rt></ruby>
 <table><thead>
 <tr>
 <th style="text-align: center">Recording (48kHz)</th>
@@ -121,9 +134,11 @@ Experiment results show that HiFiSinger synthesizes high-fidelity singing voices
 <td style="text-align: center"><audio controls="controls"><source src="https://hifisinger.github.io/newaudio/Baseline/7000000050-0_gen.wav" autoplay="">Your browser does not support the audio element.</audio></td>
 <td style="text-align: center"><audio controls="controls"><source src="https://hifisinger.github.io/newaudio/HiFiSinger-24k/7000000050-0_gen.wav" autoplay="">Your browser does not support the audio element.</audio></td>
 </tr>
-</tbody></table>
+</tbody></table></p>
+
 <!-- <p><em>坏的是我发现不知不觉不见到你不是很习惯</em></p> -->
-<p><ruby>坏的是我发现不知不觉不见到你不是很习惯<rt style="font-size: 15px;">huài de shì wǒ fā xiàn bú zhī bú jué bú jiàn dào nǐ bú shì hěn xí guàn</rt></ruby></p>
+
+<p><ruby>坏的是我发现不知不觉不见到你不是很习惯<rt style="font-size: 15px;">huài de shì wǒ fā xiàn bú zhī bú jué bú jiàn dào nǐ bú shì hěn xí guàn</rt></ruby>
 <table><thead>
 <tr>
 <th style="text-align: center">Recording (48kHz)</th>
@@ -151,7 +166,8 @@ Experiment results show that HiFiSinger synthesizes high-fidelity singing voices
 <td style="text-align: center"><audio controls="controls"><source src="https://hifisinger.github.io/newaudio/Baseline/7000000186-0_gen.wav" autoplay="">Your browser does not support the audio element.</audio></td>
 <td style="text-align: center"><audio controls="controls"><source src="https://hifisinger.github.io/newaudio/HiFiSinger-24k/7000000186-0_gen.wav" autoplay="">Your browser does not support the audio element.</audio></td>
 </tr>
-</tbody></table>
+</tbody></table></p>
+
 <!-- <p><em>能不能再靠近一点点，能不能再勇敢一点点</em></p>
 <table><thead>
 <tr>
@@ -204,15 +220,19 @@ Experiment results show that HiFiSinger synthesizes high-fidelity singing voices
 <td style="text-align: center"><audio controls="controls"><source src="audio/Baseline-24k/7000000603-0_gen.wav" autoplay="">Your browser does not support the audio element.</audio></td>
 </tr>
 </tbody></table> -->
-<p><span id="ablation-studies" name="ablation-studies"></span></p>
+
+<p><span id="ablation-studies" name="ablation-studies"></span>
 <h2 id="ablation-studies">Ablation Studies</h2>
 <!-- <p>All of the audio samples use WaveGlow as vocoder.</p> -->
 <span id="sf-gan" name="sf-gan"></span>
-<h3 id="sf-gan">SF-GAN</h3>
-<img src="https://hifisinger.github.io/LRSpeech_%20Extremely%20Low-Resource%20Speech%20Synthesis%20and%20Recognition%20-%20SpeechResearch_files/mf-gan.png" width="60%" height="20px" alt="HiFiSinger_pipline">
-<br>
+<h3 id="sf-gan">SF-GAN</h3></p>
+
+<p><img src="https://hifisinger.github.io/LRSpeech_%20Extremely%20Low-Resource%20Speech%20Synthesis%20and%20Recognition%20-%20SpeechResearch_files/mf-gan.png" width="60%" height="20px" alt="HiFiSinger_pipline">
+<br></p>
+
 <!-- <p><em>这么说来很不单纯，你陪我看海</em></p> -->
-<p><ruby>这么说来很不单纯，你陪我看海<rt style="font-size: 15px;">zhè me shuō lái hěn bú dān chún, nǐ péi wǒ kàn hǎi</rt></ruby></p>
+
+<p><ruby>这么说来很不单纯，你陪我看海<rt style="font-size: 15px;">zhè me shuō lái hěn bú dān chún, nǐ péi wǒ kàn hǎi</rt></ruby>
 <table><thead>
 <tr>
 <th style="text-align: center">HiFiSinger</th>
@@ -226,9 +246,11 @@ Experiment results show that HiFiSinger synthesizes high-fidelity singing voices
 <td style="text-align: center"><audio controls="controls"><source src="https://hifisinger.github.io/newaudio/HiFiSinger-w-1MFGAN/7000000184-0_gen.wav" autoplay="">Your browser does not support the audio element.</audio></td>
 <td style="text-align: center"><audio controls="controls"><source src="https://hifisinger.github.io/newaudio/HiFiSinger-w-5MFGAN/7000000184-0_gen.wav" autoplay="">Your browser does not support the audio element.</audio></td>
 </tr>
-</tbody></table>
+</tbody></table></p>
+
 <!-- <p><em>遇见一个人然后生命全改变，原来不是恋爱才有的情节</em></p> -->
-<p><ruby>遇见一个人然后生命全改变，原来不是恋爱才有的情节<rt style="font-size: 15px;">yù jiàn yī gè rén rán hòu shēng mìng quán gǎi biàn，yuán lái bú shì liàn ài cái yǒu de qíng jié</rt></ruby></p>
+
+<p><ruby>遇见一个人然后生命全改变，原来不是恋爱才有的情节<rt style="font-size: 15px;">yù jiàn yī gè rén rán hòu shēng mìng quán gǎi biàn，yuán lái bú shì liàn ài cái yǒu de qíng jié</rt></ruby>
 <table><thead>
 <tr>
 <th style="text-align: center">HiFiSinger</th>
@@ -242,9 +264,11 @@ Experiment results show that HiFiSinger synthesizes high-fidelity singing voices
 <td style="text-align: center"><audio controls="controls"><source src="https://hifisinger.github.io/newaudio/HiFiSinger-w-1MFGAN/7000000465-0_gen.wav" autoplay="">Your browser does not support the audio element.</audio></td>
 <td style="text-align: center"><audio controls="controls"><source src="https://hifisinger.github.io/newaudio/HiFiSinger-w-5MFGAN/7000000465-0_gen.wav" autoplay="">Your browser does not support the audio element.</audio></td>
 </tr>
-</tbody></table>
+</tbody></table></p>
+
 <!-- <p><em>我的小鬼小鬼，逗逗你的眉眼，让你喜欢这世界</em></p> -->
-<p><ruby>我的小鬼小鬼，逗逗你的眉眼，让你喜欢这世界<rt style="font-size: 15px;">wǒ de xiǎo guǐ xiǎo guǐ, dòu dòu nǐ de méi yǎn, ràng nǐ xǐ huān zhè shì jiè</rt></ruby></p>
+
+<p><ruby>我的小鬼小鬼，逗逗你的眉眼，让你喜欢这世界<rt style="font-size: 15px;">wǒ de xiǎo guǐ xiǎo guǐ, dòu dòu nǐ de méi yǎn, ràng nǐ xǐ huān zhè shì jiè</rt></ruby>
 <table><thead>
 <tr>
 <th style="text-align: center">HiFiSinger</th>
@@ -258,13 +282,17 @@ Experiment results show that HiFiSinger synthesizes high-fidelity singing voices
 <td style="text-align: center"><audio controls="controls"><source src="https://hifisinger.github.io/newaudio/HiFiSinger-w-1MFGAN/7000000501-0_gen.wav" autoplay="">Your browser does not support the audio element.</audio></td>
 <td style="text-align: center"><audio controls="controls"><source src="https://hifisinger.github.io/newaudio/HiFiSinger-w-5MFGAN/7000000501-0_gen.wav" autoplay="">Your browser does not support the audio element.</audio></td>
 </tr>
-</tbody></table>
-<p><span id="mw-gan" name="mw-gan"></span></p>
-<h3 id="mw-gan">ML-GAN</h3>
-<img src="https://hifisinger.github.io/LRSpeech_%20Extremely%20Low-Resource%20Speech%20Synthesis%20and%20Recognition%20-%20SpeechResearch_files/mw-gan.png" width="60%" height="20px" alt="HiFiSinger_pipline">
-<br>
+</tbody></table></p>
+
+<p><span id="mw-gan" name="mw-gan"></span>
+<h3 id="mw-gan">ML-GAN</h3></p>
+
+<p><img src="https://hifisinger.github.io/LRSpeech_%20Extremely%20Low-Resource%20Speech%20Synthesis%20and%20Recognition%20-%20SpeechResearch_files/mw-gan.png" width="60%" height="20px" alt="HiFiSinger_pipline">
+<br></p>
+
 <!-- <p><em>谁在最需要的时候轻轻拍着我肩膀</em></p> -->
-<p><ruby>谁在最需要的时候轻轻拍着我肩膀<rt style="font-size: 15px;">shuí zài zuì xū yào de shí hòu qīng qīng pāi zhe wǒ jiān bǎng</rt></ruby></p>
+
+<p><ruby>谁在最需要的时候轻轻拍着我肩膀<rt style="font-size: 15px;">shuí zài zuì xū yào de shí hòu qīng qīng pāi zhe wǒ jiān bǎng</rt></ruby>
 <table><thead>
 <tr>
 <th style="text-align: center">HiFiSinger</th>
@@ -274,9 +302,11 @@ Experiment results show that HiFiSinger synthesizes high-fidelity singing voices
 <td style="text-align: center"><audio controls="controls"><source src="https://hifisinger.github.io/newaudio/HiFiSinger/7000003018_gen.wav" autoplay="">Your browser does not support the audio element.</audio></td>
 <td style="text-align: center"><audio controls="controls"><source src="https://hifisinger.github.io/newaudio/HiFiSinger-w-o-MWGAN/7000003018_gen.wav" autoplay="">Your browser does not support the audio element.</audio></td>
 </tr>
-</tbody></table>
+</tbody></table></p>
+
 <!-- <p><em>见证你成长让我感到充满力量</em></p> -->
-<p><ruby>见证你成长让我感到充满力量<rt style="font-size: 15px;">jiàn zhèng nǐ chéng zhǎng ràng wǒ gǎn dào chōng mǎn lì liàng</rt></ruby></p>
+
+<p><ruby>见证你成长让我感到充满力量<rt style="font-size: 15px;">jiàn zhèng nǐ chéng zhǎng ràng wǒ gǎn dào chōng mǎn lì liàng</rt></ruby>
 <table><thead>
 <tr>
 <th style="text-align: center">HiFiSinger</th>
@@ -286,9 +316,11 @@ Experiment results show that HiFiSinger synthesizes high-fidelity singing voices
 <td style="text-align: center"><audio controls="controls"><source src="https://hifisinger.github.io/newaudio/HiFiSinger/7000003021_gen.wav" autoplay="">Your browser does not support the audio element.</audio></td>
 <td style="text-align: center"><audio controls="controls"><source src="https://hifisinger.github.io/newaudio/HiFiSinger-w-o-MWGAN/7000003021_gen.wav" autoplay="">Your browser does not support the audio element.</audio></td>
 </tr>
-</tbody></table>
+</tbody></table></p>
+
 <!-- <p><em>你知道它的花语签上名，我继续一个人远行</em></p> -->
-<p><ruby>你知道它的花语签上名，我继续一个人远行<rt style="font-size: 15px;">nǐ zhī dào tā de huā yǔ qiān shàng míng, wǒ jì xù yī gè rén yuǎn xíng</rt></ruby></p>
+
+<p><ruby>你知道它的花语签上名，我继续一个人远行<rt style="font-size: 15px;">nǐ zhī dào tā de huā yǔ qiān shàng míng, wǒ jì xù yī gè rén yuǎn xíng</rt></ruby>
 <table><thead>
 <tr>
 <th style="text-align: center">HiFiSinger</th>
@@ -298,13 +330,17 @@ Experiment results show that HiFiSinger synthesizes high-fidelity singing voices
 <td style="text-align: center"><audio controls="controls"><source src="https://hifisinger.github.io/newaudio/HiFiSinger/7000000451-0_gen.wav" autoplay="">Your browser does not support the audio element.</audio></td>
 <td style="text-align: center"><audio controls="controls"><source src="https://hifisinger.github.io/newaudio/HiFiSinger-w-o-MWGAN/7000000451_gen.wav" autoplay="">Your browser does not support the audio element.</audio></td>
 </tr>
-</tbody></table>
-<p><span id="pitch-input" name="pitch-input"></span></p>
-<h3 id="pitch">Pitch and Voiced/Unvoiced input</h3>
-<img src="https://hifisinger.github.io/LRSpeech_%20Extremely%20Low-Resource%20Speech%20Synthesis%20and%20Recognition%20-%20SpeechResearch_files/pitch.png" width="60%" height="20px" alt="HiFiSinger_pipline">
-<br>
+</tbody></table></p>
+
+<p><span id="pitch-input" name="pitch-input"></span>
+<h3 id="pitch">Pitch and Voiced/Unvoiced input</h3></p>
+
+<p><img src="https://hifisinger.github.io/LRSpeech_%20Extremely%20Low-Resource%20Speech%20Synthesis%20and%20Recognition%20-%20SpeechResearch_files/pitch.png" width="60%" height="20px" alt="HiFiSinger_pipline">
+<br></p>
+
 <!-- <p><em>这么说来很不单纯，你陪我看海</em></p> -->
-<p><ruby>这么说来很不单纯，你陪我看海<rt style="font-size: 15px;">zhè me shuō lái hěn bú dān chún, nǐ péi wǒ kàn hǎi</rt></ruby></p>
+
+<p><ruby>这么说来很不单纯，你陪我看海<rt style="font-size: 15px;">zhè me shuō lái hěn bú dān chún, nǐ péi wǒ kàn hǎi</rt></ruby>
 <table><thead>
 <tr>
 <th style="text-align: center">HiFiSinger</th>
@@ -314,9 +350,11 @@ Experiment results show that HiFiSinger synthesizes high-fidelity singing voices
 <td style="text-align: center"><audio controls="controls"><source src="https://hifisinger.github.io/newaudio/HiFiSinger/7000000184-0_gen.wav" autoplay="">Your browser does not support the audio element.</audio></td>
 <td style="text-align: center"><audio controls="controls"><source src="https://hifisinger.github.io/newaudio/HiFiSinger-w-o-pitchuv/7000000184-0_gen.wav" autoplay="">Your browser does not support the audio element.</audio></td>
 </tr>
-</tbody></table>
+</tbody></table></p>
+
 <!-- <p><em>遇见一个人然后生命全改变，原来不是恋爱才有的情节</em></p> -->
-<p><ruby>遇见一个人然后生命全改变，原来不是恋爱才有的情节<rt style="font-size: 15px;">yù jiàn yī gè rén rán hòu shēng mìng quán gǎi biàn, yuán lái bú shì liàn ài cái yǒu de qíng jié </rt></ruby></p>
+
+<p><ruby>遇见一个人然后生命全改变，原来不是恋爱才有的情节<rt style="font-size: 15px;">yù jiàn yī gè rén rán hòu shēng mìng quán gǎi biàn, yuán lái bú shì liàn ài cái yǒu de qíng jié </rt></ruby>
 <table><thead>
 <tr>
 <th style="text-align: center">HiFiSinger</th>
@@ -326,9 +364,11 @@ Experiment results show that HiFiSinger synthesizes high-fidelity singing voices
 <td style="text-align: center"><audio controls="controls"><source src="https://hifisinger.github.io/newaudio/HiFiSinger/7000000465-0_gen.wav" autoplay="">Your browser does not support the audio element.</audio></td>
 <td style="text-align: center"><audio controls="controls"><source src="https://hifisinger.github.io/newaudio/HiFiSinger-w-o-pitchuv/7000000465-0_gen.wav" autoplay="">Your browser does not support the audio element.</audio></td>
 </tr>
-</tbody></table>
+</tbody></table></p>
+
 <!-- <p><em>我的小鬼小鬼，逗逗你的眉眼，让你喜欢这世界</em></p> -->
-<p><ruby>我的小鬼小鬼，逗逗你的眉眼，让你喜欢这世界<rt style="font-size: 15px;">wǒ de xiǎo guǐ xiǎo guǐ, dòu dòu nǐ de méi yǎn, ràng nǐ xǐ huān zhè shì jiè</rt></ruby></p>
+
+<p><ruby>我的小鬼小鬼，逗逗你的眉眼，让你喜欢这世界<rt style="font-size: 15px;">wǒ de xiǎo guǐ xiǎo guǐ, dòu dòu nǐ de méi yǎn, ràng nǐ xǐ huān zhè shì jiè</rt></ruby>
 <table><thead>
 <tr>
 <th style="text-align: center">HiFiSinger</th>
@@ -338,13 +378,17 @@ Experiment results show that HiFiSinger synthesizes high-fidelity singing voices
 <td style="text-align: center"><audio controls="controls"><source src="https://hifisinger.github.io/newaudio/HiFiSinger/7000000501-0_gen.wav" autoplay="">Your browser does not support the audio element.</audio></td>
 <td style="text-align: center"><audio controls="controls"><source src="https://hifisinger.github.io/newaudio/HiFiSinger-w-o-pitchuv/7000000501-0_gen.wav" autoplay="">Your browser does not support the audio element.</audio></td>
 </tr>
-</tbody></table>
-<p><span id="win-hop-size" name="win-hop-size"></span></p>
-<h3 id="win-hop-size">window/hop size</h3>
+</tbody></table></p>
+
+<p><span id="win-hop-size" name="win-hop-size"></span>
+<h3 id="win-hop-size">window/hop size</h3></p>
+
 <!-- <img src="https://hifisinger.github.io/LRSpeech_%20Extremely%20Low-Resource%20Speech%20Synthesis%20and%20Recognition%20-%20SpeechResearch_files/win-hop-size.png" width="60%" height="20px" alt="HiFiSinger_pipline">
 <br> -->
+
 <!-- <p><em>这么说来很不单纯，你陪我看海</em></p> -->
-<p><ruby>这么说来很不单纯，你陪我看海<rt style="font-size: 15px;">zhè me shuō lái hěn bú dān chún, nǐ péi wǒ kàn hǎi</rt></ruby></p>
+
+<p><ruby>这么说来很不单纯，你陪我看海<rt style="font-size: 15px;">zhè me shuō lái hěn bú dān chún, nǐ péi wǒ kàn hǎi</rt></ruby>
 <table><thead>
 <tr>
 <th style="text-align: center">HiFiSinger</th>
@@ -356,9 +400,11 @@ Experiment results show that HiFiSinger synthesizes high-fidelity singing voices
 <td style="text-align: center"><audio controls="controls"><source src="https://hifisinger.github.io/newaudio/HiFiSinger-w-12ms-window/7000000184-0_gen.wav" autoplay="">Your browser does not support the audio element.</audio></td>
 <td style="text-align: center"><audio controls="controls"><source src="https://hifisinger.github.io/newaudio/HiFiSinger-w-50ms-window/7000000184-0_gen.wav" autoplay="">Your browser does not support the audio element.</audio></td>
 </tr>
-</tbody></table>
+</tbody></table></p>
+
 <!-- <p><em>遇见一个人然后生命全改变，原来不是恋爱才有的情节</em></p> -->
-<p><ruby>遇见一个人然后生命全改变，原来不是恋爱才有的情节<rt style="font-size: 15px;">yù jiàn yī gè rén rán hòu shēng mìng quán gǎi biàn, yuán lái bú shì liàn ài cái yǒu de qíng jié</rt></ruby></p>
+
+<p><ruby>遇见一个人然后生命全改变，原来不是恋爱才有的情节<rt style="font-size: 15px;">yù jiàn yī gè rén rán hòu shēng mìng quán gǎi biàn, yuán lái bú shì liàn ài cái yǒu de qíng jié</rt></ruby>
 <table><thead>
 <tr>
 <th style="text-align: center">HiFiSinger</th>
@@ -370,9 +416,11 @@ Experiment results show that HiFiSinger synthesizes high-fidelity singing voices
 <td style="text-align: center"><audio controls="controls"><source src="https://hifisinger.github.io/newaudio/HiFiSinger-w-12ms-window/7000000465-0_gen.wav" autoplay="">Your browser does not support the audio element.</audio></td>
 <td style="text-align: center"><audio controls="controls"><source src="https://hifisinger.github.io/newaudio/HiFiSinger-w-50ms-window/7000000465-0_gen.wav" autoplay="">Your browser does not support the audio element.</audio></td>
 </tr>
-</tbody></table>
+</tbody></table></p>
+
 <!-- <p><em>我的小鬼小鬼，逗逗你的眉眼，让你喜欢这世界</em></p> -->
-<p><ruby>我的小鬼小鬼，逗逗你的眉眼，让你喜欢这世界<rt style="font-size: 15px;">wǒ de xiǎo guǐ xiǎo guǐ, dòu dòu nǐ de méi yǎn, ràng nǐ xǐ huān zhè shì jiè</rt></ruby></p>
+
+<p><ruby>我的小鬼小鬼，逗逗你的眉眼，让你喜欢这世界<rt style="font-size: 15px;">wǒ de xiǎo guǐ xiǎo guǐ, dòu dòu nǐ de méi yǎn, ràng nǐ xǐ huān zhè shì jiè</rt></ruby>
 <table><thead>
 <tr>
 <th style="text-align: center">HiFiSinger</th>
@@ -384,13 +432,17 @@ Experiment results show that HiFiSinger synthesizes high-fidelity singing voices
 <td style="text-align: center"><audio controls="controls"><source src="https://hifisinger.github.io/newaudio/HiFiSinger-w-12ms-window/7000000501-0_gen.wav" autoplay="">Your browser does not support the audio element.</audio></td>
 <td style="text-align: center"><audio controls="controls"><source src="https://hifisinger.github.io/newaudio/HiFiSinger-w-50ms-window/7000000501-0_gen.wav" autoplay="">Your browser does not support the audio element.</audio></td>
 </tr>
-</tbody></table>
-<p><span id="pitch-control" name="pitch-control"></span></p>
-<h3 id="pitch-control">Pitch Control</h3>
-<img src="https://hifisinger.github.io/LRSpeech_%20Extremely%20Low-Resource%20Speech%20Synthesis%20and%20Recognition%20-%20SpeechResearch_files/pitch-control.png" width="90%" height="20px" alt="HiFiSinger_pipline">
-<br>
+</tbody></table></p>
+
+<p><span id="pitch-control" name="pitch-control"></span>
+<h3 id="pitch-control">Pitch Control</h3></p>
+
+<p><img src="https://hifisinger.github.io/LRSpeech_%20Extremely%20Low-Resource%20Speech%20Synthesis%20and%20Recognition%20-%20SpeechResearch_files/pitch-control.png" width="90%" height="20px" alt="HiFiSinger_pipline">
+<br></p>
+
 <!-- <p><em>左心房，暖暖的好饱满</em></p> -->
-<p><ruby>左心房，暖暖的好饱满<rt style="font-size: 15px;">zuǒ xīn fáng, nuǎn nuǎn de hǎo bǎo mǎn</rt></ruby></p>
+
+<p><ruby>左心房，暖暖的好饱满<rt style="font-size: 15px;">zuǒ xīn fáng, nuǎn nuǎn de hǎo bǎo mǎn</rt></ruby>
 <table><thead>
 <tr>
 <th style="text-align: center">Normal scale</th>
@@ -402,9 +454,11 @@ Experiment results show that HiFiSinger synthesizes high-fidelity singing voices
 <td style="text-align: center"><audio controls="controls"><source src="https://hifisinger.github.io/newaudio/HiFiSinger-w-pitch-control/down/7000000007_gen.wav" autoplay="">Your browser does not support the audio element.</audio></td>
 <td style="text-align: center"><audio controls="controls"><source src="https://hifisinger.github.io/newaudio/HiFiSinger-w-pitch-control/up/7000000007_gen.wav" autoplay="">Your browser does not support the audio element.</audio></td>
 </tr>
-</tbody></table>
+</tbody></table></p>
+
 <!-- <p><em>我想说其实你很好，你自己却不知道</em></p> -->
-<p><ruby>我想说其实你很好，你自己却不知道<rt style="font-size: 15px;">wǒ xiǎng shuō qí shí nǐ hěn hǎo, nǐ zì jǐ què bú zhī dào</rt></ruby></p>
+
+<p><ruby>我想说其实你很好，你自己却不知道<rt style="font-size: 15px;">wǒ xiǎng shuō qí shí nǐ hěn hǎo, nǐ zì jǐ què bú zhī dào</rt></ruby>
 <table><thead>
 <tr>
 <th style="text-align: center">Normal scale</th>
@@ -416,9 +470,11 @@ Experiment results show that HiFiSinger synthesizes high-fidelity singing voices
 <td style="text-align: center"><audio controls="controls"><source src="https://hifisinger.github.io/newaudio/HiFiSinger-w-pitch-control/down/7000000008_gen.wav" autoplay="">Your browser does not support the audio element.</audio></td>
 <td style="text-align: center"><audio controls="controls"><source src="https://hifisinger.github.io/newaudio/HiFiSinger-w-pitch-control/up/7000000008_gen.wav" autoplay="">Your browser does not support the audio element.</audio></td>
 </tr>
-</tbody></table>
+</tbody></table></p>
+
 <!-- <p><em>在朋友里面就数你最特别，总让我觉得很亲很铁</em></p> -->
-<p><ruby>在朋友里面就数你最特别，总让我觉得很亲很铁<rt style="font-size: 15px;">zài péng yǒu lǐ miàn jiù shù nǐ zuì tè bié, zǒng ràng wǒ jué dé hěn qīn hěn tiě</rt></ruby></p>
+
+<p><ruby>在朋友里面就数你最特别，总让我觉得很亲很铁<rt style="font-size: 15px;">zài péng yǒu lǐ miàn jiù shù nǐ zuì tè bié, zǒng ràng wǒ jué dé hěn qīn hěn tiě</rt></ruby>
 <table><thead>
 <tr>
 <th style="text-align: center">Normal scale</th>
@@ -430,13 +486,17 @@ Experiment results show that HiFiSinger synthesizes high-fidelity singing voices
 <td style="text-align: center"><audio controls="controls"><source src="https://hifisinger.github.io/newaudio/HiFiSinger-w-pitch-control/down/7000004406_gen.wav" autoplay="">Your browser does not support the audio element.</audio></td>
 <td style="text-align: center"><audio controls="controls"><source src="https://hifisinger.github.io/newaudio/HiFiSinger-w-pitch-control/up/7000004406_gen.wav" autoplay="">Your browser does not support the audio element.</audio></td>
 </tr>
-</tbody></table>
-<p><span id="duration-control" name="duration-control"></span></p>
-<h3 id="duration-control">Duration Control</h3>
-<img src="https://hifisinger.github.io/LRSpeech_%20Extremely%20Low-Resource%20Speech%20Synthesis%20and%20Recognition%20-%20SpeechResearch_files/speed-control.png" width="70%" height="20px" alt="HiFiSinger_pipline">
-<br>
+</tbody></table></p>
+
+<p><span id="duration-control" name="duration-control"></span>
+<h3 id="duration-control">Duration Control</h3></p>
+
+<p><img src="https://hifisinger.github.io/LRSpeech_%20Extremely%20Low-Resource%20Speech%20Synthesis%20and%20Recognition%20-%20SpeechResearch_files/speed-control.png" width="70%" height="20px" alt="HiFiSinger_pipline">
+<br></p>
+
 <!-- <p><em>因为我，完全信任你</em></p> -->
-<p><ruby>因为我，完全信任你<rt style="font-size: 15px;">yīn wéi wǒ, wán quán xìn rèn nǐ</rt></ruby></p>
+
+<p><ruby>因为我，完全信任你<rt style="font-size: 15px;">yīn wéi wǒ, wán quán xìn rèn nǐ</rt></ruby>
 <table><thead>
 <tr>
 <th style="text-align: center">0.75x Speed</th>
@@ -448,9 +508,11 @@ Experiment results show that HiFiSinger synthesizes high-fidelity singing voices
 <td style="text-align: center"><audio controls="controls"><source src="https://hifisinger.github.io/newaudio/HiFiSinger/7000000003_gen.wav" autoplay="">Your browser does not support the audio element.</audio></td>
 <td style="text-align: center"><audio controls="controls"><source src="https://hifisinger.github.io/newaudio/HiFiSinger-w-speed-control/fast/7000000003_gen.wav" autoplay="">Your browser does not support the audio element.</audio></td>
 </tr>
-</tbody></table>
+</tbody></table></p>
+
 <!-- <p><em>我想说其实你很好，你自己却不知道</em></p> -->
-<p><ruby>我想说其实你很好，你自己却不知道<rt style="font-size: 15px;">wǒ xiǎng shuō qí shí nǐ hěn hǎo, nǐ zì jǐ què bú zhī dào</rt></ruby></p>
+
+<p><ruby>我想说其实你很好，你自己却不知道<rt style="font-size: 15px;">wǒ xiǎng shuō qí shí nǐ hěn hǎo, nǐ zì jǐ què bú zhī dào</rt></ruby>
 <table><thead>
 <tr>
 <th style="text-align: center">0.75x Speed</th>
@@ -462,9 +524,11 @@ Experiment results show that HiFiSinger synthesizes high-fidelity singing voices
 <td style="text-align: center"><audio controls="controls"><source src="https://hifisinger.github.io/newaudio/HiFiSinger/7000000008_gen.wav" autoplay="">Your browser does not support the audio element.</audio></td>
 <td style="text-align: center"><audio controls="controls"><source src="https://hifisinger.github.io/newaudio/HiFiSinger-w-speed-control/fast/7000000008_gen.wav" autoplay="">Your browser does not support the audio element.</audio></td>
 </tr>
-</tbody></table>
+</tbody></table></p>
+
 <!-- <p><em>杜鹃啼血声，芙蓉花蜀国尽缤纷</em></p> -->
-<p><ruby>杜鹃啼血声，芙蓉花蜀国尽缤纷<rt style="font-size: 15px;">dù juān tí xuè shēng, fú róng huā shǔ guó jìn bīn fēn</rt></ruby></p>
+
+<p><ruby>杜鹃啼血声，芙蓉花蜀国尽缤纷<rt style="font-size: 15px;">dù juān tí xuè shēng, fú róng huā shǔ guó jìn bīn fēn</rt></ruby>
 <table><thead>
 <tr>
 <th style="text-align: center">0.75x Speed</th>
@@ -476,8 +540,10 @@ Experiment results show that HiFiSinger synthesizes high-fidelity singing voices
 <td style="text-align: center"><audio controls="controls"><source src="https://hifisinger.github.io/newaudio/HiFiSinger/7000003005_gen.wav" autoplay="">Your browser does not support the audio element.</audio></td>
 <td style="text-align: center"><audio controls="controls"><source src="https://hifisinger.github.io/newaudio/HiFiSinger-w-speed-control/fast/7000003005_gen.wav" autoplay="">Your browser does not support the audio element.</audio></td>
 </tr>
-</tbody></table>
-<h2 id="our-related-works">Our Related Works</h2>
+</tbody></table></p>
+
+<h2 id="our-related-works:29b19c8d9f8d32c9f9f4ea23a5efab1e">Our Related Works</h2>
+
 <p><a href="/unsuper/">Almost Unsupervised Text to Speech and Automatic Speech Recognition</a><br>
 <a href="/fastspeech/">FastSpeech: Fast, Robust and Controllable Text to Speech</a><br>
 <a href="/seminas/">Semi-Supervised Neural Architecture Search</a><br>

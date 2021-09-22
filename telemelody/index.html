@@ -2,7 +2,7 @@
 <html lang="en-us">
 <head>
 <meta charset="utf-8">
-<meta name="generator" content="Hugo 0.88.1" />
+<meta name="generator" content="Hugo 0.16-DEV" />
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
@@ -30,9 +30,14 @@
             <h1 class="entry-title" itemprop="headline">TeleMelody: Lyric-to-Melody Generation with a Template-Based Two-Stage Method</h1>
 			
 			<section itemprop="entry-text">
-				<br>
+				
+
+<p><br></p>
+
 <p>ArXiv: <a href="https://arxiv.org/pdf/2109.09617.pdf">arXiv:2109.09617</a></p>
-<h2 id="authors">Authors</h2>
+
+<h2 id="authors:60ec057d35c67f07cc4edbe46427ec55">Authors</h2>
+
 <ul>
 <li>Zeqian Ju (University of Science and Technology of China) <a href="mailto:juzeqian@mail.ustc.edu.cn">juzeqian@mail.ustc.edu.cn</a></li>
 <li>Peiling Lu (Microsoft Research Asia) <a href="mailto:peil@microsoft.com">peil@microsoft.com</a></li>
@@ -45,12 +50,19 @@
 <li>Tao Qin (Microsoft Research Asia ) <a href="mailto:taoqin@microsoft.com">taoqin@microsoft.com</a></li>
 <li>Tie-Yan Liu (Microsoft Research ) <a href="mailto:tyliu@microsoft.com">tyliu@microsoft.com</a></li>
 </ul>
+
 <p><small>^ Corresponding author.</small></p>
-<h2 id="abstract">Abstract</h2>
+
+<h2 id="abstract:60ec057d35c67f07cc4edbe46427ec55">Abstract</h2>
+
 <p>Lyric-to-melody generation is an important task in automatic songwriting. Previous lyric-to-melody generation systems usually adopt end-to-end models that directly generate melodies from lyrics, which suffer from several issues: 1) lack of paired lyric-melody training data; 2) lack of control on generated melodies. In this paper, we develop TeleMelody, a two-stage lyric-to-melody generation system with music structure information (e.g., tonality, chord, rhythm and cadence) as the bridge between lyric and melody, i.e., the system consists of a lyric-to-template module and a template-to-melody module. TeleMelody has two advantages. First, it is data efficient. The template-to-melody module is trained in a self-supervised way (i.e., the source template data is extracted from the target melody) that does not need any paired data, and the lyric-to-template module is made up of some rule-based modules and a lyric-to-rhythm model trained with paired lyric and rhythm, which is easier to obtain than the paired lyric-melody data. Second, it is controllable. The designs of template and alignment regularization guided by musical knowledge ensure that the generated melodies are under the control of musical elements that can be adjusted at will. Both subjective and objective experimental evaluations demonstrate that TeleMelody can generate melody with higher quality, better controllability, and less requirement on paired lyric-melody data than previous generation systems.</p>
-<h2 id="generated-samples">Generated Samples</h2>
-<h3 id="english-demo">English Demo</h3>
-<h4 id="example-1">Example 1</h4>
+
+<h2 id="generated-samples:60ec057d35c67f07cc4edbe46427ec55">Generated Samples</h2>
+
+<h3 id="english-demo:60ec057d35c67f07cc4edbe46427ec55">English Demo</h3>
+
+<h4 id="example-1:60ec057d35c67f07cc4edbe46427ec55">Example 1</h4>
+
 <table>
 <thead>
 <tr>
@@ -63,7 +75,9 @@
 </tr>
 </thead>
 </table>
-<h4 id="example-2">Example 2</h4>
+
+<h4 id="example-2:60ec057d35c67f07cc4edbe46427ec55">Example 2</h4>
+
 <table>
 <thead>
 <tr>
@@ -76,8 +90,11 @@
 </tr>
 </thead>
 </table>
-<h3 id="chinese-demo">Chinese Demo</h3>
-<h4 id="example-1-1">Example 1</h4>
+
+<h3 id="chinese-demo:60ec057d35c67f07cc4edbe46427ec55">Chinese Demo</h3>
+
+<h4 id="example-1-1:60ec057d35c67f07cc4edbe46427ec55">Example 1</h4>
+
 <table>
 <thead>
 <tr>
@@ -90,7 +107,9 @@
 </tr>
 </thead>
 </table>
-<h4 id="example-2-1">Example 2</h4>
+
+<h4 id="example-2-1:60ec057d35c67f07cc4edbe46427ec55">Example 2</h4>
+
 <table>
 <thead>
 <tr>

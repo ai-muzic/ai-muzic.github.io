@@ -1,20 +1,544 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Speech synthesis on Muzic</title>
+    <title>Speech Synthesis on Muzic</title>
     <link>https://ai-muzic.github.io/categories/speech-synthesis/</link>
-    <description>Recent content in Speech synthesis on Muzic</description>
+    <description>Recent content in Speech Synthesis on Muzic</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 02 Sep 2019 00:02:05 +0800</lastBuildDate><atom:link href="https://ai-muzic.github.io/categories/speech-synthesis/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 02 Sep 2019 00:02:05 +0800</lastBuildDate>
+    <atom:link href="https://ai-muzic.github.io/categories/speech-synthesis/index.xml" rel="self" type="application/rss+xml" />
+    
     <item>
       <title>HiFiSinger: Towards High-Fidelity Neural Singing Voice Synthesis</title>
       <link>https://ai-muzic.github.io/hifisinger/</link>
       <pubDate>Mon, 02 Sep 2019 00:02:05 +0800</pubDate>
       
       <guid>https://ai-muzic.github.io/hifisinger/</guid>
-      <description>ArXiv: arXiv:2009.01776
-Authors  Microsoft STC Asia &amp; Microsoft Research Asia -- Jiawei Chen (Microsoft STC Asia) t-jiawch@microsoft.com Xu Tan* (Microsoft Research) xuta@microsoft.com Jian Luan (Microsoft STC Asia) jianluan@microsoft.com Tao Qin (Microsoft Research) taoqin@microsoft.com Tie-Yan Liu (Microsoft Research) tyliu@microsoft.com  *Corresponding author Abstract High-fidelity singing voices usually require higher sampling rate (e.g., 48kHz, compared with 16kHz or 24kHz in speaking voices) with large range of frequency to convey expression and emotion.</description>
+      <description>
+
+&lt;p&gt;&lt;br&gt;
+&lt;img src=&#34;https://hifisinger.github.io/LRSpeech_%20Extremely%20Low-Resource%20Speech%20Synthesis%20and%20Recognition%20-%20SpeechResearch_files/HiFiSinger.png&#34;  width=&#34;90%&#34; height=&#34;40px&#34;  alt=&#34;HiFiSinger_pipline&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;ArXiv: &lt;a href=&#34;https://arxiv.org/pdf/2009.01776.pdf&#34;&gt;arXiv:2009.01776&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;h2 id=&#34;authors&#34;&gt;Authors&lt;/h2&gt;
+&lt;ul&gt;
+&lt;!-- &lt;li&gt;Microsoft STC Asia &amp; Microsoft Research Asia  --&gt;
+&lt;li&gt;Jiawei Chen (Microsoft STC Asia) &lt;a href=&#34;mailto:t-jiawch@microsoft.com&#34;&gt;t-jiawch@microsoft.com&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Xu Tan* (Microsoft Research) &lt;a href=&#34;mailto:xuta@microsoft.com&#34;&gt;xuta@microsoft.com&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Jian Luan (Microsoft STC Asia) &lt;a href=&#34;mailto:jianluan@microsoft.com&#34;&gt;jianluan@microsoft.com&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Tao Qin (Microsoft Research) &lt;a href=&#34;mailto:taoqin@microsoft.com&#34;&gt;taoqin@microsoft.com&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Tie-Yan Liu (Microsoft Research) &lt;a href=&#34;mailto:tyliu@microsoft.com&#34;&gt;tyliu@microsoft.com&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;small&gt;*Corresponding author&lt;/small&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;h2 id=&#34;abstract&#34;&gt;Abstract&lt;/h2&gt;
+&lt;p&gt;High-fidelity singing voices usually require higher sampling rate (e.g., 48kHz, compared with 16kHz or 24kHz in speaking voices) with large range of frequency to convey expression and emotion. However, higher sampling rate causes the wider frequency band and longer waveform sequences and throws challenges for singing modeling in both frequency and time domains in singing voice synthesis (SVS). Conventional SVS systems that adopt moderate sampling rate (e.g., 16kHz or 24kHz) cannot well address the above challenges. In this paper, we develop HiFiSinger, an SVS system towards high-fidelity singing voice using 48kHz sampling rate. HiFiSinger consists of a FastSpeech based neural acoustic model and a Parallel WaveGAN based neural vocoder to ensure fast training and inference and also high voice quality. To tackle the difficulty of singing modeling caused by high sampling rate (wider frequency band and longer waveform), we introduce multi-scale adversarial training in both the acoustic model and vocoder to improve singing modeling. Specifically, 1) To handle the larger range of frequencies caused by higher sampling rate (e.g., 48kHz vs. 24kHz), we propose a novel sub-frequency GAN (SF-GAN) on mel-spectrogram generation, which splits the full 80-dimensional mel-frequency into multiple sub-bands (e.g. low, middle and high frequency bands) and models each sub-band with a separate discriminator. 2) To model longer waveform sequences caused by higher sampling rate, we propose a multi-length GAN (ML-GAN) for waveform generation to model different lengths of waveform sequences with separate discriminators. 3) We also introduce several additional designs and findings in HiFiSinger that are crucial for high-fidelity voices, such as adding F0 (pitch) and V/UV (voiced/unvoiced flag) as acoustic features, choosing an appropriate window/hop size for mel-spectrogram, and increasing the receptive field in vocoder for long vowel modeling in singing voices.
+Experiment results show that HiFiSinger synthesizes high-fidelity singing voices with much higher quality: 0.&lt;sup&gt;32&lt;/sup&gt;&amp;frasl;&lt;sub&gt;0&lt;/sub&gt;.44 MOS gain over 48kHz/24kHz baseline and 0.83 MOS gain over previous SVS systems. Audio samples are available at &lt;a href=&#34;https://speechresearch.github.io/hifisinger&#34;&gt;&lt;i&gt;&lt;a href=&#34;https://speechresearch.github.io/hifisinger&#34;&gt;https://speechresearch.github.io/hifisinger&lt;/a&gt;&lt;/i&gt;&lt;/a&gt;.&lt;/p&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;h2 id=&#34;abstract&#34;&gt;Contents&lt;/h2&gt;
+&lt;b&gt;&lt;a href=&#34;#audio-samples&#34;&gt;Audio Samples&lt;/a&gt;&lt;/b&gt;&lt;br&gt;
+&lt;a href=&#34;#audio-quality&#34;&gt;1.1 Audio Quality&lt;/a&gt;&lt;br&gt;
+&lt;b&gt;&lt;a href=&#34;#ablation-studies&#34;&gt;Ablation Studies&lt;/a&gt;&lt;/b&gt;&lt;br&gt;
+&lt;a href=&#34;#Sf-gan&#34;&gt;2.1 SF-GAN&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;#mw-gan&#34;&gt;2.2 ML-GAN&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;#pitch-input&#34;&gt;2.3 Pitch input&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;#win-hop-size&#34;&gt;2.4 Window/hop size&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;#pitch-control&#34;&gt;2.5 Pitch Control&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;#duration-control&#34;&gt;2.6 Duration control&lt;/a&gt;&lt;br&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span id=&#34;audio-samples&#34; name=&#34;audio-samples&#34;&gt;&lt;/span&gt;
+&lt;h2 id=&#34;audio-samples&#34;&gt;Audio Samples&lt;/h2&gt;
+48kHz sampling rate is used unless otherwise stated.&lt;/p&gt;
+
+&lt;p&gt;&lt;span id=&#34;audio-quality&#34; name=&#34;audio-quality&#34;&gt;&lt;/span&gt;
+&lt;h3 id=&#34;audio-quality&#34;&gt;Audio Quality&lt;/h3&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://hifisinger.github.io/LRSpeech_%20Extremely%20Low-Resource%20Speech%20Synthesis%20and%20Recognition%20-%20SpeechResearch_files/MOS.png&#34; width=&#34;40%&#34; height=&#34;20px&#34; alt=&#34;HiFiSinger_pipline&#34;&gt;
+&lt;br&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;ruby&gt;这么说来很不单纯，你陪我看海&lt;rt style=&#34;font-size: 15px;&#34;&gt;zhè me shuō lái hěn bú dān chún, nǐ péi wǒ kàn hǎi&lt;/rt&gt;&lt;/ruby&gt;&lt;/p&gt;
+
+&lt;table&gt;&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;Recording (48kHz)&lt;/th&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;Baseline (24kHz up)&lt;/th&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;XiaoiceSing (48kHz)&lt;/th&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;HiFiSinger (48kHz)&lt;/th&gt;
+&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;https://hifisinger.github.io/newaudio/Recording/7000000184.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;https://hifisinger.github.io/newaudio/Baseline-24k-up/7000000184-0_gen.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;https://hifisinger.github.io/newaudio/XiaoiceSing/7000000184-0.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;https://hifisinger.github.io/newaudio/HiFiSinger/7000000184-0_gen.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;table&gt;&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;Recording (24kHz)&lt;/th&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;Baseline (24kHz)&lt;/th&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;Baseline (48kHz)&lt;/th&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;HiFiSinger (24kHz)&lt;/th&gt;
+&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;https://hifisinger.github.io/newaudio/Recording-24k/7000000184.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;https://hifisinger.github.io/newaudio/Baseline-24k/7000000184-0_gen.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;https://hifisinger.github.io/newaudio/Baseline/7000000184-0_gen.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;https://hifisinger.github.io/newaudio/HiFiSinger-24k/7000000184-0_gen.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+
+&lt;!-- &lt;p&gt;&lt;em&gt;宁静的夏天，天空中繁星点点&lt;/em&gt;&lt;/p&gt; --&gt;
+
+&lt;p&gt;&lt;ruby&gt;宁静的夏天，天空中繁星点点&lt;rt style=&#34;font-size: 15px;&#34;&gt;níng jìng de xià tiān, tiān kōng zhōng fán xīng diǎn diǎn&lt;/rt&gt;&lt;/ruby&gt;
+&lt;table&gt;&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;Recording (48kHz)&lt;/th&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;Baseline (24kHz up)&lt;/th&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;XiaoiceSing (48kHz)&lt;/th&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;HiFiSinger (48kHz)&lt;/th&gt;
+&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;https://hifisinger.github.io/newaudio/Recording/7000000050.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;https://hifisinger.github.io/newaudio/Baseline-24k-up/7000000050-0_gen.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;https://hifisinger.github.io/newaudio/XiaoiceSing/7000000050-0.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;https://hifisinger.github.io/newaudio/HiFiSinger/7000000050-0_gen.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;table&gt;&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;Recording (24kHz)&lt;/th&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;Baseline (24kHz)&lt;/th&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;Baseline (48kHz)&lt;/th&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;HiFiSinger (24kHz)&lt;/th&gt;
+&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;https://hifisinger.github.io/newaudio/Recording-24k/7000000050.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;https://hifisinger.github.io/newaudio/Baseline-24k/7000000050-0_gen.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;https://hifisinger.github.io/newaudio/Baseline/7000000050-0_gen.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;https://hifisinger.github.io/newaudio/HiFiSinger-24k/7000000050-0_gen.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;&lt;/p&gt;
+
+&lt;!-- &lt;p&gt;&lt;em&gt;坏的是我发现不知不觉不见到你不是很习惯&lt;/em&gt;&lt;/p&gt; --&gt;
+
+&lt;p&gt;&lt;ruby&gt;坏的是我发现不知不觉不见到你不是很习惯&lt;rt style=&#34;font-size: 15px;&#34;&gt;huài de shì wǒ fā xiàn bú zhī bú jué bú jiàn dào nǐ bú shì hěn xí guàn&lt;/rt&gt;&lt;/ruby&gt;
+&lt;table&gt;&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;Recording (48kHz)&lt;/th&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;Baseline (24kHz up)&lt;/th&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;XiaoiceSing (48kHz)&lt;/th&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;HiFiSinger (48kHz)&lt;/th&gt;
+&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;https://hifisinger.github.io/newaudio/Recording/7000000186.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;https://hifisinger.github.io/newaudio/Baseline-24k-up/7000000186-0_gen.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;https://hifisinger.github.io/newaudio/XiaoiceSing/7000000186-0.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;https://hifisinger.github.io/newaudio/HiFiSinger/7000000186-0_gen.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;table&gt;&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;Recording (24kHz)&lt;/th&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;Baseline (24kHz)&lt;/th&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;Baseline (48kHz)&lt;/th&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;HiFiSinger (24kHz)&lt;/th&gt;
+&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;https://hifisinger.github.io/newaudio/Recording-24k/7000000186.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;https://hifisinger.github.io/newaudio/Baseline-24k/7000000186-0_gen.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;https://hifisinger.github.io/newaudio/Baseline/7000000186-0_gen.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;https://hifisinger.github.io/newaudio/HiFiSinger-24k/7000000186-0_gen.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;&lt;/p&gt;
+
+&lt;!-- &lt;p&gt;&lt;em&gt;能不能再靠近一点点，能不能再勇敢一点点&lt;/em&gt;&lt;/p&gt;
+&lt;table&gt;&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;Recording&lt;/th&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;XiaoiceSing&lt;/th&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;Baseline&lt;/th&gt;
+&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;audio/Recording/7000000570.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;audio/XiaoiceSing/7000000570-0.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;audio/Baseline/7000000570-0_gen.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;table&gt;&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;HiFiSinger&lt;/th&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;HiFiSinger(24KHz)&lt;/th&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;Baseline(24KHz)&lt;/th&gt;
+&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;audio/HiFiSinger/7000000570-0_gen.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;audio/HiFiSinger-24k/7000000570-0_gen.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;audio/Baseline-24k/7000000570-0_gen.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+
+
+&lt;p&gt;&lt;em&gt;我怀念的是无言感动，我怀念的是绝对炽热&lt;/em&gt;&lt;/p&gt;
+&lt;table&gt;&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;Recording&lt;/th&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;XiaoiceSing&lt;/th&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;Baseline&lt;/th&gt;
+&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;audio/Recording/7000000603.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;audio/XiaoiceSing/7000000603-0.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;audio/Baseline/7000000603-0_gen.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;
+&lt;table&gt;&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;HiFiSinger&lt;/th&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;HiFiSinger(24KHz)&lt;/th&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;Baseline(24KHz)&lt;/th&gt;
+&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;audio/HiFiSinger/7000000603-0_gen.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;audio/HiFiSinger-24k/7000000603-0_gen.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;audio/Baseline-24k/7000000603-0_gen.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt; --&gt;
+
+&lt;p&gt;&lt;span id=&#34;ablation-studies&#34; name=&#34;ablation-studies&#34;&gt;&lt;/span&gt;
+&lt;h2 id=&#34;ablation-studies&#34;&gt;Ablation Studies&lt;/h2&gt;
+&lt;!-- &lt;p&gt;All of the audio samples use WaveGlow as vocoder.&lt;/p&gt; --&gt;
+&lt;span id=&#34;sf-gan&#34; name=&#34;sf-gan&#34;&gt;&lt;/span&gt;
+&lt;h3 id=&#34;sf-gan&#34;&gt;SF-GAN&lt;/h3&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://hifisinger.github.io/LRSpeech_%20Extremely%20Low-Resource%20Speech%20Synthesis%20and%20Recognition%20-%20SpeechResearch_files/mf-gan.png&#34; width=&#34;60%&#34; height=&#34;20px&#34; alt=&#34;HiFiSinger_pipline&#34;&gt;
+&lt;br&gt;&lt;/p&gt;
+
+&lt;!-- &lt;p&gt;&lt;em&gt;这么说来很不单纯，你陪我看海&lt;/em&gt;&lt;/p&gt; --&gt;
+
+&lt;p&gt;&lt;ruby&gt;这么说来很不单纯，你陪我看海&lt;rt style=&#34;font-size: 15px;&#34;&gt;zhè me shuō lái hěn bú dān chún, nǐ péi wǒ kàn hǎi&lt;/rt&gt;&lt;/ruby&gt;
+&lt;table&gt;&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;HiFiSinger&lt;/th&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;HiFiSinger with 0 SF-GAN&lt;/th&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;HiFiSinger with 1 SF-GAN&lt;/th&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;HiFiSinger with 5 SF-GAN&lt;/th&gt;
+&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;https://hifisinger.github.io/newaudio/HiFiSinger/7000000184-0_gen.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;https://hifisinger.github.io/newaudio/HiFiSinger-w-0MFGAN/7000000184-0_gen.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;https://hifisinger.github.io/newaudio/HiFiSinger-w-1MFGAN/7000000184-0_gen.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;https://hifisinger.github.io/newaudio/HiFiSinger-w-5MFGAN/7000000184-0_gen.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;&lt;/p&gt;
+
+&lt;!-- &lt;p&gt;&lt;em&gt;遇见一个人然后生命全改变，原来不是恋爱才有的情节&lt;/em&gt;&lt;/p&gt; --&gt;
+
+&lt;p&gt;&lt;ruby&gt;遇见一个人然后生命全改变，原来不是恋爱才有的情节&lt;rt style=&#34;font-size: 15px;&#34;&gt;yù jiàn yī gè rén rán hòu shēng mìng quán gǎi biàn，yuán lái bú shì liàn ài cái yǒu de qíng jié&lt;/rt&gt;&lt;/ruby&gt;
+&lt;table&gt;&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;HiFiSinger&lt;/th&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;HiFiSinger with 0 SF-GAN&lt;/th&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;HiFiSinger with 1 SF-GAN&lt;/th&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;HiFiSinger with 5 SF-GAN&lt;/th&gt;
+&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;https://hifisinger.github.io/newaudio/HiFiSinger/7000000465-0_gen.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;https://hifisinger.github.io/newaudio/HiFiSinger-w-0MFGAN/7000000465-0_gen.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;https://hifisinger.github.io/newaudio/HiFiSinger-w-1MFGAN/7000000465-0_gen.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;https://hifisinger.github.io/newaudio/HiFiSinger-w-5MFGAN/7000000465-0_gen.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;&lt;/p&gt;
+
+&lt;!-- &lt;p&gt;&lt;em&gt;我的小鬼小鬼，逗逗你的眉眼，让你喜欢这世界&lt;/em&gt;&lt;/p&gt; --&gt;
+
+&lt;p&gt;&lt;ruby&gt;我的小鬼小鬼，逗逗你的眉眼，让你喜欢这世界&lt;rt style=&#34;font-size: 15px;&#34;&gt;wǒ de xiǎo guǐ xiǎo guǐ, dòu dòu nǐ de méi yǎn, ràng nǐ xǐ huān zhè shì jiè&lt;/rt&gt;&lt;/ruby&gt;
+&lt;table&gt;&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;HiFiSinger&lt;/th&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;HiFiSinger with 0 SF-GAN&lt;/th&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;HiFiSinger with 1 SF-GAN&lt;/th&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;HiFiSinger with 5 SF-GAN&lt;/th&gt;
+&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;https://hifisinger.github.io/newaudio/HiFiSinger/7000000501-0_gen.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;https://hifisinger.github.io/newaudio/HiFiSinger-w-0MFGAN/7000000501-0_gen.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;https://hifisinger.github.io/newaudio/HiFiSinger-w-1MFGAN/7000000501-0_gen.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;https://hifisinger.github.io/newaudio/HiFiSinger-w-5MFGAN/7000000501-0_gen.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span id=&#34;mw-gan&#34; name=&#34;mw-gan&#34;&gt;&lt;/span&gt;
+&lt;h3 id=&#34;mw-gan&#34;&gt;ML-GAN&lt;/h3&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://hifisinger.github.io/LRSpeech_%20Extremely%20Low-Resource%20Speech%20Synthesis%20and%20Recognition%20-%20SpeechResearch_files/mw-gan.png&#34; width=&#34;60%&#34; height=&#34;20px&#34; alt=&#34;HiFiSinger_pipline&#34;&gt;
+&lt;br&gt;&lt;/p&gt;
+
+&lt;!-- &lt;p&gt;&lt;em&gt;谁在最需要的时候轻轻拍着我肩膀&lt;/em&gt;&lt;/p&gt; --&gt;
+
+&lt;p&gt;&lt;ruby&gt;谁在最需要的时候轻轻拍着我肩膀&lt;rt style=&#34;font-size: 15px;&#34;&gt;shuí zài zuì xū yào de shí hòu qīng qīng pāi zhe wǒ jiān bǎng&lt;/rt&gt;&lt;/ruby&gt;
+&lt;table&gt;&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;HiFiSinger&lt;/th&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;HiFiSinger without ML-GAN&lt;/th&gt;
+&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;https://hifisinger.github.io/newaudio/HiFiSinger/7000003018_gen.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;https://hifisinger.github.io/newaudio/HiFiSinger-w-o-MWGAN/7000003018_gen.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;&lt;/p&gt;
+
+&lt;!-- &lt;p&gt;&lt;em&gt;见证你成长让我感到充满力量&lt;/em&gt;&lt;/p&gt; --&gt;
+
+&lt;p&gt;&lt;ruby&gt;见证你成长让我感到充满力量&lt;rt style=&#34;font-size: 15px;&#34;&gt;jiàn zhèng nǐ chéng zhǎng ràng wǒ gǎn dào chōng mǎn lì liàng&lt;/rt&gt;&lt;/ruby&gt;
+&lt;table&gt;&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;HiFiSinger&lt;/th&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;HiFiSinger without ML-GAN&lt;/th&gt;
+&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;https://hifisinger.github.io/newaudio/HiFiSinger/7000003021_gen.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;https://hifisinger.github.io/newaudio/HiFiSinger-w-o-MWGAN/7000003021_gen.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;&lt;/p&gt;
+
+&lt;!-- &lt;p&gt;&lt;em&gt;你知道它的花语签上名，我继续一个人远行&lt;/em&gt;&lt;/p&gt; --&gt;
+
+&lt;p&gt;&lt;ruby&gt;你知道它的花语签上名，我继续一个人远行&lt;rt style=&#34;font-size: 15px;&#34;&gt;nǐ zhī dào tā de huā yǔ qiān shàng míng, wǒ jì xù yī gè rén yuǎn xíng&lt;/rt&gt;&lt;/ruby&gt;
+&lt;table&gt;&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;HiFiSinger&lt;/th&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;HiFiSinger without ML-GAN&lt;/th&gt;
+&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;https://hifisinger.github.io/newaudio/HiFiSinger/7000000451-0_gen.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;https://hifisinger.github.io/newaudio/HiFiSinger-w-o-MWGAN/7000000451_gen.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span id=&#34;pitch-input&#34; name=&#34;pitch-input&#34;&gt;&lt;/span&gt;
+&lt;h3 id=&#34;pitch&#34;&gt;Pitch and Voiced/Unvoiced input&lt;/h3&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://hifisinger.github.io/LRSpeech_%20Extremely%20Low-Resource%20Speech%20Synthesis%20and%20Recognition%20-%20SpeechResearch_files/pitch.png&#34; width=&#34;60%&#34; height=&#34;20px&#34; alt=&#34;HiFiSinger_pipline&#34;&gt;
+&lt;br&gt;&lt;/p&gt;
+
+&lt;!-- &lt;p&gt;&lt;em&gt;这么说来很不单纯，你陪我看海&lt;/em&gt;&lt;/p&gt; --&gt;
+
+&lt;p&gt;&lt;ruby&gt;这么说来很不单纯，你陪我看海&lt;rt style=&#34;font-size: 15px;&#34;&gt;zhè me shuō lái hěn bú dān chún, nǐ péi wǒ kàn hǎi&lt;/rt&gt;&lt;/ruby&gt;
+&lt;table&gt;&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;HiFiSinger&lt;/th&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;HiFiSinger without F0 and V/UV input&lt;/th&gt;
+&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;https://hifisinger.github.io/newaudio/HiFiSinger/7000000184-0_gen.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;https://hifisinger.github.io/newaudio/HiFiSinger-w-o-pitchuv/7000000184-0_gen.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;&lt;/p&gt;
+
+&lt;!-- &lt;p&gt;&lt;em&gt;遇见一个人然后生命全改变，原来不是恋爱才有的情节&lt;/em&gt;&lt;/p&gt; --&gt;
+
+&lt;p&gt;&lt;ruby&gt;遇见一个人然后生命全改变，原来不是恋爱才有的情节&lt;rt style=&#34;font-size: 15px;&#34;&gt;yù jiàn yī gè rén rán hòu shēng mìng quán gǎi biàn, yuán lái bú shì liàn ài cái yǒu de qíng jié &lt;/rt&gt;&lt;/ruby&gt;
+&lt;table&gt;&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;HiFiSinger&lt;/th&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;HiFiSinger without F0 and V/UV input&lt;/th&gt;
+&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;https://hifisinger.github.io/newaudio/HiFiSinger/7000000465-0_gen.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;https://hifisinger.github.io/newaudio/HiFiSinger-w-o-pitchuv/7000000465-0_gen.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;&lt;/p&gt;
+
+&lt;!-- &lt;p&gt;&lt;em&gt;我的小鬼小鬼，逗逗你的眉眼，让你喜欢这世界&lt;/em&gt;&lt;/p&gt; --&gt;
+
+&lt;p&gt;&lt;ruby&gt;我的小鬼小鬼，逗逗你的眉眼，让你喜欢这世界&lt;rt style=&#34;font-size: 15px;&#34;&gt;wǒ de xiǎo guǐ xiǎo guǐ, dòu dòu nǐ de méi yǎn, ràng nǐ xǐ huān zhè shì jiè&lt;/rt&gt;&lt;/ruby&gt;
+&lt;table&gt;&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;HiFiSinger&lt;/th&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;HiFiSinger without F0 and V/UV input&lt;/th&gt;
+&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;https://hifisinger.github.io/newaudio/HiFiSinger/7000000501-0_gen.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;https://hifisinger.github.io/newaudio/HiFiSinger-w-o-pitchuv/7000000501-0_gen.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span id=&#34;win-hop-size&#34; name=&#34;win-hop-size&#34;&gt;&lt;/span&gt;
+&lt;h3 id=&#34;win-hop-size&#34;&gt;window/hop size&lt;/h3&gt;&lt;/p&gt;
+
+&lt;!-- &lt;img src=&#34;https://hifisinger.github.io/LRSpeech_%20Extremely%20Low-Resource%20Speech%20Synthesis%20and%20Recognition%20-%20SpeechResearch_files/win-hop-size.png&#34; width=&#34;60%&#34; height=&#34;20px&#34; alt=&#34;HiFiSinger_pipline&#34;&gt;
+&lt;br&gt; --&gt;
+
+&lt;!-- &lt;p&gt;&lt;em&gt;这么说来很不单纯，你陪我看海&lt;/em&gt;&lt;/p&gt; --&gt;
+
+&lt;p&gt;&lt;ruby&gt;这么说来很不单纯，你陪我看海&lt;rt style=&#34;font-size: 15px;&#34;&gt;zhè me shuō lái hěn bú dān chún, nǐ péi wǒ kàn hǎi&lt;/rt&gt;&lt;/ruby&gt;
+&lt;table&gt;&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;HiFiSinger&lt;/th&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;HiFiSinger with 12ms window&lt;/th&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;HiFiSinger with 50ms window&lt;/th&gt;
+&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;https://hifisinger.github.io/newaudio/HiFiSinger/7000000184-0_gen.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;https://hifisinger.github.io/newaudio/HiFiSinger-w-12ms-window/7000000184-0_gen.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;https://hifisinger.github.io/newaudio/HiFiSinger-w-50ms-window/7000000184-0_gen.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;&lt;/p&gt;
+
+&lt;!-- &lt;p&gt;&lt;em&gt;遇见一个人然后生命全改变，原来不是恋爱才有的情节&lt;/em&gt;&lt;/p&gt; --&gt;
+
+&lt;p&gt;&lt;ruby&gt;遇见一个人然后生命全改变，原来不是恋爱才有的情节&lt;rt style=&#34;font-size: 15px;&#34;&gt;yù jiàn yī gè rén rán hòu shēng mìng quán gǎi biàn, yuán lái bú shì liàn ài cái yǒu de qíng jié&lt;/rt&gt;&lt;/ruby&gt;
+&lt;table&gt;&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;HiFiSinger&lt;/th&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;HiFiSinger with 12ms window&lt;/th&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;HiFiSinger with 50ms window&lt;/th&gt;
+&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;https://hifisinger.github.io/newaudio/HiFiSinger/7000000465-0_gen.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;https://hifisinger.github.io/newaudio/HiFiSinger-w-12ms-window/7000000465-0_gen.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;https://hifisinger.github.io/newaudio/HiFiSinger-w-50ms-window/7000000465-0_gen.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;&lt;/p&gt;
+
+&lt;!-- &lt;p&gt;&lt;em&gt;我的小鬼小鬼，逗逗你的眉眼，让你喜欢这世界&lt;/em&gt;&lt;/p&gt; --&gt;
+
+&lt;p&gt;&lt;ruby&gt;我的小鬼小鬼，逗逗你的眉眼，让你喜欢这世界&lt;rt style=&#34;font-size: 15px;&#34;&gt;wǒ de xiǎo guǐ xiǎo guǐ, dòu dòu nǐ de méi yǎn, ràng nǐ xǐ huān zhè shì jiè&lt;/rt&gt;&lt;/ruby&gt;
+&lt;table&gt;&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;HiFiSinger&lt;/th&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;HiFiSinger with 12ms window&lt;/th&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;HiFiSinger with 50ms window&lt;/th&gt;
+&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;https://hifisinger.github.io/newaudio/HiFiSinger/7000000501-0_gen.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;https://hifisinger.github.io/newaudio/HiFiSinger-w-12ms-window/7000000501-0_gen.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;https://hifisinger.github.io/newaudio/HiFiSinger-w-50ms-window/7000000501-0_gen.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span id=&#34;pitch-control&#34; name=&#34;pitch-control&#34;&gt;&lt;/span&gt;
+&lt;h3 id=&#34;pitch-control&#34;&gt;Pitch Control&lt;/h3&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://hifisinger.github.io/LRSpeech_%20Extremely%20Low-Resource%20Speech%20Synthesis%20and%20Recognition%20-%20SpeechResearch_files/pitch-control.png&#34; width=&#34;90%&#34; height=&#34;20px&#34; alt=&#34;HiFiSinger_pipline&#34;&gt;
+&lt;br&gt;&lt;/p&gt;
+
+&lt;!-- &lt;p&gt;&lt;em&gt;左心房，暖暖的好饱满&lt;/em&gt;&lt;/p&gt; --&gt;
+
+&lt;p&gt;&lt;ruby&gt;左心房，暖暖的好饱满&lt;rt style=&#34;font-size: 15px;&#34;&gt;zuǒ xīn fáng, nuǎn nuǎn de hǎo bǎo mǎn&lt;/rt&gt;&lt;/ruby&gt;
+&lt;table&gt;&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;Normal scale&lt;/th&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;Down 4 semitones&lt;/th&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;Up 4 semitones&lt;/th&gt;
+&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;https://hifisinger.github.io/newaudio/HiFiSinger/7000000007_gen.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;https://hifisinger.github.io/newaudio/HiFiSinger-w-pitch-control/down/7000000007_gen.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;https://hifisinger.github.io/newaudio/HiFiSinger-w-pitch-control/up/7000000007_gen.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;&lt;/p&gt;
+
+&lt;!-- &lt;p&gt;&lt;em&gt;我想说其实你很好，你自己却不知道&lt;/em&gt;&lt;/p&gt; --&gt;
+
+&lt;p&gt;&lt;ruby&gt;我想说其实你很好，你自己却不知道&lt;rt style=&#34;font-size: 15px;&#34;&gt;wǒ xiǎng shuō qí shí nǐ hěn hǎo, nǐ zì jǐ què bú zhī dào&lt;/rt&gt;&lt;/ruby&gt;
+&lt;table&gt;&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;Normal scale&lt;/th&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;Down 4 semitones&lt;/th&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;Up 4 semitones&lt;/th&gt;
+&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;https://hifisinger.github.io/newaudio/HiFiSinger/7000000008_gen.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;https://hifisinger.github.io/newaudio/HiFiSinger-w-pitch-control/down/7000000008_gen.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;https://hifisinger.github.io/newaudio/HiFiSinger-w-pitch-control/up/7000000008_gen.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;&lt;/p&gt;
+
+&lt;!-- &lt;p&gt;&lt;em&gt;在朋友里面就数你最特别，总让我觉得很亲很铁&lt;/em&gt;&lt;/p&gt; --&gt;
+
+&lt;p&gt;&lt;ruby&gt;在朋友里面就数你最特别，总让我觉得很亲很铁&lt;rt style=&#34;font-size: 15px;&#34;&gt;zài péng yǒu lǐ miàn jiù shù nǐ zuì tè bié, zǒng ràng wǒ jué dé hěn qīn hěn tiě&lt;/rt&gt;&lt;/ruby&gt;
+&lt;table&gt;&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;Normal scale&lt;/th&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;Down 4 semitones&lt;/th&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;Up 4 semitones&lt;/th&gt;
+&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;https://hifisinger.github.io/newaudio/HiFiSinger/7000004406_gen.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;https://hifisinger.github.io/newaudio/HiFiSinger-w-pitch-control/down/7000004406_gen.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;https://hifisinger.github.io/newaudio/HiFiSinger-w-pitch-control/up/7000004406_gen.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;span id=&#34;duration-control&#34; name=&#34;duration-control&#34;&gt;&lt;/span&gt;
+&lt;h3 id=&#34;duration-control&#34;&gt;Duration Control&lt;/h3&gt;&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://hifisinger.github.io/LRSpeech_%20Extremely%20Low-Resource%20Speech%20Synthesis%20and%20Recognition%20-%20SpeechResearch_files/speed-control.png&#34; width=&#34;70%&#34; height=&#34;20px&#34; alt=&#34;HiFiSinger_pipline&#34;&gt;
+&lt;br&gt;&lt;/p&gt;
+
+&lt;!-- &lt;p&gt;&lt;em&gt;因为我，完全信任你&lt;/em&gt;&lt;/p&gt; --&gt;
+
+&lt;p&gt;&lt;ruby&gt;因为我，完全信任你&lt;rt style=&#34;font-size: 15px;&#34;&gt;yīn wéi wǒ, wán quán xìn rèn nǐ&lt;/rt&gt;&lt;/ruby&gt;
+&lt;table&gt;&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;0.75x Speed&lt;/th&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;1.00x Speed&lt;/th&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;1.25x Speed&lt;/th&gt;
+&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;https://hifisinger.github.io/newaudio/HiFiSinger-w-speed-control/slow/7000000003_gen.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;https://hifisinger.github.io/newaudio/HiFiSinger/7000000003_gen.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;https://hifisinger.github.io/newaudio/HiFiSinger-w-speed-control/fast/7000000003_gen.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;&lt;/p&gt;
+
+&lt;!-- &lt;p&gt;&lt;em&gt;我想说其实你很好，你自己却不知道&lt;/em&gt;&lt;/p&gt; --&gt;
+
+&lt;p&gt;&lt;ruby&gt;我想说其实你很好，你自己却不知道&lt;rt style=&#34;font-size: 15px;&#34;&gt;wǒ xiǎng shuō qí shí nǐ hěn hǎo, nǐ zì jǐ què bú zhī dào&lt;/rt&gt;&lt;/ruby&gt;
+&lt;table&gt;&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;0.75x Speed&lt;/th&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;1.00x Speed&lt;/th&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;1.25x Speed&lt;/th&gt;
+&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;https://hifisinger.github.io/newaudio/HiFiSinger-w-speed-control/slow/7000000008_gen.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;https://hifisinger.github.io/newaudio/HiFiSinger/7000000008_gen.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;https://hifisinger.github.io/newaudio/HiFiSinger-w-speed-control/fast/7000000008_gen.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;&lt;/p&gt;
+
+&lt;!-- &lt;p&gt;&lt;em&gt;杜鹃啼血声，芙蓉花蜀国尽缤纷&lt;/em&gt;&lt;/p&gt; --&gt;
+
+&lt;p&gt;&lt;ruby&gt;杜鹃啼血声，芙蓉花蜀国尽缤纷&lt;rt style=&#34;font-size: 15px;&#34;&gt;dù juān tí xuè shēng, fú róng huā shǔ guó jìn bīn fēn&lt;/rt&gt;&lt;/ruby&gt;
+&lt;table&gt;&lt;thead&gt;
+&lt;tr&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;0.75x Speed&lt;/th&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;1.00x Speed&lt;/th&gt;
+&lt;th style=&#34;text-align: center&#34;&gt;1.25x Speed&lt;/th&gt;
+&lt;/tr&gt;&lt;/thead&gt;&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;https://hifisinger.github.io/newaudio/HiFiSinger-w-speed-control/slow/7000003005_gen.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;https://hifisinger.github.io/newaudio/HiFiSinger/7000003005_gen.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;td style=&#34;text-align: center&#34;&gt;&lt;audio controls=&#34;controls&#34;&gt;&lt;source src=&#34;https://hifisinger.github.io/newaudio/HiFiSinger-w-speed-control/fast/7000003005_gen.wav&#34; autoplay=&#34;&#34;&gt;Your browser does not support the audio element.&lt;/audio&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;&lt;/table&gt;&lt;/p&gt;
+
+&lt;h2 id=&#34;our-related-works:29b19c8d9f8d32c9f9f4ea23a5efab1e&#34;&gt;Our Related Works&lt;/h2&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://ai-muzic.github.io/unsuper/&#34;&gt;Almost Unsupervised Text to Speech and Automatic Speech Recognition&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;https://ai-muzic.github.io/fastspeech/&#34;&gt;FastSpeech: Fast, Robust and Controllable Text to Speech&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;https://ai-muzic.github.io/seminas/&#34;&gt;Semi-Supervised Neural Architecture Search&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;https://ai-muzic.github.io/multispeech/&#34;&gt;MultiSpeech: Multi-Speaker Text to Speech with Transformer&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;https://ai-muzic.github.io/deepsinger/&#34;&gt;DeepSinger: Singing Voice Synthesis with Data Mined From the Web&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;https://ai-muzic.github.io/fastspeech2/&#34;&gt;FastSpeech 2: Fast and High-Quality End-to-End Text-to-Speech&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;https://ai-muzic.github.io/uwspeech/&#34;&gt;UWSpeech: Speech to Speech Translation for Unwritten Languages&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;https://ai-muzic.github.io/lrspeech/&#34;&gt;LRSpeech: Extremely Low-Resource Speech Synthesis and Recognition&lt;/a&gt;&lt;br&gt;
+&lt;a href=&#34;https://ai-muzic.github.io/denoispeech/&#34;&gt;Denoising Text to Speech with Frame-Level Noise Modeling&lt;/a&gt;&lt;br&gt;&lt;/p&gt;
+</description>
     </item>
     
   </channel>
