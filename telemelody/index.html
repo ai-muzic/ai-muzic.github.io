@@ -55,9 +55,166 @@
 
 <h2 id="abstract:60ec057d35c67f07cc4edbe46427ec55">Abstract</h2>
 
-<p>Lyric-to-melody generation is an important task in automatic songwriting. Previous lyric-to-melody generation systems usually adopt end-to-end models that directly generate melodies from lyrics, which suffer from several issues: 1) lack of paired lyric-melody training data; 2) lack of control on generated melodies. In this paper, we develop TeleMelody, a two-stage lyric-to-melody generation system with music structure information (e.g., tonality, chord, rhythm and cadence) as the bridge between lyric and melody, i.e., the system consists of a lyric-to-template module and a template-to-melody module. TeleMelody has two advantages. First, it is data efficient. The template-to-melody module is trained in a self-supervised way (i.e., the source template data is extracted from the target melody) that does not need any paired data, and the lyric-to-template module is made up of some rule-based modules and a lyric-to-rhythm model trained with paired lyric and rhythm, which is easier to obtain than the paired lyric-melody data. Second, it is controllable. The designs of template and alignment regularization guided by musical knowledge ensure that the generated melodies are under the control of musical elements that can be adjusted at will. Both subjective and objective experimental evaluations demonstrate that TeleMelody can generate melody with higher quality, better controllability, and less requirement on paired lyric-melody data than previous generation systems.</p>
+<p>Lyric-to-melody generation is an important task in automatic songwriting. Previous lyric-to-melody generation systems usually adopt end-to-end models that directly generate melodies from lyrics, which suffer from several issues: 1) lack of paired lyric-melody training data; 2) lack of control on generated melodies. In this paper, we develop TeleMelody, a two-stage lyric-to-melody generation system with music template (e.g., tonality, chord progression, rhythm pattern, and cadence) to bridge the gap between lyrics and melodies (i.e., the system consists of a lyric-to-template module and a template-to-melody module). TeleMelody has two advantages. First, it is data efficient. The template-to-melody module is trained in a self-supervised way (i.e., the source template is extracted from the target melody) that does not need any lyric-melody paired data. The lyric-to-template module is made up of some rules and a lyric-to-rhythm model, which is trained with paired lyric-rhythm data that is easier to obtain than paired lyric-melody data. Second, it is controllable. The design of template ensures that the generated melodies can be controlled by adjusting the musical elements in template. Both subjective and objective experimental evaluations demonstrate that TeleMelody generates melodies with higher quality, better controllability, and less requirement on paired lyric-melody data than previous generation systems.</p>
+
+
 
 <h2 id="generated-samples:60ec057d35c67f07cc4edbe46427ec55">Generated Samples</h2>
+We utilize <a href = "http://www.chordpulse.com">ChordPulse</a> to generate muti-track accompaniment for the generated melodies. <br>
+For Chinese demos, we also utilize <a href="https://singer.xiaoice.com">XStudioSinger</a> to synthesize singing voice. (XStudioSinger currently only supports Chinese lyrics)
+<h3 id="chinese-demo:60ec057d35c67f07cc4edbe46427ec55">Chinese Demo</h3>
+
+<h4 id="zh-example-1">Example 1</h4>
+
+<table>
+    <thead>
+    <tr>
+        <object data="../audio/telemelody/zh/0.pdf" type="application/pdf" width="700px" height="600px">
+            <embed src="../audio/telemelody/zh/0.pdf">
+                <p>This browser does not support PDFs. Please download the PDF to view it: <a href="../audio/telemelody/zh/0.pdf">Download PDF</a>.</p>
+            </embed>
+        </object>
+        <td>
+            <h5>melody</h5>
+            <audio controls="controls"><source src="../audio/telemelody/zh/0_melody.mp3" autoplay="">Your browser does not support the audio element. </audio>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h5>melody + accompaniment</h5>
+            <audio controls="controls"><source src="../audio/telemelody/zh/0.mp3" autoplay="">Your browser does not support the audio element. </audio>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h5>singing</h5>
+            <audio controls="controls"><source src="../audio/telemelody/zh/0_singing.mp3" autoplay="">Your browser does not support the audio element. </audio>
+        </td>
+    </tr>
+    </thead>
+</table>
+
+<h4 id="zh-example-2">Example 2</h4>
+
+<table>
+    <thead>
+    <tr>
+        <object data="../audio/telemelody/zh/1.pdf" type="application/pdf" width="700px" height="600px">
+            <embed src="../audio/telemelody/zh/1.pdf">
+                <p>This browser does not support PDFs. Please download the PDF to view it: <a href="../audio/telemelody/zh/1.pdf">Download PDF</a>.</p>
+            </embed>
+        </object>
+        <td>
+            <h5>melody</h5>
+            <audio controls="controls"><source src="../audio/telemelody/zh/1_melody.mp3" autoplay="">Your browser does not support the audio element. </audio>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h5>melody + accompaniment</h5>
+            <audio controls="controls"><source src="../audio/telemelody/zh/1.mp3" autoplay="">Your browser does not support the audio element. </audio>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h5>singing</h5>
+            <audio controls="controls"><source src="../audio/telemelody/zh/1_singing.mp3" autoplay="">Your browser does not support the audio element. </audio>
+        </td>
+    </tr>
+    </thead>
+</table>
+
+
+<h4 id="zh-example-3">Example 3</h4>
+
+<table>
+    <thead>
+    <tr>
+        <object data="../audio/telemelody/zh/2.pdf" type="application/pdf" width="700px" height="600px">
+            <embed src="../audio/telemelody/zh/2.pdf">
+                <p>This browser does not support PDFs. Please download the PDF to view it: <a href="../audio/telemelody/zh/2.pdf">Download PDF</a>.</p>
+            </embed>
+        </object>
+        <td>
+            <h5>melody</h5>
+            <audio controls="controls"><source src="../audio/telemelody/zh/2_melody.mp3" autoplay="">Your browser does not support the audio element. </audio>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h5>melody + accompaniment</h5>
+            <audio controls="controls"><source src="../audio/telemelody/zh/2.mp3" autoplay="">Your browser does not support the audio element. </audio>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h5>singing</h5>
+            <audio controls="controls"><source src="../audio/telemelody/zh/2_singing.mp3" autoplay="">Your browser does not support the audio element. </audio>
+        </td>
+    </tr>
+    </thead>
+</table>
+
+
+<h4 id="zh-example-4">Example 4</h4>
+
+<table>
+    <thead>
+    <tr>
+        <object data="../audio/telemelody/zh/3.pdf" type="application/pdf" width="700px" height="600px">
+            <embed src="../audio/telemelody/zh/3.pdf">
+                <p>This browser does not support PDFs. Please download the PDF to view it: <a href="../audio/telemelody/zh/3.pdf">Download PDF</a>.</p>
+            </embed>
+        </object>
+        <td>
+            <h5>melody</h5>
+            <audio controls="controls"><source src="../audio/telemelody/zh/3_melody.mp3" autoplay="">Your browser does not support the audio element. </audio>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h5>melody + accompaniment</h5>
+            <audio controls="controls"><source src="../audio/telemelody/zh/3.mp3" autoplay="">Your browser does not support the audio element. </audio>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h5>singing</h5>
+            <audio controls="controls"><source src="../audio/telemelody/zh/3_singing.mp3" autoplay="">Your browser does not support the audio element. </audio>
+        </td>
+    </tr>
+    </thead>
+</table>
+
+<h4 id="zh-example-5">Example 5</h4>
+
+<table>
+    <thead>
+    <tr>
+        <object data="../audio/telemelody/zh/4.pdf" type="application/pdf" width="700px" height="600px">
+            <embed src="../audio/telemelody/zh/4.pdf">
+                <p>This browser does not support PDFs. Please download the PDF to view it: <a href="../audio/telemelody/zh/4.pdf">Download PDF</a>.</p>
+            </embed>
+        </object>
+        <td>
+            <h5>melody</h5>
+            <audio controls="controls"><source src="../audio/telemelody/zh/4_melody.mp3" autoplay="">Your browser does not support the audio element. </audio>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h5>melody + accompaniment</h5>
+            <audio controls="controls"><source src="../audio/telemelody/zh/4.mp3" autoplay="">Your browser does not support the audio element. </audio>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h5>singing</h5>
+            <audio controls="controls"><source src="../audio/telemelody/zh/4_singing.mp3" autoplay="">Your browser does not support the audio element. </audio>
+        </td>
+    </tr>
+    </thead>
+</table>
 
 <h3 id="english-demo:60ec057d35c67f07cc4edbe46427ec55">English Demo</h3>
 
@@ -66,12 +223,21 @@
 <table>
 <thead>
 <tr>
-<object data="../audio/telemelody/en/sheet/5.pdf" type="application/pdf" width="700px" height="600px">
-    <embed src="../audio/telemelody/en/sheet/5.pdf">
-        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="../audio/telemelody/en/sheet/5.pdf">Download PDF</a>.</p>
-    </embed>
-</object>
-<td><audio controls="controls"><source src="../audio/telemelody/en/mp3/5.mp3" autoplay="">Your browser does not support the audio element. </audio></td>
+    <object data="../audio/telemelody/en/0.pdf" type="application/pdf" width="700px" height="600px">
+        <embed src="../audio/telemelody/en/0.pdf">
+            <p>This browser does not support PDFs. Please download the PDF to view it: <a href="../audio/telemelody/en/0.pdf">Download PDF</a>.</p>
+        </embed>
+    </object>
+    <td>
+        <h5>melody</h5>
+        <audio controls="controls"><source src="../audio/telemelody/en/0_melody.mp3" autoplay="">Your browser does not support the audio element. </audio>
+    </td>
+</tr>
+<tr>
+    <td>
+        <h5>melody + accompaniment</h5>
+        <audio controls="controls"><source src="../audio/telemelody/en/0.mp3" autoplay="">Your browser does not support the audio element. </audio>
+    </td>
 </tr>
 </thead>
 </table>
@@ -79,49 +245,169 @@
 <h4 id="example-2:60ec057d35c67f07cc4edbe46427ec55">Example 2</h4>
 
 <table>
-<thead>
-<tr>
-<object data="../audio/telemelody/en/sheet/7.pdf" type="application/pdf" width="700px" height="600px">
-    <embed src="../audio/telemelody/en/sheet/7.pdf">
-        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="../audio/telemelody/en/sheet/7.pdf">Download PDF</a>.</p>
-    </embed>
-</object>
-<td><audio controls="controls"><source src="../audio/telemelody/en/mp3/7.mp3" autoplay="">Your browser does not support the audio element. </audio></td>
-</tr>
-</thead>
-</table>
+    <thead>
+    <tr>
+        <object data="../audio/telemelody/en/1.pdf" type="application/pdf" width="700px" height="600px">
+            <embed src="../audio/telemelody/en/1.pdf">
+                <p>This browser does not support PDFs. Please download the PDF to view it: <a href="../audio/telemelody/en/1.pdf">Download PDF</a>.</p>
+            </embed>
+        </object>
+        <td>
+            <h5>melody</h5>
+            <audio controls="controls"><source src="../audio/telemelody/en/1_melody.mp3" autoplay="">Your browser does not support the audio element. </audio>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h5>melody + accompaniment</h5>
+            <audio controls="controls"><source src="../audio/telemelody/en/1.mp3" autoplay="">Your browser does not support the audio element. </audio>
+        </td>
+    </tr>
+    </thead>
+    </table>
 
-<h3 id="chinese-demo:60ec057d35c67f07cc4edbe46427ec55">Chinese Demo</h3>
-
-<h4 id="example-1-1:60ec057d35c67f07cc4edbe46427ec55">Example 1</h4>
-
-<table>
-<thead>
-<tr>
-<object data="../audio/telemelody/zh/sheet/0.pdf" type="application/pdf" width="700px" height="600px">
-    <embed src="../audio/telemelody/zh/sheet/0.pdf">
-        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="../audio/telemelody/zh/sheet/0.pdf">Download PDF</a>.</p>
-    </embed>
-</object>
-<td><audio controls="controls"><source src="../audio/telemelody/zh/mp3/0.mp3" autoplay="">Your browser does not support the audio element. </audio></td>
-</tr>
-</thead>
-</table>
-
-<h4 id="example-2-1:60ec057d35c67f07cc4edbe46427ec55">Example 2</h4>
+<h4 id="example-3">Example 3</h4>
 
 <table>
-<thead>
-<tr>
-<object data="../audio/telemelody/zh/sheet/1.pdf" type="application/pdf" width="700px" height="600px">
-    <embed src="../audio/telemelody/zh/sheet/1.pdf">
-        <p>This browser does not support PDFs. Please download the PDF to view it: <a href="../audio/telemelody/zh/sheet/1.pdf">Download PDF</a>.</p>
-    </embed>
-</object>
-<td><audio controls="controls"><source src="../audio/telemelody/zh/mp3/1.mp3" autoplay="">Your browser does not support the audio element. </audio></td>
-</tr>
-</thead>
+    <thead>
+    <tr>
+        <object data="../audio/telemelody/en/2.pdf" type="application/pdf" width="700px" height="600px">
+            <embed src="../audio/telemelody/en/2.pdf">
+                <p>This browser does not support PDFs. Please download the PDF to view it: <a href="../audio/telemelody/en/2.pdf">Download PDF</a>.</p>
+            </embed>
+        </object>
+        <td>
+            <h5>melody</h5>
+            <audio controls="controls"><source src="../audio/telemelody/en/2_melody.mp3" autoplay="">Your browser does not support the audio element. </audio>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h5>melody + accompaniment</h5>
+            <audio controls="controls"><source src="../audio/telemelody/en/2.mp3" autoplay="">Your browser does not support the audio element. </audio>
+        </td>
+    </tr>
+    </thead>
 </table>
+
+<h4 id="example-4">Example 4</h4>
+
+<table>
+    <thead>
+    <tr>
+        <object data="../audio/telemelody/en/3.pdf" type="application/pdf" width="700px" height="600px">
+            <embed src="../audio/telemelody/en/3.pdf">
+                <p>This browser does not support PDFs. Please download the PDF to view it: <a href="../audio/telemelody/en/23.pdf">Download PDF</a>.</p>
+            </embed>
+        </object>
+        <td>
+            <h5>melody</h5>
+            <audio controls="controls"><source src="../audio/telemelody/en/3_melody.mp3" autoplay="">Your browser does not support the audio element. </audio>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h5>melody + accompaniment</h5>
+            <audio controls="controls"><source src="../audio/telemelody/en/3.mp3" autoplay="">Your browser does not support the audio element. </audio>
+        </td>
+    </tr>
+    </thead>
+</table>
+
+<h4 id="example-5">Example 5</h4>
+
+<table>
+    <thead>
+    <tr>
+        <object data="../audio/telemelody/en/4.pdf" type="application/pdf" width="700px" height="600px">
+            <embed src="../audio/telemelody/en/4.pdf">
+                <p>This browser does not support PDFs. Please download the PDF to view it: <a href="../audio/telemelody/en/4.pdf">Download PDF</a>.</p>
+            </embed>
+        </object>
+        <td>
+            <h5>melody</h5>
+            <audio controls="controls"><source src="../audio/telemelody/en/4_melody.mp3" autoplay="">Your browser does not support the audio element. </audio>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h5>melody + accompaniment</h5>
+            <audio controls="controls"><source src="../audio/telemelody/en/4.mp3" autoplay="">Your browser does not support the audio element. </audio>
+        </td>
+    </tr>
+    </thead>
+</table>
+
+<h3>Random Seed</h3>
+<h4>Example 1: </h4>
+<table>
+    <thead>
+    <tr>
+        <object data="../audio/telemelody/en/4_seed_1.pdf" type="application/pdf" width="700px" height="600px">
+            <embed src="../audio/telemelody/en/4_seed_1.pdf">
+                <p>This browser does not support PDFs. Please download the PDF to view it: <a href="../audio/telemelody/en/4_seed_1.pdf">Download PDF</a>.</p>
+            </embed>
+        </object>
+        <td>
+            <h5>melody</h5>
+            <audio controls="controls"><source src="../audio/telemelody/en/4_seed_1_melody.mp3" autoplay="">Your browser does not support the audio element. </audio>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h5>melody + accompaniment</h5>
+            <audio controls="controls"><source src="../audio/telemelody/en/4_seed_1.mp3" autoplay="">Your browser does not support the audio element. </audio>
+        </td>
+    </tr>
+    </thead>
+</table>
+
+<h4>Example 2: </h4>
+<table>
+    <thead>
+    <tr>
+        <object data="../audio/telemelody/en/4_seed_2.pdf" type="application/pdf" width="700px" height="600px">
+            <embed src="../audio/telemelody/en/4_seed_2.pdf">
+                <p>This browser does not support PDFs. Please download the PDF to view it: <a href="../audio/telemelody/en/4_seed_2.pdf">Download PDF</a>.</p>
+            </embed>
+        </object>
+        <td>
+            <h5>melody</h5>
+            <audio controls="controls"><source src="../audio/telemelody/en/4_seed_2_melody.mp3" autoplay="">Your browser does not support the audio element. </audio>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h5>melody + accompaniment</h5>
+            <audio controls="controls"><source src="../audio/telemelody/en/4_seed_2.mp3" autoplay="">Your browser does not support the audio element. </audio>
+        </td>
+    </tr>
+    </thead>
+</table>
+<h3>Longer Input</h3>
+<h4>Example 1: </h4>
+<table>
+    <thead>
+    <tr>
+        <object data="../audio/telemelody/en/0_longerinput.pdf" type="application/pdf" width="700px" height="600px">
+            <embed src="../audio/telemelody/en/0_longerinput.pdf">
+                <p>This browser does not support PDFs. Please download the PDF to view it: <a href="../audio/telemelody/en/0_longerinput.pdf">Download PDF</a>.</p>
+            </embed>
+        </object>
+        <td>
+            <h5>melody</h5>
+            <audio controls="controls"><source src="../audio/telemelody/en/0_longerinput_melody.mp3" autoplay="">Your browser does not support the audio element. </audio>
+        </td>
+    </tr>
+    <tr>
+        <td>
+            <h5>melody + accompaniment</h5>
+            <audio controls="controls"><source src="../audio/telemelody/en/0_longerinput.mp3" autoplay="">Your browser does not support the audio element. </audio>
+        </td>
+    </tr>
+    </thead>
+</table>
+
 
 			</section>
 		</article>
