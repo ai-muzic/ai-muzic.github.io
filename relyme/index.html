@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.16-DEV" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="../css/normalize.css">
+<link rel="stylesheet" href="../css/skeleton.css">
+<link rel="stylesheet" href="../css/custom.css">
+<link rel="alternate" href="index.xml" type="application/rss+xml" title="Muzic">
+<link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
+<title>ReLyMe: Improving Lyric-to-Melody Generation by Incorporating Lyric-Melody Relationships</title>
+</head>
+<body>
+
+<div class="container">
+
+	<header role="banner">
+		
+	</header>
+
+
+	<main role="main">
+		<article itemscope itemtype="https://schema.org/BlogPosting">
+            <h1 class="entry-title" itemprop="headline">ReLyMe: Improving Lyric-to-Melody Generation by Incorporating Lyric-Melody Relationships</h1>
+			
+			<section itemprop="entry-text">
+				
+
+<p><br></p>
+
+<!-- <p>ArXiv: <a href="https://arxiv.org/abs/2012.05168">arXiv:2012.05168</a></p> -->
+
+<h2 id="authors:215e30d2c5ec6f4b187d3e61f3c6f76e">Authors</h2>
+
+<ul>
+<li>Chen Zhang* (Zhejiang University) <a href="mailto:zc99@zju.edu.cn">zc99@zju.edu.cn</a></li>
+<li>Luchin Chang* (Zhejiang University) <a href="mailto:changluchin@gmail.com">changluchin@gmail.com</a></li>
+<li>Songruoyao Wu* (Zhejiang University) <a href="mailto:22021296@zju.edu.cn">22021296@zju.edu.cn</a></li>
+<li>Xu Tan (Microsoft Research) <a href="mailto:xuta@microsoft.com">xuta@microsoft.com</a></li>
+<li>Tao Qin (Microsoft Research) <a href="mailto:taoqin@microsoft.com">taoqin@microsoft.com</a></li>
+<li>Tie-Yan Liu (Microsoft Research) <a href="mailto:tyliu@microsoft.com">tyliu@microsoft.com</a></li>
+<li>Kejun Zhang^ (Zhejiang University) <a href="mailto:zhangkejun@zju.edu.cn">zhangkejun@zju.edu.cn</a></li>
+</ul>
+
+<p><small>* Equal contribution.</small>
+<small>^ Corresponding author.</small></p>
+
+<h2 id="abstract">Abstract</h2>
+
+<p>Lyric-to-melody generation is one of the most important automatic music composition tasks. With the rapid development of deep learning, previous works address this task with end-to-end neural network models. However, deep learning models cannot well capture the strict but subtle relationships between lyrics and melodies, which affects the harmony between lyrics and generated melodies. In this paper, we propose ReLyMe (<u>Re</u>lationships between <u>Ly</u>rics and <u>Me</u>lodies), a method that leverages lyric-melody relationships from music theory to alleviate the dissonance between lyrics and melodies. Specifically, we first introduce several principles that lyrics and melodies should follow in terms of tone, rhythm, and structure relationships according to musicians and composers. These principles are then integrated into neural network based lyric-to-melody models by adding corresponding constraints during the decoding process to improve the harmony between lyrics and melodies. We further design a series of objective and subjective metrics to evaluate the generated melodies. Experiments on both English and Chinese song datasets show the effectiveness of ReLyMe, demonstrating the superiority of leveraging the principles (lyric-melody relationships) from music domain for neural based lyric-to-melody generation.</p>
+
+<h2 id="demo-video">Demo Video</h2>
+<video width=100% height=100% controls>
+  <source src="../audio/relyme/videos/demo_video.mp4"  type="video/mp4">
+  您的浏览器不支持 HTML5 video 标签。
+</video>
+
+<h2 id="cases">Cases</h2>
+<h3 id="chinese-songs">Chinese Songs</h3>
+<h4 id="apply-to-songmass">Apply to SongMASS</h4>
+<p><b><em>Song 1</em></b></p>
+<table>
+<tr>
+    <td style="text-align: center"><b>SongMASS</b></td>
+    <td style="text-align: center"><object data="../audio/relyme/pdfs/zh/Songmass-Baseline-2.pdf#scrollbars=0&toolbar=0&statusbar=0" type="application/pdf" width="580" height="370"/></object></td>
+    <td style="text-align: center"><audio controls="controls" ><source src="../audio/relyme/wavs/zh/songmass-baseline2.mp3" autoplay/>Your browser does not support the audio element.</audio></td>
+</tr>
+<tr>
+    <td style="text-align: center"><b>✨ ReLyMe</b></td>
+    <td style="text-align: center"><object data="../audio/relyme/pdfs/zh/Songmass-ReLyMe-2.pdf#scrollbars=0&toolbar=0&statusbar=0" type="application/pdf" width="580" height="275"/></object></td>
+    <td style="text-align: center"><audio controls="controls" ><source src="../audio/relyme/wavs/zh/songmass-relyme2.mp3" autoplay/>Your browser does not support the audio element.</audio></td>
+</tr>
+</table>
+<p><b><em>Song 2</em></b></p>
+<table>
+<tr>
+    <td style="text-align: center"><b>SongMASS</b></td>
+    <td style="text-align: center"><object data="../audio/relyme/pdfs/zh/Songmass-Baseline-1.pdf#scrollbars=0&toolbar=0&statusbar=0" type="application/pdf" width="580" height="255"/></object></td>
+</tr>
+<tr>
+    <td style="text-align: center"><b>✨ ReLyMe</b></td>
+    <td style="text-align: center"><object data="../audio/relyme/pdfs/zh/Songmass-ReLyMe-1.pdf#scrollbars=0&toolbar=0&statusbar=0" type="application/pdf" width="580" height="255"/></object></td>
+</tr>
+</table>
+<h4 id="apply-to-telemelody">Apply to TeleMelody</h4>
+<p><b><em>Song 1</em></b></p>
+<table>
+<tr>
+    <td style="text-align: center"><b>TeleMelody</b></td>
+    <td style="text-align: center"><object data="../audio/relyme/pdfs/zh/TeleMelody-Baseline-2.pdf#scrollbars=0&toolbar=0&statusbar=0" type="application/pdf" width="580" height="275"/></object></td>
+    <td style="text-align: center"><audio controls="controls" ><source src="../audio/relyme/wavs/zh/telemelody-baseline2.mp3" autoplay/>Your browser does not support the audio element.</audio></td>
+</tr>
+<tr>
+    <td style="text-align: center"><b>✨ ReLyMe</b></td>
+    <td style="text-align: center"><object data="../audio/relyme/pdfs/zh/TeleMelody-ReLyMe-2.pdf#scrollbars=0&toolbar=0&statusbar=0" type="application/pdf" width="580" height="270"/></object></td>
+    <td style="text-align: center"><audio controls="controls" ><source src="../audio/relyme/wavs/zh/telemelody-relyme2.mp3" autoplay/>Your browser does not support the audio element.</audio></td>
+</tr>
+</table>
+<p><b><em>Song 2</em></b></p>
+<table>
+<tr>
+    <td style="text-align: center"><b>TeleMelody</b></td>
+    <td style="text-align: center"><object data="../audio/relyme/pdfs/zh/TeleMelody-Baseline-1.pdf#scrollbars=0&toolbar=0&statusbar=0" type="application/pdf" width="580" height="360"/></object></td>
+</tr>
+<tr>
+    <td style="text-align: center"><b>✨ ReLyMe</b></td>
+    <td style="text-align: center"><object data="../audio/relyme/pdfs/zh/TeleMelody-ReLyMe-1.pdf#scrollbars=0&toolbar=0&statusbar=0" type="application/pdf" width="580" height="390"/></object></td>
+</tr>
+</table>
+<h4 id="ablation">Ablation</h4>
+<table>
+<tr>
+    <td style="text-align: center"><b>ReLyMe<br>(w/o tone relationship)</b></td>
+    <td style="text-align: center"><object data="../audio/relyme/pdfs/ablation/ablation-PitchRelated.pdf#scrollbars=0&toolbar=0&statusbar=0" type="application/pdf" width="580" height="255"/></object></td>
+    <td style="text-align: center"><audio controls="controls" ><source src="../audio/relyme/wavs/ablation/tonerelation.mp3" autoplay/>Your browser does not support the audio element.</audio></td>
+</tr>
+<tr>
+    <td style="text-align: center"><b>ReLyMe<br>(w/o rhythm relationship)</b></td>
+    <td style="text-align: center"><object data="../audio/relyme/pdfs/ablation/ablation-RhythmRelated.pdf#scrollbars=0&toolbar=0&statusbar=0" type="application/pdf" width="580" height="255"/></object></td>
+    <td style="text-align: center"><audio controls="controls" ><source src="../audio/relyme/wavs/ablation/rhythmrelation.mp3" autoplay/>Your browser does not support the audio element.</audio></td>
+</tr>
+<tr>
+    <td style="text-align: center"><b>ReLyMe<br>(w/o structure relationship)</b></td>
+    <td style="text-align: center"><object data="../audio/relyme/pdfs/ablation/ablation-StructureRelated.pdf#scrollbars=0&toolbar=0&statusbar=0" type="application/pdf" width="580" height="255"/></object></td>
+    <td style="text-align: center"><audio controls="controls" ><source src="../audio/relyme/wavs/ablation/structurerelation.mp3" autoplay/>Your browser does not support the audio element.</audio></td>
+</tr>
+<tr>
+    <td style="text-align: center"><b>Hard Constraints</b></td>
+    <td style="text-align: center"><object data="../audio/relyme/pdfs/ablation/Ablation-Hard-1.pdf#scrollbars=0&toolbar=0&statusbar=0" type="application/pdf" width="580" height="255"/></object></td>
+    <td style="text-align: center"><audio controls="controls" ><source src="../audio/relyme/wavs/ablation/hard.mp3" autoplay/>Your browser does not support the audio element.</audio></td>
+</tr>
+<tr>
+    <td style="text-align: center"><b>Conditioned Training</b></td>
+    <td style="text-align: center"><object data="../audio/relyme/pdfs/ablation/Ablation-Label-1.pdf#scrollbars=0&toolbar=0&statusbar=0" type="application/pdf" width="580" height="270"/></object></td>
+    <td style="text-align: center"><audio controls="controls" ><source src="../audio/relyme/wavs/ablation/label.mp3" autoplay/>Your browser does not support the audio element.</audio></td>
+</tr>
+<tr>
+    <td style="text-align: center"><b>Re-ranking</b></td>
+    <td style="text-align: center"><object data="../audio/relyme/pdfs/ablation/Ablation-Rerank-1.pdf#scrollbars=0&toolbar=0&statusbar=0" type="application/pdf" width="580" height="285"/></object></td>
+    <td style="text-align: center"><audio controls="controls" ><source src="../audio/relyme/wavs/ablation/rerank.mp3" autoplay/>Your browser does not support the audio element.</audio></td>
+</tr>
+</table>
+<h3 id="english-songs">English Songs</h3>
+<h4 id="apply-to-songmass-1">Apply to SongMASS</h4>
+<p><b><em>Song 1</em></b></p>
+<table>
+<tr>
+    <td style="text-align: center"><b>SongMASS</b></td>
+    <td style="text-align: center"><object data="../audio/relyme/pdfs/en/SongMass-Baseline-2.pdf#scrollbars=0&toolbar=0&statusbar=0" type="application/pdf" width="580" height="355"/></object></td>
+    <td style="text-align: center"><audio controls="controls" ><source src="../audio/relyme/wavs/en/EN-SongMass-Baseline-2.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+</tr>
+<tr>
+    <td style="text-align: center"><b>✨ ReLyMe</b></td>
+    <td style="text-align: center"><object data="../audio/relyme/pdfs/en/SongMass-ReLyMe-2.pdf#scrollbars=0&toolbar=0&statusbar=0" type="application/pdf" width="580" height="430"/></object></td>
+    <td style="text-align: center"><audio controls="controls" ><source src="../audio/relyme/wavs/en/EN-SongMass-ReLyMe-2.wav" autoplay/>Your browser does not support the audio element.</audio></td>
+</tr>
+</table>
+<p><b><em>Song 2</em></b></p>
+<table>
+<tr>
+    <td style="text-align: center"><b>SongMASS</b></td>
+    <td style="text-align: center"><object data="../audio/relyme/pdfs/en/SongMass-Baseline-1.pdf#scrollbars=0&toolbar=0&statusbar=0" type="application/pdf" width="580" height="255"/></object></td>
+</tr>
+<tr>
+    <td style="text-align: center"><b>✨ ReLyMe</b></td>
+    <td style="text-align: center"><object data="../audio/relyme/pdfs/en/SongMass-ReLyMe-1.pdf#scrollbars=0&toolbar=0&statusbar=0" type="application/pdf" width="580" height="255"/></object></td>
+</tr>
+</table>
+<h4 id="apply-to-telemelody-1">Apply to TeleMelody</h4>
+<p><b><em>Song 1</em></b></p>
+<table>
+<tr>
+    <td style="text-align: center"><b>TeleMelody</b></td>
+    <td style="text-align: center"><object data="../audio/relyme/pdfs/en/TeleMelody-Baseline-1.pdf#scrollbars=0&toolbar=0&statusbar=0" type="application/pdf" width="580" height="350"/></object></td>
+</tr>
+<tr>
+    <td style="text-align: center"><b>✨ ReLyMe</b></td>
+    <td style="text-align: center"><object data="../audio/relyme/pdfs/en/TeleMelody-ReLyMe-1.pdf#scrollbars=0&toolbar=0&statusbar=0" type="application/pdf" width="580" height="350"/></object></td>
+</tr>
+</table>
+<p><b><em>Song 2</em></b></p>
+<table>
+<tr>
+    <td style="text-align: center"><b>TeleMelody</b></td>
+    <td style="text-align: center"><object data="../audio/relyme/pdfs/en/TeleMelody-Baseline-2.pdf#scrollbars=0&toolbar=0&statusbar=0" type="application/pdf" width="580" height="350"/></object></td>
+</tr>
+<tr>
+    <td style="text-align: center"><b>✨ ReLyMe</b></td>
+    <td style="text-align: center"><object data="../audio/relyme/pdfs/en/TeleMelody-ReLyMe-2.pdf#scrollbars=0&toolbar=0&statusbar=0" type="application/pdf" width="580" height="350"/></object></td>
+</tr>
+</table>
+
+			</section>
+		</article>
+	</main>
+
+
+	
+
+</div>
+
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-139981676-1', 'auto');
+	ga('send', 'pageview');
+</script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+<script type="text/x-mathjax-config">
+     MathJax.Hub.Config({
+         HTML: ["input/TeX","output/HTML-CSS"],
+         TeX: {
+                Macros: {
+                         bm: ["\\boldsymbol{#1}", 1],
+                         argmax: ["\\mathop{\\rm arg\\,max}\\limits"],
+                         argmin: ["\\mathop{\\rm arg\\,min}\\limits"]},
+                extensions: ["AMSmath.js","AMSsymbols.js"],
+                equationNumbers: { autoNumber: "AMS" } },
+         extensions: ["tex2jax.js"],
+         jax: ["input/TeX","output/HTML-CSS"],
+         tex2jax: { inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                    displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                    processEscapes: true },
+         "HTML-CSS": { availableFonts: ["TeX"],
+                       linebreaks: { automatic: true } }
+     });
+ </script>
+
+ <script type="text/x-mathjax-config">
+     MathJax.Hub.Config({
+       tex2jax: {
+         skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+       }
+     });
+ </script>
+
+ <script type="text/javascript" async
+   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML">
+ </script>
+
+
+
+
+</body>
+</html>
+
