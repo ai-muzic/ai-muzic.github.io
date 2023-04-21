@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="generator" content="Hugo 0.66.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+  <link rel="stylesheet" href="../css/normalize.css">
+  <link rel="stylesheet" href="../css/skeleton.css">
+  <link rel="stylesheet" href="../css/custom.css">
+  <link rel="alternate" href="index.xml" type="application/rss+xml" title="Speech Research">
+  <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
+  <title>CLaMP: Contrastive Language-Music Pre-training for Cross-Modal Symbolic Music Information Retrieval</title>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <header role="banner">
+
+    </header>
+
+
+    <main role="main">
+      <article itemscope itemtype="https://schema.org/BlogPosting">
+        <h1 class="entry-title" itemprop="headline">CLaMP: Contrastive Language-Music Pre-training for Cross-Modal Symbolic Music Information Retrieval</h1>
+
+        <section itemprop="entry-text">
+          <br>
+          <p><a href="arxiv">Paper</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Code (coming soon)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="huggingface">WikiMT Dataset</a></p>
+
+          <h2 id="authors">Authors</h2>
+          <ul>
+            <li>Shangda Wu (Central Conservatory of Music) <a href="mailto:shangda@mail.ccom.edu.cn">shangda@mail.ccom.edu.cn</a></li>
+            <li>Dingyao Yu ( Peking University ) <a href="mailto:yudingyao@pku.edu.cn">yudingyao@pku.edu.cn</a></li>
+            <li>Xu Tan (Microsoft Research Asia) <a href="mailto:xuta@microsoft.com">xuta@microsoft.com</a></li>
+            <li>Maosong Sun^ (Tsinghua University) <a href="mailto:sms@tsinghua.edu.cn">sms@tsinghua.edu.cn</a></li>
+          </ul>
+          <p><small>^ Corresponding author.</small></p>
+          <h2 id="abstract">Abstract</h2>
+          <p>In "CLaMP: Contrastive Language-Music Pre-training for Cross-Modal Symbolic Music Information Retrieval", we introduce a solution for cross-modal symbolic MIR that utilizes contrastive learning and pre-training. The proposed approach, CLaMP: Contrastive Language-Music Pre-training, which learns cross-modal representations between natural language and symbolic music using a music encoder and a text encoder trained jointly with a contrastive loss. To pre-train CLaMP, we collected a large dataset of 1.4 million music-text pairs. It employed text dropout as a data augmentation technique and bar patching to efficiently represent music data which reduces sequence length to less than 10%. In addition, we developed a masked music model pre-training objective to enhance the music encoder's comprehension of musical context and structure. CLaMP integrates textual information to enable semantic search and zero-shot classification for symbolic music, surpassing the capabilities of previous models. To support the evaluation of semantic search and music classification, we publicly release <a href="huggingface">WikiMusicText</a> (WikiMT), a dataset of 1010 lead sheets in ABC notation, each accompanied by a title, artist, genre, and description. In comparison to state-of-the-art models that require fine-tuning, zero-shot CLaMP demonstrated comparable or superior performance on score-oriented datasets.</p>
+          
+          <br>
+          <center><img alt="" src="images/clamp.png"  style="zoom:20%"/>
+              <figcaption><br><i>Figure 1: The architecture of CLaMP, including two encoders - one for music and one for text - trained jointly with a contrastive loss to learn cross-modal representations.</i></figcaption>
+          </center>
+          <br>
+
+          <h2 id="cross-modal tasks">Cross-Modal Symbolic MIR</h2>
+          CLaMP is capable of aligning symbolic music and natural language, which can be used for various cross-modal retrieval tasks, including semantic search and zero-shot classification for symbolic music.
+          <br>
+          <br>
+          <br>
+          <center><img alt="" src="images/cross-modal tasks.png"  style="zoom:20%"/>
+            <figcaption><br><i>Figure 2: The processes of CLaMP performing cross-modal symbolic MIR tasks, including semantic search and zero-shot classification for symbolic music, without requiring task-specific training data.</i></figcaption>
+          </center>
+          <br>
+          <br>
+
+          Semantic search is a technique for retrieving music by open-domain queries, which differs from traditional keyword-based searches that depend on exact matches or meta-information. This involves two steps: 1) extracting music features from all scores in the library, and 2) transforming the query into a text feature. By calculating the similarities between the text feature and the music features, it can efficiently locate the score that best matches the user's query in the library.
+        <br>
+        <br>
+          Zero-shot classification refers to the classification of new items into any desired label without the need for training data. It involves using a prompt template to provide context for the text encoder. For example, a prompt such as "<i>This piece of music is composed by {composer}.</i>" is utilized to form input texts based on the names of candidate composers. The text encoder then outputs text features based on these input texts. Meanwhile, the music encoder extracts the music feature from the unlabelled target symbolic music. By calculating the similarity between each candidate text feature and the target music feature, the label with the highest similarity is chosen as the predicted one.
+
+          <h2 id="wikimt">WikiMusicText Dataset</h2>
+          We introduce <a href="huggingface">WikiMusicText</a> (WikiMT), a new dataset for the evaluation of semantic search and music classification. It includes 1010 lead sheets in ABC notation sourced from Wikifonia.org, each accompanied by a title, artist, genre, and description. The title and artist information is extracted from the score, whereas the genre labels are obtained by matching keywords from the Wikipedia entries and assigned to one of the 8 classes that loosely mimic the <a href="https://www.kaggle.com/datasets/andradaolteanu/gtzan-dataset-music-genre-classification">GTZAN</a> genres. The description is obtained by utilizing <a href="https://huggingface.co/facebook/bart-large-cnn">BART-large</a> to summarize and clean the corresponding Wikipedia entry. Additionally, following WebMT, the natural language information within the ABC notation is removed.
+          <br>
+          <br>
+          <br>
+          <center><img alt="" src="images/wikimt genres.png"  style="zoom:70%"/>
+            <figcaption><i>Figure 3: The genre distribution of the WikiMT dataset.</i></figcaption>
+          </center>
+
+          <h2 id="applications">Applications</h2>
+          <h3>Zero-shot Music Classification (Music -> Text)</h3> 
+          Here we use an example to illustrate the ability of CLaMP to perform zero-shot classification for symbolic music. The piece of music is Nocturne op. 9 no. 2 by Chopin. We designed several prompts to provide context for the text encoder, including the form of the piece, the mood, and the composer of the piece. For each attribute, we provide five possible choices. The results show that CLaMP can correctly classify the piece of music into the correct prompt for each attribute.
+          <br>
+          <br>
+          <br>
+          <center><img alt="" src="images/zero-shot music classification.png"  style="zoom:50%"/>
+            <br>
+            <br>
+            <figcaption><i>Figure 4: The results of zero-shot classification for Nocturne op. 9 no. 2 by Chopin.
+            <br>
+            Nocturne op. 9 no. 2 (<a href="mxls/Nocturne op. 9 no. 2.mxl">MusicXML</a>, <a href="https://www.youtube.com/watch?v=bVeOdm-29pU">YouTube</a>)
+            </i></figcaption>
+          </center>
+
+          <h3>Semantic Music Search (Text -> Music)</h3>
+          We also demonstrate the ability of CLaMP to perform semantic search for symbolic music. We build a simple music search engine based on CLaMP. The user can input a query in natural language, and show the top 1 result from WikiMT (1010 pieces of music). CLaMP can retrieve precise songs given detailed description of the music, such as the genre, key, tempo, and form. For example, the user can input "Jazz standard in Minor key with a swing feel.", and the search engine will return the song "Blue Bossa" by Kenny Dorham.
+          <br>
+          <br>
+          <br>
+          <center><img alt="" src="images/semantic music search.png"  style="zoom:50%"/>
+            <figcaption><i>Figure 5: The results of semantic music search for the fine-grained text queries "Jazz standard in ..." by CLaMP.
+            <br>
+            Blue Bossa (<a href="mxls/Blue Bossa.mxl">MusicXML</a>, <a href="https://www.youtube.com/watch?v=U7eOs5lERww">YouTube</a>); Mack the Knife (<a href="mxls/Mack the Knife.mxl">MusicXML</a>, <a href="https://www.youtube.com/watch?v=8hKXYmWty_k">YouTube</a>); Five Long Years (<a href="mxls/Five Long Years.mxl">MusicXML</a>, <a href="https://www.youtube.com/watch?v=n_4UmAY852I">YouTube</a>)
+            </i></figcaption>
+          </center>
+          <h3>Similar Music Recommendation (Music -> Music)</h3>
+          A surprising result of CLaMP is that it can also recommend similar music given a piece of music, even though it is not trained on this task. We only use the music encoder to extract the music feature from the music query, and then calculate the similarity between the query and all the pieces of music in the library. For example, the user can input "We Are the Champions" by Queen, and CLaMP can recommend the top 3 similar songs, including "I Believe I Can Fly" by R. Kelly, "Hold the Line" by Toto, and "My Immortal" by Evanescence from WikiMT.
+          <br>
+          <br>
+          <br>
+          <center><img alt="" src="images/similar music recommendation.png"  style="zoom:50%"/>
+            <figcaption><i>Figure 6: The results of similar music recommendation for the query "We Are the Champions" by CLaMP.
+            <br>
+            We Are the Champions (<a href="mxls/We Are the Champions.mxl">MusicXML</a>, <a href="https://www.youtube.com/watch?v=04854XqcfCY">YouTube</a>); I Believe I Can Fly (<a href="mxls/I Believe I Can Fly.mxl">MusicXML</a>, <a href="https://www.youtube.com/watch?v=MRuEjGK7Eu8">YouTube</a>); Hold the Line (<a href="mxls/Hold the Line.mxl">MusicXML</a>, <a href="https://www.youtube.com/watch?v=htgr3pvBr-I">YouTube</a>); My Immortal (<a href="mxls/My Immortal.mxl">MusicXML</a>, <a href="https://www.youtube.com/watch?v=5anLPw0Efmo">YouTube</a>)
+            </i></figcaption>
+          </center>
+          <h3>Image-based Music Recommendation (Image -> Text -> Music)</h3>
+          Finally, we demonstrate the ability of CLaMP to perform image-based music recommendation. We use the BLIP model to generate captions for images, and then use CLaMP to retrieve the top 1 result from WikiMT based on the generated captions. For example, the user can input a painting of a starry night with the moon in the sky, and CLaMP can recommend the song "Time in a Bottle" by Jim Croce. This ability has the potential to be used in a wide range of applications, such as music recommendation for movies, games, and advertisements.
+          <br>
+          <br>
+          <br>
+          <center><img alt="" src="images/image-based music recommendation.png"  style="zoom:50%"/>
+            <figcaption><i>Figure 7: The results of image-based music recommendation for the captions generated by BLIP.
+            <br>
+            Time in a Bottle (<a href="mxls/Time in a Bottle.mxl">MusicXML</a>, <a href="https://www.youtube.com/watch?v=Q29sOLG8xGE">YouTube</a>); Serenade to Spring (<a href="mxls/Serenade to Spring.mxl">MusicXML</a>, <a href="https://www.youtube.com/watch?v=87s99PUdaGg">YouTube</a>); San Antonio Rose (<a href="mxls/San Antonio Rose.mxl">MusicXML</a>, <a href="https://www.youtube.com/watch?v=1nEof88_Rho">YouTube</a>)
+            </i></figcaption>
+          </center>
+          <h2 id="conclusions">Conclusions</h2>
+          We introduce CLaMP, a pre-trained model that utilizes contrastive language-music pre-training techniques to build cross-modal representations between natural language and symbolic music. The model was trained on a dataset containing 1.4 million music-text pairs and has demonstrated unique abilities of semantic search and zero-shot classification for symbolic music. Compared to state-of-the-art models that require fine-tuning, zero-shot CLaMP exhibits comparable or superior performance in score-oriented music classification tasks without any training. However, the current version of CLaMP has limited comprehension of performance MIDI, and still has room for improvement. Future research will aim to expand its capabilities by scaling it up and pre-training it on larger datasets that incorporate a wider range of symbolic music formats beyond score-oriented ones. We expect that its cross-modal representations will facilitate research on new topics in music analysis, retrieval, and generation, and provide a foundation for the development of innovative systems and applications that integrate music and language.
+
+        </section>
+      </article>
+    </main>
+
+  </div>
+
+  <script>
+    (function (i, s, o, g, r, a, m) {
+      i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+        (i[r].q = i[r].q || []).push(arguments)
+      }, i[r].l = 1 * new Date(); a = s.createElement(o),
+        m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'UA-139981676-1', 'auto');
+    ga('send', 'pageview');
+  </script>
+
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+
+  <script type="text/x-mathjax-config">
+     MathJax.Hub.Config({
+         HTML: ["input/TeX","output/HTML-CSS"],
+         TeX: {
+                Macros: {
+                         bm: ["\\boldsymbol{#1}", 1],
+                         argmax: ["\\mathop{\\rm arg\\,max}\\limits"],
+                         argmin: ["\\mathop{\\rm arg\\,min}\\limits"]},
+                extensions: ["AMSmath.js","AMSsymbols.js"],
+                equationNumbers: { autoNumber: "AMS" } },
+         extensions: ["tex2jax.js"],
+         jax: ["input/TeX","output/HTML-CSS"],
+         tex2jax: { inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                    displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                    processEscapes: true },
+         "HTML-CSS": { availableFonts: ["TeX"],
+                       linebreaks: { automatic: true } }
+     });
+ </script>
+
+  <script type="text/x-mathjax-config">
+     MathJax.Hub.Config({
+       tex2jax: {
+         skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+       }
+     });
+ </script>
+
+  <script type="text/javascript" async
+    src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML">
+    </script>
+
+
+
+
+</body>
+
+</html>
