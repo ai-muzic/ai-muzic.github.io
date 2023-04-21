@@ -30,18 +30,18 @@
 
         <section itemprop="entry-text">
           <br>
-          <p><a href="arxiv">Paper</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Code (coming soon)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="huggingface">WikiMT Dataset</a></p>
-
+          <p><a href="arxiv">Paper</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Code (coming soon)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://huggingface.co/datasets/sander-wood/wikimt">WikiMT Dataset</a></p>
+          <!-- https://github.com/microsoft/muzic/tree/main/clamp -->
           <h2 id="authors">Authors</h2>
           <ul>
             <li>Shangda Wu (Central Conservatory of Music) <a href="mailto:shangda@mail.ccom.edu.cn">shangda@mail.ccom.edu.cn</a></li>
-            <li>Dingyao Yu ( Peking University ) <a href="mailto:yudingyao@pku.edu.cn">yudingyao@pku.edu.cn</a></li>
+            <li>Dingyao Yu (Microsoft Research Asia) <a href="mailto:v-dingyaoyu@microsoft.com">v-dingyaoyu@microsoft.com</a></li>
             <li>Xu Tan (Microsoft Research Asia) <a href="mailto:xuta@microsoft.com">xuta@microsoft.com</a></li>
-            <li>Maosong Sun^ (Tsinghua University) <a href="mailto:sms@tsinghua.edu.cn">sms@tsinghua.edu.cn</a></li>
+            <li>Maosong Sun^ (Central Conservatory of Music, Tsinghua University) <a href="mailto:sms@tsinghua.edu.cn">sms@tsinghua.edu.cn</a></li>
           </ul>
           <p><small>^ Corresponding author.</small></p>
           <h2 id="abstract">Abstract</h2>
-          <p>In "CLaMP: Contrastive Language-Music Pre-training for Cross-Modal Symbolic Music Information Retrieval", we introduce a solution for cross-modal symbolic MIR that utilizes contrastive learning and pre-training. The proposed approach, CLaMP: Contrastive Language-Music Pre-training, which learns cross-modal representations between natural language and symbolic music using a music encoder and a text encoder trained jointly with a contrastive loss. To pre-train CLaMP, we collected a large dataset of 1.4 million music-text pairs. It employed text dropout as a data augmentation technique and bar patching to efficiently represent music data which reduces sequence length to less than 10%. In addition, we developed a masked music model pre-training objective to enhance the music encoder's comprehension of musical context and structure. CLaMP integrates textual information to enable semantic search and zero-shot classification for symbolic music, surpassing the capabilities of previous models. To support the evaluation of semantic search and music classification, we publicly release <a href="huggingface">WikiMusicText</a> (WikiMT), a dataset of 1010 lead sheets in ABC notation, each accompanied by a title, artist, genre, and description. In comparison to state-of-the-art models that require fine-tuning, zero-shot CLaMP demonstrated comparable or superior performance on score-oriented datasets.</p>
+          <p>In "CLaMP: Contrastive Language-Music Pre-training for Cross-Modal Symbolic Music Information Retrieval", we introduce a solution for cross-modal symbolic MIR that utilizes contrastive learning and pre-training. The proposed approach, CLaMP: Contrastive Language-Music Pre-training, which learns cross-modal representations between natural language and symbolic music using a music encoder and a text encoder trained jointly with a contrastive loss. To pre-train CLaMP, we collected a large dataset of 1.4 million music-text pairs. It employed text dropout as a data augmentation technique and bar patching to efficiently represent music data which reduces sequence length to less than 10%. In addition, we developed a masked music model pre-training objective to enhance the music encoder's comprehension of musical context and structure. CLaMP integrates textual information to enable semantic search and zero-shot classification for symbolic music, surpassing the capabilities of previous models. To support the evaluation of semantic search and music classification, we publicly release <a href="https://huggingface.co/datasets/sander-wood/wikimt">WikiMusicText</a> (WikiMT), a dataset of 1010 lead sheets in ABC notation, each accompanied by a title, artist, genre, and description. In comparison to state-of-the-art models that require fine-tuning, zero-shot CLaMP demonstrated comparable or superior performance on score-oriented datasets.</p>
           
           <br>
           <center><img alt="" src="images/clamp.png"  style="zoom:20%"/>
@@ -66,7 +66,7 @@
           Zero-shot classification refers to the classification of new items into any desired label without the need for training data. It involves using a prompt template to provide context for the text encoder. For example, a prompt such as "<i>This piece of music is composed by {composer}.</i>" is utilized to form input texts based on the names of candidate composers. The text encoder then outputs text features based on these input texts. Meanwhile, the music encoder extracts the music feature from the unlabelled target symbolic music. By calculating the similarity between each candidate text feature and the target music feature, the label with the highest similarity is chosen as the predicted one.
 
           <h2 id="wikimt">WikiMusicText Dataset</h2>
-          We introduce <a href="huggingface">WikiMusicText</a> (WikiMT), a new dataset for the evaluation of semantic search and music classification. It includes 1010 lead sheets in ABC notation sourced from Wikifonia.org, each accompanied by a title, artist, genre, and description. The title and artist information is extracted from the score, whereas the genre labels are obtained by matching keywords from the Wikipedia entries and assigned to one of the 8 classes that loosely mimic the <a href="https://www.kaggle.com/datasets/andradaolteanu/gtzan-dataset-music-genre-classification">GTZAN</a> genres. The description is obtained by utilizing <a href="https://huggingface.co/facebook/bart-large-cnn">BART-large</a> to summarize and clean the corresponding Wikipedia entry. Additionally, following WebMT, the natural language information within the ABC notation is removed.
+          We introduce <a href="https://huggingface.co/datasets/sander-wood/wikimt">WikiMusicText</a> (WikiMT), a new dataset for the evaluation of semantic search and music classification. It includes 1010 lead sheets in ABC notation sourced from Wikifonia.org, each accompanied by a title, artist, genre, and description. The title and artist information is extracted from the score, whereas the genre labels are obtained by matching keywords from the Wikipedia entries and assigned to one of the 8 classes that loosely mimic the <a href="https://www.kaggle.com/datasets/andradaolteanu/gtzan-dataset-music-genre-classification">GTZAN</a> genres. The description is obtained by utilizing <a href="https://arxiv.org/pdf/1910.13461.pdf">BART-large</a> to summarize and clean the corresponding Wikipedia entry. Additionally, the natural language information within the ABC notation is removed.
           <br>
           <br>
           <br>
@@ -112,7 +112,7 @@
             </i></figcaption>
           </center>
           <h3>Image-based Music Recommendation (Image -> Text -> Music)</h3>
-          Finally, we demonstrate the ability of CLaMP to perform image-based music recommendation. We use the BLIP model to generate captions for images, and then use CLaMP to retrieve the top 1 result from WikiMT based on the generated captions. For example, the user can input a painting of a starry night with the moon in the sky, and CLaMP can recommend the song "Time in a Bottle" by Jim Croce. This ability has the potential to be used in a wide range of applications, such as music recommendation for movies, games, and advertisements.
+          Finally, we demonstrate the ability of CLaMP to perform image-based music recommendation. We use the <a href="https://arxiv.org/pdf/2201.12086.pdf">BLIP</a> model to generate captions for images, and then use CLaMP to retrieve the top 1 result from WikiMT based on the generated captions. For example, the user can input a painting of a starry night with the moon in the sky, and CLaMP can recommend the song "Time in a Bottle" by Jim Croce. This ability has the potential to be used in a wide range of applications, such as music recommendation for movies, games, and advertisements.
           <br>
           <br>
           <br>
