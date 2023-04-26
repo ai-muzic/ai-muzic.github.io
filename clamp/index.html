@@ -101,7 +101,7 @@
             </i></figcaption>
           </center>
           <h3>Similar Music Recommendation (Music -> Music)</h3>
-          A surprising result of CLaMP is that it can also recommend similar music given a piece of music, even though it is not trained on this task. We only use the music encoder to extract the music feature from the music query, and then calculate the similarity between the query and all the pieces of music in the library. For example, the user can input "We Are the Champions" by Queen, and CLaMP can recommend the top 3 similar songs, including "I Believe I Can Fly" by R. Kelly, "Hold the Line" by Toto, and "My Immortal" by Evanescence from WikiMT.
+          A surprising capability of CLaMP is that it can also recommend similar music given a piece of music, even though it is not trained on this task. This is because CLaMP is trained to encode the semantic meaning of music, and thus it can capture the similarity between music pieces. The recommendation is based on the similarity between the music features of the target music and all the music features in the library. The music with the highest similarity is chosen as the recommended one. For example, the user can input "We Are the Champions" by Queen, and CLaMP can recommend the top 3 similar songs, including "I Believe I Can Fly" by R. Kelly, "Hold the Line" by Toto, and "My Immortal" by Evanescence from WikiMT.
           <br>
           <br>
           <br>
