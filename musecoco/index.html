@@ -1,0 +1,769 @@
+
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+<meta charset="utf-8">
+<meta name="generator" content="Hugo 0.16-DEV" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link href="https://fonts.googleapis.com/css?family=Roboto:300,400,700" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/styles/github.min.css">
+<link rel="stylesheet" href="../css/normalize.css">
+<link rel="stylesheet" href="../css/skeleton.css">
+<link rel="stylesheet" href="../css/custom.css">
+<link rel="alternate" href="index.xml" type="application/rss+xml" title="Muzic">
+<link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
+<title>MuseCoco: Generating Symbolic Music from Text for Composition Copilot</title>
+</head>
+<body>
+
+<div class="container">
+
+	<header role="banner">
+		
+	</header>
+
+
+	<main role="main">
+		<article itemscope itemtype="https://schema.org/BlogPosting">
+            <h1 class="entry-title" itemprop="headline">MuseCoco: Generating Symbolic Music from Text</h1>
+			
+			<section itemprop="entry-text">
+				
+<!-- <p>ArXiv: <a href="https://arxiv.org/abs/2012.05168">arXiv:2012.05168</a></p> -->
+<h2 id="abstract">Abstract</h2>
+
+<p>Generating music from text descriptions is a user-friendly mode since the text is a relatively easy interface for user engagement. While some approaches utilize texts to control music audio generation, editing musical elements in generated audio is challenging for users. In contrast, symbolic music offers ease of editing, making it more accessible for users to manipulate specific musical elements. In this paper, we propose MuseCoco, which generates symbolic music from text descriptions with musical attributes as the bridge to break down the task into text-to-attribute understanding and attribute-to-music generation stages. The system has two main advantages: Firstly, it is data efficient. In the attribute-to-music generation stage, the attributes can be directly extracted from music sequences, making the model training self-supervised. In the text-to-attribute understanding stage, the text is synthesized and refined by ChatGPT based on the defined attribute templates. Secondly, the system can achieve precise control with specific attributes in text descriptions and offers multiple control options through attribute-conditioned or text-conditioned approaches. MuseCoco outperforms baseline systems in terms of musicality, controllability, and overall score by at least 1.27, 1.08, and 1.32 respectively. Besides, there is a notable enhancement of about 20% in objective control accuracy. In addition, we have developed a robust large-scale model with 1.2 billion parameters, showcasing exceptional controllability and musicality.</p>
+
+<div style="text-align:center"><img src="../images/musecoco/framework.png" width=800 height=800>  
+    <p>Figure 1: The two-stage framework of MuseCoco. Text-to-attribute understanding extracts diverse musical attributes, based on which symbolic music is generated through the attribute-to-music generation stage.</p>  
+</div>
+
+<p><b>Please note:</b> this work focuses on generating symbolic music, which do not contain timbre information. 
+    We use MuseScore (https://musescore.org/en) to export mp3 files for reference, musicians are encouraged to leverage the .mid files for further timbre improvement.</p>
+    
+
+<h2 id="baseline-samples">Comparison with Baselines</h2>
+<div>
+    <h3>Group 1</h3>
+    <table width="100%" border="1">
+        <p><b>Text Descriptions:</b> The combination of moderate speed, balanced rhythm, and major key, along with its 4/4 time signature, makes this song a prime representation of the classical style. This music would be best suited for a romantic and elegant sunset on the beach. The song structure is made up of about 15 bars. The music is influenced by Bach. The music is given its sound through piano. The use of a specific pitch range of 3 octaves creates a cohesive and unified sound throughout the musical piece. The track lasts for about 40 seconds.</p>
+        <table width="100%" border="1">
+            <tr>
+                <th width="30%" style="text-align: left" scope="col">BART</th>
+                <th width="30%" style="text-align: left" scope="col">GPT-4</th>
+                <th width="30%" style="text-align: left" scope="col">MuseCoco</th>
+            </tr>
+            <tr>
+                <td width="30%" style="text-align: left">
+                    <audio controls="controls">
+                        <source src="../audio/musecoco/Baseline/BART/307_0.mp3" autoplay="">Your browser does not support the audio element.
+                    </audio>
+                </td>
+                <td width="30%" style="text-align: left">
+                    <audio controls="controls">
+                        <source src="../audio/musecoco/Baseline/GPT4/307_1.mp3" autoplay="">Your browser does not support the audio element.
+                    </audo>
+                </td>
+                <td width="30%" style="text-align: left">
+                    <audio controls="controls">
+                        <source src="../audio/musecoco/Baseline/MuseCoco/307_group307_s2.mp3" autoplay="">Your browser does not support the audio element.
+                    </audio>
+                </td>
+            </tr>
+        </table>
+        <p><b>Comments:</b></p>
+        <p>BART-base: The generated sample from BART demonstrates inadequate control over attributes such as time signature, duration, and octaves. Furthermore, the sample's musicality suffers due to a lack of harmonies, resulting in an incomplete composition.</p>
+        <p>GPT-4: The generated music from GPT-4 is controlled well. However, it tends to sound monotonous since the rhythm patterns lack of variations, which is common in most generated music from GPT-4. Furthermore, some counterpoints in the composition, specifically in the 4th and 10th bars, lack well-designed integration, detracting from the overall quality of the piece.</p>
+        <p>MuseCoco: The generated music from MuseCoco is controlled precisely. Besides, it has more complex harmonies and more diverse rhythm patterns for a better listening experience.</p>
+    </table>
+
+    <hr>
+
+    <h3>Group 2</h3>
+    <table width="100%" border="1">
+        <p><b>Text Descriptions:</b> This song has a moderate tempo and its setting would best be described as a peaceful forest with a waterfall. Major key adds a unique flavor to this music. The music should feature grand piano, drum and bass. This song is about 40 seconds long.</p>
+        <table width="100%" border="1">
+            <tr>
+                <th width="30%" style="text-align: left" scope="col">BART</th>
+                <th width="30%" style="text-align: left" scope="col">GPT-4</th>
+                <th width="30%" style="text-align: left" scope="col">MuseCoco</th>
+            </tr>
+            <tr>
+                <td width="30%" style="text-align: left">
+                    <audio controls="controls">
+                        <source src="../audio/musecoco/Baseline/BART/505_0.mp3" autoplay="">Your browser does not support the audio element.
+                    </audio>
+                </td>
+                <td width="30%" style="text-align: left">
+                    <audio controls="controls">
+                        <source src="../audio/musecoco/Baseline/GPT4/505_1.mp3" autoplay="">Your browser does not support the audio element.
+                    </audo>
+                </td>
+                <td width="30%" style="text-align: left">
+                    <audio controls="controls">
+                        <source src="../audio/musecoco/Baseline/MuseCoco/505_15.mp3" autoplay="">Your browser does not support the audio element.
+                    </audio>
+                </td>
+            </tr>
+        </table>
+        <p><b>Comments:</b></p>
+        <p>BART-base: The generated music solely relies on the piano, which deviates from the consistent instrumentation described in the text. In terms of musicality, the rhythm lacks fluency, with many unexpected rests that disrupt the listening experience.</p>
+        <p>GPT-4: While the generated music exhibits precise control, the overall musicality falls short of expectations. The drum pattern deviates from the usual rhythmic sensibility, failing to provide a satisfying rhythmic foundation. Additionally, the note pitches used for the bass are not suitable, resulting in a lack of a cohesive bass line, which is crucial for a complete and well-rounded composition.</p>
+        <p>MuseCoco: The generated music demonstrates precise control. The piano effectively carries the melody, while the bass provides a solid foundation with its bass line, enhancing the depth of the composition. The addition of the drums in the middle adds various rhythmic patterns, further enriching the overall musical texture.</p>
+    </table>
+
+    <hr>
+
+    <h3>Group 3</h3>
+    <table width="100%" border="1">
+        <p><b>Text Descriptions:</b> 2/4 is the meter of the music and should feature grand piano. The music is composed of a dense and intricate arrangement of notes, resulting in a captivating and memorable experience with the choice of minor key. The song embodies the characteristics of classical style. 15 seconds is a relatively long time for a song, but the dynamic and diverse pitch range spanning 4 octaves makes the music an interesting and engaging listening experience.</p>
+        <table width="100%" border="1">
+            <tr>
+                <th width="30%" style="text-align: left" scope="col">BART</th>
+                <th width="30%" style="text-align: left" scope="col">GPT-4</th>
+                <th width="30%" style="text-align: left" scope="col">MuseCoco</th>
+            </tr>
+            <tr>
+                <td width="30%" style="text-align: left">
+                    <audio controls="controls">
+                        <source src="../audio/musecoco/Baseline/BART/811_0.mp3" autoplay="">Your browser does not support the audio element.
+                    </audio>
+                </td>
+                <td width="30%" style="text-align: left">
+                    <audio controls="controls">
+                        <source src="../audio/musecoco/Baseline/GPT4/811_2.mp3" autoplay="">Your browser does not support the audio element.
+                    </audo>
+                </td>
+                <td width="30%" style="text-align: left">
+                    <audio controls="controls">
+                        <source src="../audio/musecoco/Baseline/MuseCoco/811_12.mp3" autoplay="">Your browser does not support the audio element.
+                    </audio>
+                </td>
+            </tr>
+        </table>
+        <p><b>Comments:</b></p>
+        <p>BART-base: The generated music suffers from inaccuracies in its control of time signature, duration, octaves, and note density. Furthermore, the melody line lacks variation, resulting in a monotonous composition with repetitive rhythm patterns and harmonic progressions.</p>
+        <p>GPT-4: The generated music lacks precision in controlling duration, octaves, and note density. As a result, the composition suffers from a monotonous melody characterized by simplistic rhythms and a lack of harmonies.</p>
+        <p>MuseCoco: The generated music demonstrates precise control, particularly notable in the dense arrangement of notes. This intricate composition style contributes to its memorability and adds an interesting and captivating quality to the music.</p>
+    </table>
+
+    <hr>
+
+    <h3>Group 4</h3>
+    <table width="100%" border="1">
+        <p><b>Text Descriptions:</b> The moderate tempo and conventional classical roots of this song, along with its 16 ~ 30 second running time and use of major key, creates a rich and dynamic sonic palette with a limited pitch range of 5 octaves that allows for a greater emphasis on the nuances of tone and phrasing. The music is in 3/4. The use of piano is vital to the music. The music follows in Chopin's footsteps.</p>
+        <table width="100%" border="1">
+            <tr>
+                <th width="30%" style="text-align: left" scope="col">BART</th>
+                <th width="30%" style="text-align: left" scope="col">GPT-4</th>
+                <th width="30%" style="text-align: left" scope="col">MuseCoco</th>
+            </tr>
+            <tr>
+                <td width="30%" style="text-align: left">
+                    <audio controls="controls">
+                        <source src="../audio/musecoco/Baseline/BART/1049_1.mp3" autoplay="">Your browser does not support the audio element.
+                    </audio>
+                </td>
+                <td width="30%" style="text-align: left">
+                    <audio controls="controls">
+                        <source src="../audio/musecoco/Baseline/GPT4/1049_0.mp3" autoplay="">Your browser does not support the audio element.
+                    </audo>
+                </td>
+                <td width="30%" style="text-align: left">
+                    <audio controls="controls">
+                        <source src="../audio/musecoco/Baseline/MuseCoco/1049_10.mp3" autoplay="">Your browser does not support the audio element.
+                    </audio>
+                </td>
+            </tr>
+        </table>
+        <p><b>Comments:</b></p>
+        <p>BART-base: The generated music deviates from the attributes specified in the text description, such as time signature, duration, and octaves. Furthermore, the style of the music does not resemble that of Chopin. Additionally, the abnormal usage of rests within each voice part raises doubts about the composition's coherence and musicality.</p>
+        <p>GPT-4: The generated music falls short in multiple aspects. It does not span 5 octaves as specified, and it fails to capture the essence of Chopin's style. The melody lacks variation, resulting from limited rhythm patterns and harmonies. Additionally, the inclusion of two identical tracks introduces redundancy and detracts from the overall composition.</p>
+        <p>MuseCoco: The generated music demonstrates precise control. Specifically, the 5th and 6th bars skillfully capture the distinct essence and emotive qualities associated with Chopin's style, effectively conveying the desired musical expression.</p>
+    </table>
+
+    <hr>
+
+    <h3>Group 5</h3>
+    <table width="100%" border="1">
+        <p><b>Text Descriptions:</b>The music is slow and contemplative, with a pitch range of 4 octaves adding a distinctive character and emphasizing its emotional depth. The song's length is around about 14 bars, and it is not dance-friendly due to its style. The minor key adds a unique flavor, and grand piano, bass, voice, flute and drum should be included in the music. The time signature of the music is 3/4. The song is in an intense tempo with a moderate pace of 16 ~ 30-seconds. The music is a quintessential example of religious genre.</p>
+        <table width="100%" border="1">
+            <tr>
+                <th width="30%" style="text-align: left" scope="col">BART</th>
+                <th width="30%" style="text-align: left" scope="col">GPT-4</th>
+                <th width="30%" style="text-align: left" scope="col">MuseCoco</th>
+            </tr>
+            <tr>
+                <td width="30%" style="text-align: left">
+                    <audio controls="controls">
+                        <source src="../audio/musecoco/Baseline/BART/370_3.mp3" autoplay="">Your browser does not support the audio element.
+                    </audio>
+                </td>
+                <td width="30%" style="text-align: left">
+                    <audio controls="controls">
+                        <source src="../audio/musecoco/Baseline/GPT4/370_0.mp3" autoplay="">Your browser does not support the audio element.
+                    </audo>
+                </td>
+                <td width="30%" style="text-align: left">
+                    <audio controls="controls">
+                        <source src="../audio/musecoco/Baseline/MuseCoco/370_7.mp3" autoplay="">Your browser does not support the audio element.
+                    </audio>
+                </td>
+            </tr>
+        </table>
+        <p><b>Comments:</b></p>
+        <p>BART-base: </p>
+        <p>MuseCoco: </p>
+    </table>
+
+    <hr>
+
+    <h3>Group 6</h3>
+    <table width="100%" border="1">
+        <p><b>Text Descriptions:</b>The song's fast-paced rhythm, unique pitch range of 4 octaves, and use of grand piano create a memorable and energetic listening experience, while the 4/4 and minor give it an emotional quality that is similar to Brahms's style. This song is a true representation of the classical genre. The running time of the song is 16 ~ 30 seconds.</p>
+        <table width="100%" border="1">
+            <tr>
+                <th width="30%" style="text-align: left" scope="col">BART</th>
+                <th width="30%" style="text-align: left" scope="col">GPT-4</th>
+                <th width="30%" style="text-align: left" scope="col">MuseCoco</th>
+            </tr>
+            <tr>
+                <td width="30%" style="text-align: left">
+                    <audio controls="controls">
+                        <source src="../audio/musecoco/Baseline/BART/436_1.mp3" autoplay="">Your browser does not support the audio element.
+                    </audio>
+                </td>
+                <td width="30%" style="text-align: left">
+                    <audio controls="controls">
+                        <source src="../audio/musecoco/Baseline/GPT4/436_0.mp3" autoplay="">Your browser does not support the audio element.
+                    </audo>
+                </td>
+                <td width="30%" style="text-align: left">
+                    <audio controls="controls">
+                        <source src="../audio/musecoco/Baseline/MuseCoco/436_14.mp3" autoplay="">Your browser does not support the audio element.
+                    </audio>
+                </td>
+            </tr>
+        </table>
+        <p><b>Comments:</b></p>
+        <p>BART-base: </p>
+        <p>MuseCoco: </p>
+    </table>
+
+    <hr>
+
+    <h3>Group 7</h3>
+    <table width="100%" border="1">
+        <p><b>Text Descriptions:</b>The moderate tempo and conventional classical roots of this song, along with its about 20 second running time and use of major key, creates a rich and dynamic sonic palette with a limited pitch range of 4 octaves that allows for a greater emphasis on the nuances of tone and phrasing. The concert is a true celebration of Schubert's legacy. The concert hall is packed with fans eagerly awaiting the performance. The stage is set with piano, and the beat of this song is extremely strong.</p>
+        <table width="100%" border="1">
+            <tr>
+                <th width="30%" style="text-align: left" scope="col">BART</th>
+                <th width="30%" style="text-align: left" scope="col">GPT-4</th>
+                <th width="30%" style="text-align: left" scope="col">MuseCoco</th>
+            </tr>
+            <tr>
+                <td width="30%" style="text-align: left">
+                    <audio controls="controls">
+                        <source src="../audio/musecoco/Baseline/BART/497_0.mp3" autoplay="">Your browser does not support the audio element.
+                    </audio>
+                </td>
+                <td width="30%" style="text-align: left">
+                    <audio controls="controls">
+                        <source src="../audio/musecoco/Baseline/GPT4/497_3.mp3" autoplay="">Your browser does not support the audio element.
+                    </audo>
+                </td>
+                <td width="30%" style="text-align: left">
+                    <audio controls="controls">
+                        <source src="../audio/musecoco/Baseline/MuseCoco/497_2.mp3" autoplay="">Your browser does not support the audio element.
+                    </audio>
+                </td>
+            </tr>
+        </table>
+        <p><b>Comments:</b></p>
+        <p>BART-base: </p>
+        <p>MuseCoco: </p>
+    </table>
+
+</div>
+
+<h2 id="MuseCoco">Generation Diversity</h2>
+
+We test the generation diversity with the same text conditions.
+
+<div>
+    <!-- sample 1 -->
+
+    <h5>Sample 1</h5>
+
+    <p>Text Description: </p>
+    <p>Music is representative of the typical <b>pop</b> sound and spans <b>13 ~ 16 bars</b>, this is a song that has <b>a bright feeling from the beginning to the end</b>. This song has a very <b>fast</b> and lively rhythm. The use of a specific pitch range of <b>3 octaves</b> creates a cohesive and unified sound throughout the musical piece.</p>
+
+    <p>Generated Samples:</p>
+    <audio controls="controls">
+        <source src="../audio/musecoco/MuseCoco/8/8_1.mp3" autoplay="">Your browser does not support the audio element.
+    </audio>
+    <audio controls="controls">
+        <source src="../audio/musecoco/MuseCoco/8/8_19.mp3" autoplay="">Your browser does not support the audio element.
+    </audio>
+    <audio controls="controls">
+        <source src="../audio/musecoco/MuseCoco/8/8_29.mp3" autoplay="">Your browser does not support the audio element.
+    </audio>
+
+    <br>
+
+    <audio controls="controls">
+        <source src="../audio/musecoco/MuseCoco/8/10.mp3" autoplay="">Your browser does not support the audio element.
+    </audio>
+    <audio controls="controls">
+        <source src="../audio/musecoco/MuseCoco/8/11.mp3" autoplay="">Your browser does not support the audio element.
+    </audio>
+    <audio controls="controls">
+        <source src="../audio/musecoco/MuseCoco/8/32.mp3" autoplay="">Your browser does not support the audio element.
+    </audio>
+
+    <br>
+
+    <audio controls="controls">
+        <source src="../audio/musecoco/MuseCoco/8/33.mp3" autoplay="">Your browser does not support the audio element.
+    </audio>
+    <audio controls="controls">
+        <source src="../audio/musecoco/MuseCoco/8/9.mp3" autoplay="">Your browser does not support the audio element.
+    </audio>
+    <audio controls="controls">
+        <source src="../audio/musecoco/MuseCoco/8/30.mp3" autoplay="">Your browser does not support the audio element.
+    </audio>
+
+
+    <hr>
+    <!-- sample 2 -->
+
+    <h5>Sample 2</h5>
+
+    <p>Text Description: </p>
+    <p><b>3/4</b> is the time signature of the music. This song is unmistakably <b>classical</b> in style. This music is <b>low-tempo</b>. The use of <b>piano</b> is vital to the music.</p>
+
+    <p>Generated Samples:</p>
+    <audio controls="controls">
+        <source src="../audio/musecoco/MuseCoco/22/22_18.mp3" autoplay="">Your browser does not support the audio element.
+    </audio>
+    <audio controls="controls">
+        <source src="../audio/musecoco/MuseCoco/22/22_21.mp3" autoplay="">Your browser does not support the audio element.
+    </audio>
+    <audio controls="controls">
+        <source src="../audio/musecoco/MuseCoco/22/22_22.mp3" autoplay="">Your browser does not support the audio element.
+    </audio>
+    
+    <br>
+
+    <audio controls="controls">
+        <source src="../audio/musecoco/MuseCoco/22/5.mp3" autoplay="">Your browser does not support the audio element.
+    </audio>
+    <audio controls="controls">
+        <source src="../audio/musecoco/MuseCoco/22/8.mp3" autoplay="">Your browser does not support the audio element.
+    </audio>
+    <audio controls="controls">
+        <source src="../audio/musecoco/MuseCoco/22/11.mp3" autoplay="">Your browser does not support the audio element.
+    </audio>
+
+    <br>
+
+    <audio controls="controls">
+        <source src="../audio/musecoco/MuseCoco/22/21.mp3" autoplay="">Your browser does not support the audio element.
+    </audio>
+    <audio controls="controls">
+        <source src="../audio/musecoco/MuseCoco/22/22.mp3" autoplay="">Your browser does not support the audio element.
+    </audio>
+    <audio controls="controls">
+        <source src="../audio/musecoco/MuseCoco/22/40.mp3" autoplay="">Your browser does not support the audio element.
+    </audio>
+
+
+    <hr>
+    <!-- sample 3 -->
+
+    <h5>Sample 3</h5>
+
+    <p>Text Description: </p>
+    <p>The flute creates a lively and upbeat atmosphere in this <b>fast-paced</b> song with just the right tempo, making it perfect for a tropical setting. The time signature of this song is <b>not usual</b>. The music is enriched by <b>oboe, trumpet, flute and tuba</b>.</p>
+
+    <p>Generated Samples:</p>
+    <audio controls="controls">
+        <source src="../audio/musecoco/MuseCoco/119/119_5.mp3" autoplay="">Your browser does not support the audio element.
+    </audio>
+    <audio controls="controls">
+        <source src="../audio/musecoco/MuseCoco/119/119_9.mp3" autoplay="">Your browser does not support the audio element.
+    </audio>
+    <audio controls="controls">
+        <source src="../audio/musecoco/MuseCoco/119/119_29.mp3" autoplay="">Your browser does not support the audio element.
+    </audio>
+
+    <br>
+
+    <audio controls="controls">
+        <source src="../audio/musecoco/MuseCoco/119/3.mp3" autoplay="">Your browser does not support the audio element.
+    </audio>
+    <audio controls="controls">
+        <source src="../audio/musecoco/MuseCoco/119/4.mp3" autoplay="">Your browser does not support the audio element.
+    </audio>
+    <audio controls="controls">
+        <source src="../audio/musecoco/MuseCoco/119/23.mp3" autoplay="">Your browser does not support the audio element.
+    </audio>
+
+    <br>
+
+    <audio controls="controls">
+        <source src="../audio/musecoco/MuseCoco/119/25.mp3" autoplay="">Your browser does not support the audio element.
+    </audio>
+    <audio controls="controls">
+        <source src="../audio/musecoco/MuseCoco/119/46.mp3" autoplay="">Your browser does not support the audio element.
+    </audio>
+    <audio controls="controls">
+        <source src="../audio/musecoco/MuseCoco/119/52.mp3" autoplay="">Your browser does not support the audio element.
+    </audio>
+
+    <hr>
+    <!-- Sample 4 -->
+
+    <h5>Sample 4</h5>
+
+    <p>Text Description: </p>
+    <p>The song's upbeat melody and <b>swift</b> pace, paired with its <b>3 octave</b> pitch range and <b>3/4</b> time signature, offers a diverse and dynamic listening experience that suits a bustling cityscape. <b>Strings, drum, clarinet and flute</b> are utilized in the musical performance. The song's length is around about <b>14 bars</b>.</p>
+
+    <p>Generated Samples:</p>
+    <audio controls="controls">
+        <source src="../audio/musecoco/MuseCoco/143/143_20.mp3" autoplay="">Your browser does not support the audio element.
+    </audio>
+    <audio controls="controls">
+        <source src="../audio/musecoco/MuseCoco/143/143_27.mp3" autoplay="">Your browser does not support the audio element.
+    </audio>
+    <audio controls="controls">
+        <source src="../audio/musecoco/MuseCoco/143/143_29.mp3" autoplay="">Your browser does not support the audio element.
+    </audio>
+
+    <br>
+
+    <audio controls="controls">
+        <source src="../audio/musecoco/MuseCoco/143/11.mp3" autoplay="">Your browser does not support the audio element.
+    </audio>
+    <audio controls="controls">
+        <source src="../audio/musecoco/MuseCoco/143/33.mp3" autoplay="">Your browser does not support the audio element.
+    </audio>
+    <audio controls="controls">
+        <source src="../audio/musecoco/MuseCoco/143/37.mp3" autoplay="">Your browser does not support the audio element.
+    </audio>
+
+    <br>
+
+    <audio controls="controls">
+        <source src="../audio/musecoco/MuseCoco/143/50.mp3" autoplay="">Your browser does not support the audio element.
+    </audio>
+    <audio controls="controls">
+        <source src="../audio/musecoco/MuseCoco/143/61.mp3" autoplay="">Your browser does not support the audio element.
+    </audio>
+    <audio controls="controls">
+        <source src="../audio/musecoco/MuseCoco/143/62.mp3" autoplay="">Your browser does not support the audio element.
+    </audio>
+
+    <hr>
+    <!-- Sample 5 -->
+    <h5>Sample 5</h5>
+
+    <p>Text Description: </p>
+    <p>This song has a <b>steady and moderate rhythm</b>. The music is given its sound through <b>saxophone, drum and trombone</b>. You can hear about <b>14 bars</b> in this song. <b>2/4</b> is the time signature of the music.</p>
+
+    <p>Generated Samples:</p>
+    <audio controls="controls">
+        <source src="../audio/musecoco/MuseCoco/109/0.mp3" autoplay="">Your browser does not support the audio element.
+    </audio>
+    <audio controls="controls">
+        <source src="../audio/musecoco/MuseCoco/109/17.mp3" autoplay="">Your browser does not support the audio element.
+    </audio>
+    <audio controls="controls">
+        <source src="../audio/musecoco/MuseCoco/109/29.mp3" autoplay="">Your browser does not support the audio element.
+    </audio>
+
+    <br>
+
+    <audio controls="controls">
+        <source src="../audio/musecoco/MuseCoco/109/30.mp3" autoplay="">Your browser does not support the audio element.
+    </audio>
+    <audio controls="controls">
+        <source src="../audio/musecoco/MuseCoco/109/36.mp3" autoplay="">Your browser does not support the audio element.
+    </audio>
+    <audio controls="controls">
+        <source src="../audio/musecoco/MuseCoco/109/39.mp3" autoplay="">Your browser does not support the audio element.
+    </audio>
+
+    <br>
+
+    <audio controls="controls">
+        <source src="../audio/musecoco/MuseCoco/109/42.mp3" autoplay="">Your browser does not support the audio element.
+    </audio>
+    <audio controls="controls">
+        <source src="../audio/musecoco/MuseCoco/109/45.mp3" autoplay="">Your browser does not support the audio element.
+    </audio>
+    <audio controls="controls">
+        <source src="../audio/musecoco/MuseCoco/109/47.mp3" autoplay="">Your browser does not support the audio element.
+    </audio>
+
+    <p></p>
+
+</div>
+
+<h2 id="2nd stage">Controlled by Specific Attributes</h2>
+
+The model can also take the specific attribute values rather than text descriptions as the conditions to generate the corresponding music.
+
+<table width="86%" border="1">
+    <tbody>
+      <tr>
+        <th width="26%" style="text-align: center" scope="col">Attribute Value</th>
+        <th width="26%" style="text-align: center" scope="col">Generated Samples</th>
+      </tr>
+      
+      <tr>
+        <td width="26%" style="text-align: left">
+            <p>Rhythm Intensity: moderate</p>
+            <p>Bar: 16</p>
+            <p>Time Signature: 4/4</p>
+            <p>Tempo: moderato</p>
+            <p>Time: 30-45s</p>
+        <td width="26%" style="text-align: center">
+          <audio controls="controls">
+              <source src="../audio/musecoco/2nd/755/2.mp3" autoplay="">Your browser does not support the audio element.
+          </audio>
+          <audio controls="controls">
+            <source src="../audio/musecoco/2nd/755/4.mp3" autoplay="">Your browser does not support the audio element.
+        </audio>
+        <audio controls="controls">
+            <source src="../audio/musecoco/2nd/755/7.mp3" autoplay="">Your browser does not support the audio element.
+        </audio>
+      </tr>
+
+      <tr>
+        <td width="26%" style="text-align: left">
+            <p>Instrument: violin</p>
+            <p>Rhythm Intensity: intense</p>
+            <p>Tempo: slow</p>
+            <p>Time: >60s</p>
+            <p>Artist Style: Bach</p>
+        <td width="26%" style="text-align: center">
+          <audio controls="controls">
+              <source src="../audio/musecoco/2nd/1979/1.mp3" autoplay="">Your browser does not support the audio element.
+          </audio>
+          <audio controls="controls">
+            <source src="../audio/musecoco/2nd/1979/3.mp3" autoplay="">Your browser does not support the audio element.
+        </audio>
+        <audio controls="controls">
+            <source src="../audio/musecoco/2nd/1979/4.mp3" autoplay="">Your browser does not support the audio element.
+        </audio>
+      </tr>
+
+      <tr>
+        <td width="26%" style="text-align: left">
+            <p>Instrument: piano drum bass</p>
+            <p>Tempo: moderato</p>
+        <td width="26%" style="text-align: center">
+          <audio controls="controls">
+              <source src="../audio/musecoco/2nd/2273/2.mp3" autoplay="">Your browser does not support the audio element.
+          </audio>
+          <audio controls="controls">
+            <source src="../audio/musecoco/2nd/2273/3.mp3" autoplay="">Your browser does not support the audio element.
+        </audio>
+        <audio controls="controls">
+            <source src="../audio/musecoco/2nd/2273/5.mp3" autoplay="">Your browser does not support the audio element.
+        </audio>
+      </tr>
+
+    </tbody>
+  </table>
+
+<h2 id="length">Description Length</h2>
+
+This section demonstrates the model ability to handle differenet description length.
+<div>
+    <div>
+        <h5>Short Descriptions</h5>
+        <table width="100%" border="1">
+            <p><b>Text Descriptions:</b> This song with a moderate beat is characterized by quiet and has a duration of about 14 bars.</p>
+            <table width="100%" border="1">
+                <tr>
+                    <td width="30%" style="text-align: left">
+                        <audio controls="controls">
+                            <source src="../audio/musecoco/Length/short/31/1.mp3" autoplay="">Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                    <td width="30%" style="text-align: left">
+                        <audio controls="controls">
+                            <source src="../audio/musecoco/Length/short/31/17.mp3" autoplay="">Your browser does not support the audio element.
+                        </audo>
+                    </td>
+                    <td width="30%" style="text-align: left">
+                        <audio controls="controls">
+                            <source src="../audio/musecoco/Length/short/31/24.mp3" autoplay="">Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                </tr>
+            </table>
+        </table>
+
+        <table width="100%" border="1">
+            <p><b>Text Descriptions:</b> This 31 ~ 45-second song embodies the essence of vocal music.</p>
+            <table width="100%" border="1">
+                <tr>
+                    <td width="30%" style="text-align: left">
+                        <audio controls="controls">
+                            <source src="../audio/musecoco/Length/short/38/4.mp3" autoplay="">Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                    <td width="30%" style="text-align: left">
+                        <audio controls="controls">
+                            <source src="../audio/musecoco/Length/short/38/40.mp3" autoplay="">Your browser does not support the audio element.
+                        </audo>
+                    </td>
+                    <td width="30%" style="text-align: left">
+                        <audio controls="controls">
+                            <source src="../audio/musecoco/Length/short/38/48.mp3" autoplay="">Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                </tr>
+            </table>
+        </table>
+        <table width="100%" border="1">
+            <p><b>Text Descriptions:</b> The song's sound is steeped in the conventions of religious style, and its pitch range is within 5 octaves. The tempo of this song is moderate.</p>
+            <table width="100%" border="1">
+                <tr>
+                    <td width="30%" style="text-align: left">
+                        <audio controls="controls">
+                            <source src="../audio/musecoco/Length/short/30/4.mp3" autoplay="">Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                    <td width="30%" style="text-align: left">
+                        <audio controls="controls">
+                            <source src="../audio/musecoco/Length/short/30/13.mp3" autoplay="">Your browser does not support the audio element.
+                        </audo>
+                    </td>
+                    <td width="30%" style="text-align: left">
+                        <audio controls="controls">
+                            <source src="../audio/musecoco/Length/short/30/18.mp3" autoplay="">Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                </tr>
+            </table>
+        </table>
+
+
+
+
+    </div>
+
+    <hr>
+
+    <div>
+        <h5>Long Descriptions</h5>
+        <table width="100%" border="1">
+            <p><b>Text Descriptions:</b> The music in this song is defined by its distinctive character, which is emphasized by its pitch range of 6 octaves, adding emotional depth. Furthermore, the major key adds a unique flavor to the music, while its powerful and driving beat contributes to its overall impact. The arrangement of the song omits the use of oboe and organ, and it is written in 4/4, which gives it a balanced beat. The music evokes a strong sense of gusto and lasts for 16 ~ 30 seconds, with a duration of 9 ~ 12 bars. The musical performance employs grand piano and strings.</p>
+            <table width="100%" border="1">
+                <tr>
+                    <td width="30%" style="text-align: left">
+                        <audio controls="controls">
+                            <source src="../audio/musecoco/Length/long/10/36.mp3" autoplay="">Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                    <td width="30%" style="text-align: left">
+                        <audio controls="controls">
+                            <source src="../audio/musecoco/Length/long/10/42.mp3" autoplay="">Your browser does not support the audio element.
+                        </audo>
+                    </td>
+                    <td width="30%" style="text-align: left">
+                        <audio controls="controls">
+                            <source src="../audio/musecoco/Length/long/10/61.mp3" autoplay="">Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                </tr>
+            </table>
+        </table>
+
+        <table width="100%" border="1">
+            <p><b>Text Descriptions:</b> The compact pitch range of 4 octaves results in a focused and impactful musical performance, while the choice of major key adds to the captivating and memorable experience. With a duration of about 40 seconds, the rapid tempo of this song combined with the distinct sound of grand piano, drum, guitar and bass creates its unique musical identity. The meter of the music follows 4/4, and it is played at a moderate tempo, further enhancing its overall effect. The song's style is defined by its religious influences, culminating in a compelling musical composition. The music consists of about 15 bars.</p>
+            <table width="100%" border="1">
+                <tr>
+                    <td width="30%" style="text-align: left">
+                        <audio controls="controls">
+                            <source src="../audio/musecoco/Length/long/11/30.mp3" autoplay="">Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                    <td width="30%" style="text-align: left">
+                        <audio controls="controls">
+                            <source src="../audio/musecoco/Length/long/11/32.mp3" autoplay="">Your browser does not support the audio element.
+                        </audo>
+                    </td>
+                    <td width="30%" style="text-align: left">
+                        <audio controls="controls">
+                            <source src="../audio/musecoco/Length/long/11/50.mp3" autoplay="">Your browser does not support the audio element.
+                        </audio>
+                    </td>
+                </tr>
+            </table>
+        </table>
+    </div>
+</div>
+
+
+			</section>
+		</article>
+	</main>
+
+</div>
+
+<script>
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-139981676-1', 'auto');
+	ga('send', 'pageview');
+</script>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/8.4/highlight.min.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+
+
+<script type="text/x-mathjax-config">
+     MathJax.Hub.Config({
+         HTML: ["input/TeX","output/HTML-CSS"],
+         TeX: {
+                Macros: {
+                         bm: ["\\boldsymbol{#1}", 1],
+                         argmax: ["\\mathop{\\rm arg\\,max}\\limits"],
+                         argmin: ["\\mathop{\\rm arg\\,min}\\limits"]},
+                extensions: ["AMSmath.js","AMSsymbols.js"],
+                equationNumbers: { autoNumber: "AMS" } },
+         extensions: ["tex2jax.js"],
+         jax: ["input/TeX","output/HTML-CSS"],
+         tex2jax: { inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+                    displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+                    processEscapes: true },
+         "HTML-CSS": { availableFonts: ["TeX"],
+                       linebreaks: { automatic: true } }
+     });
+ </script>
+
+ <script type="text/x-mathjax-config">
+     MathJax.Hub.Config({
+       tex2jax: {
+         skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+       }
+     });
+ </script>
+
+ <script type="text/javascript" async
+   src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML">
+ </script>
+
+
+
+
+</body>
+</html>
