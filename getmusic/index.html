@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="../css/custom.css">
   <link rel="alternate" href="index.xml" type="application/rss+xml" title="Speech Research">
   <link rel="shortcut icon" href="favicon.png" type="image/x-icon" />
-  <title>GETMusic: Generating Any Music Tracks with a Unified Representation and Diffusion Framework</title>
+  <title>GETMusic: Generating Music Tracks with a Unified Representation and Diffusion Framework</title>
 </head>
 
 <body>
@@ -26,69 +26,86 @@
 
     <main role="main">
       <article itemscope itemtype="https://schema.org/BlogPosting">
-        <h1 class="entry-title" itemprop="headline">Welcome to GETMusic Demo Page!</h1>
+        <h1 class="entry-title" itemprop="headline">GETMusic: Generating Any Music Tracks with a Unified Representation and Diffusion Framework</h1>
 
         <section itemprop="entry-text">
+          <br>
+          <p><a href="https://arxiv.org/pdf/2305.10841.pdf">paper</a>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="https://github.com/microsoft/muzic/tree/main/getmusic">code</a></p>
+
+          <h2 id="authors">Authors</h2>
+          <ul>
+            <li>Ang Lv (Renmin University of China) <a href="mailto:anglv@ruc.edu.cn">anglv@ruc.edu.cn</a></li>
+            <li>Xu Tan^ (Microsoft Research Asia) <a href="mailto:xuta@microsoft.com">xuta@microsoft.com</a></li>
+            <li>Peiling Lu (Microsoft Research Asia) <a href="mailto:peil@microsoft.com">peil@microsoft.com</a></li>
+            <li>Wei Ye (Peking University) <a href="mailto:wye@pku.edu.cn">wye@pku.edu.cn</a></li>
+            <li>Shikun Zhang (Peking University) <a href="mailto:zhangsk@pku.edu.cn">zhangsk@pku.edu.cn</a></li>
+            <li>Jiang Bian (Microsoft Research Asia) <a href="mailto:jiabia@microsoft.com">jiabia@microsoft.com</a></li>
+            <li>Rui Yan^ (Renmin University of China) <a href="mailto:ruiyan@ruc.edu.cn">ruiyan@ruc.edu.cn</a></li>
+          </ul>
+          <p><small>^ Corresponding author.</small></p>
+          <h2 id="abstract">Abstract</h2>
+          <p>Symbolic music generation aims to create musical notes, which can help users compose music, such as generating target instrument tracks based on provided source tracks. In practical scenarios where there’s a predefined ensemble of tracks and various composition needs, an efficient and effective generative model that can generate any target tracks based on the other tracks becomes crucial. However, previous efforts have fallen short in addressing this necessity due to limitations in their music representations and models. In this paper, we introduce a framework known as GETMusic, with “GET” standing for “GEnerate music Tracks.” This framework encompasses a novel music representation “GETScore” and a diffusion model “GETDiff.” GETScore represents musical notes as tokens and organizes tokens in a 2D structure, with tracks stacked vertically and progressing horizontally over time. At a training step, each track of a music piece is randomly selected as either the target or source. The training involves two processes: In the forward process, target tracks are corrupted by masking their tokens, while source tracks remain as the ground truth; in the denoising process, GETDiff is trained to predict the masked target tokens conditioning on the source tracks. Our proposed representation, coupled with the non-autoregressive generative model, empowers GETMusic to generate music with any arbitrary source-target track combinations. Our experiments demonstrate that the versatile GETMusic outperforms prior works proposed for certain specific composition tasks. </p>
+
             <br /><br />
             <h3>1. Source: Lead Melody ➡️ Target: Bass, Drum, Guitar, Piano, and String:</h3> 
             <p>Due to the incorporation of RoPE (Rotary Positional Embeddings), GETMusic can extrapolate effectively during inference without experiencing significant degradation in quality, even in the 1st demo of 72 bars: </p>
             <video width="50%" height="auto" controls >
-              <source src="audio/ata/video/ta-lc2bdgps.mp4" type="video/mp4">
+              <source src="../audio/getmusic/video/ta-lc2bdgps.mp4" type="video/mp4">
             </video>
             
             <br /><br />
             <h3>2. Piano ➡️ Drum, Guitar, and String</h3>
             <video width="50%" height="auto" controls >
-              <source src="audio/ata/video/pc2gsd.mp4" type="video/mp4">
+              <source src="../audio/getmusic/video/pc2gsd.mp4" type="video/mp4">
             </video>
 
             <br /><br />
             <h3>3. Guitar ➡️ String</h3>
             <video width="50%" height="auto" controls >
-              <source src="audio/ata/video/gc2bs.mp4" type="video/mp4">
+              <source src="../audio/getmusic/video/gc2bs.mp4" type="video/mp4">
             </video>
 
             <br /><br />
             <h3>4. Lead Melody ➡️ Piano, String</h3>
             <video width="50%" height="auto" controls >
-              <source src="audio/ata/video/heyjude-lc2ps.mp4" type="video/mp4">
+              <source src="../audio/getmusic/video/heyjude-lc2ps.mp4" type="video/mp4">
             </video>
             
             <br /><br />
             <h3>5. Drum and Piano ➡️ Lead Melody and String</h3>
             <video width="50%" height="auto" controls >
-              <source src="audio/ata/video/dp2ls.mp4" type="video/mp4">
+              <source src="../audio/getmusic/video/dp2ls.mp4" type="video/mp4">
             </video>
             
             <br /><br />
             <h3>6. Generation from Scratch 1</h3>
             <video width="50%" height="auto" controls >
-              <source src="audio/ata/video/ug.mp4" type="video/mp4">
+              <source src="../audio/getmusic/video/ug.mp4" type="video/mp4">
             </video>
             
             <br /><br />
             <h3>7. Generation from Scratch 2</h3>
             <video width="50%" height="auto" controls >
-              <source src="audio/ata/video/ug2.mp4" type="video/mp4">
+              <source src="../audio/getmusic/video/ug2.mp4" type="video/mp4">
             </video>
             
             <br /><br />
             <h3>8. Zero-Shot Example 1</h3>
             <video width="50%" height="auto" controls >
-              <source src="audio/ata/video/zero1.mp4" type="video/mp4">
+              <source src="../audio/getmusic/video/zero1.mp4" type="video/mp4">
             </video>
             
             <br /><br />
             <h3>9. Zero-Shot Example 2</h3>
             <video width="50%" height="auto" controls >
-              <source src="audio/ata/video/zero2.mp4" type="video/mp4">
+              <source src="../audio/getmusic/video/zero2.mp4" type="video/mp4">
             </video>
             
             <br /><br />
             <h3>10. More than Pop Music: Fine-tuning with Other Genre Data</h3>
             <p>We fine-tune the GETDiff on JSB Chorales dataset for only 2,000 steps. It is capable of generating music in Bach style. </p>
             <video width="50%" height="auto" controls >
-              <source src="audio/ata/video/bach.mp4" type="video/mp4">
+              <source src="../audio/getmusic/video/bach.mp4" type="video/mp4">
             </video>
 
           <br /><br />
@@ -103,24 +120,24 @@
               <tr>
                   <td width="30%" style="text-align: center">
                       <audio controls="controls">
-                          <source src="audio/ata/audio/1-l2bdgps-source.mp3" autoplay="">Your browser does not support the audio element.
+                          <source src="../audio/getmusic/video/1-l2bdgps-source.mp3" autoplay="">Your browser does not support the audio element.
                       </audio>
                   </td>
                   <td width="30%" style="text-align: center">
                       <audio controls="controls">
-                          <source src="audio/ata/audio/1-l2bdgps.mp3" autoplay="">Your browser does not support the audio element.
+                          <source src="../audio/getmusic/video/1-l2bdgps.mp3" autoplay="">Your browser does not support the audio element.
                       </audio>
                   </td>
               </tr>
               <tr>
                 <td width="30%" style="text-align: center">
                     <audio controls="controls">
-                        <source src="audio/ata/audio/2-l2bdgps-source.mp3" autoplay="">Your browser does not support the audio element.
+                        <source src="../audio/getmusic/video/2-l2bdgps-source.mp3" autoplay="">Your browser does not support the audio element.
                     </audio>
                 </td>
                 <td width="30%" style="text-align: center">
                     <audio controls="controls">
-                        <source src="audio/ata/audio/2-l2bdgps.mp3" autoplay="">Your browser does not support the audio element.
+                        <source src="../audio/getmusic/video/2-l2bdgps.mp3" autoplay="">Your browser does not support the audio element.
                     </audio>
                 </td>
             </tr>
@@ -136,24 +153,24 @@
               <tr>
                   <td width="30%" style="text-align: center">
                       <audio controls="controls">
-                          <source src="audio/ata/audio/1-lc2dgp-source.mp3" autoplay="">Your browser does not support the audio element.
+                          <source src="../audio/getmusic/video/1-lc2dgp-source.mp3" autoplay="">Your browser does not support the audio element.
                       </audio>
                   </td>
                   <td width="30%" style="text-align: center">
                       <audio controls="controls">
-                          <source src="audio/ata/audio/1-lc2dgp.mp3" autoplay="">Your browser does not support the audio element.
+                          <source src="../audio/getmusic/video/1-lc2dgp.mp3" autoplay="">Your browser does not support the audio element.
                       </audio>
                   </td>
               </tr>
               <tr>
                 <td width="30%" style="text-align: center">
                     <audio controls="controls">
-                        <source src="audio/ata/audio/2-lc2dgp-source.mp3" autoplay="">Your browser does not support the audio element.
+                        <source src="../audio/getmusic/video/2-lc2dgp-source.mp3" autoplay="">Your browser does not support the audio element.
                     </audio>
                 </td>
                 <td width="30%" style="text-align: center">
                     <audio controls="controls">
-                        <source src="audio/ata/audio/2-lc2dgp.mp3" autoplay="">Your browser does not support the audio element.
+                        <source src="../audio/getmusic/video/2-lc2dgp.mp3" autoplay="">Your browser does not support the audio element.
                     </audio>
                 </td>
             </tr>
@@ -169,24 +186,24 @@
               <tr>
                   <td width="30%" style="text-align: center">
                       <audio controls="controls">
-                          <source src="audio/ata/audio/1-pc2l-source.mp3" autoplay="">Your browser does not support the audio element.
+                          <source src="../audio/getmusic/video/1-pc2l-source.mp3" autoplay="">Your browser does not support the audio element.
                       </audio>
                   </td>
                   <td width="30%" style="text-align: center">
                       <audio controls="controls">
-                          <source src="audio/ata/audio/1-pc2l.mp3" autoplay="">Your browser does not support the audio element.
+                          <source src="../audio/getmusic/video/1-pc2l.mp3" autoplay="">Your browser does not support the audio element.
                       </audio>
                   </td>
               </tr>
               <tr>
                 <td width="30%" style="text-align: center">
                     <audio controls="controls">
-                        <source src="audio/ata/audio/2-pc2l-source.mp3" autoplay="">Your browser does not support the audio element.
+                        <source src="../audio/getmusic/video/2-pc2l-source.mp3" autoplay="">Your browser does not support the audio element.
                     </audio>
                 </td>
                 <td width="30%" style="text-align: center">
                     <audio controls="controls">
-                        <source src="audio/ata/audio/2-pc2l.mp3" autoplay="">Your browser does not support the audio element.
+                        <source src="../audio/getmusic/video/2-pc2l.mp3" autoplay="">Your browser does not support the audio element.
                     </audio>
                 </td>
             </tr>
@@ -202,24 +219,24 @@
               <tr>
                   <td width="30%" style="text-align: center">
                       <audio controls="controls">
-                          <source src="audio/ata/audio/1-gps2l-source.mp3" autoplay="">Your browser does not support the audio element.
+                          <source src="../audio/getmusic/video/1-gps2l-source.mp3" autoplay="">Your browser does not support the audio element.
                       </audio>
                   </td>
                   <td width="30%" style="text-align: center">
                       <audio controls="controls">
-                          <source src="audio/ata/audio/1-gps2l.mp3" autoplay="">Your browser does not support the audio element.
+                          <source src="../audio/getmusic/video/1-gps2l.mp3" autoplay="">Your browser does not support the audio element.
                       </audio>
                   </td>
               </tr>
               <tr>
                 <td width="30%" style="text-align: center">
                     <audio controls="controls">
-                        <source src="audio/ata/audio/2-gps2l-source.mp3" autoplay="">Your browser does not support the audio element.
+                        <source src="../audio/getmusic/video/2-gps2l-source.mp3" autoplay="">Your browser does not support the audio element.
                     </audio>
                 </td>
                 <td width="30%" style="text-align: center">
                     <audio controls="controls">
-                        <source src="audio/ata/audio/2-gps2l.mp3" autoplay="">Your browser does not support the audio element.
+                        <source src="../audio/getmusic/video/2-gps2l.mp3" autoplay="">Your browser does not support the audio element.
                     </audio>
                 </td>
             </tr>
@@ -235,24 +252,24 @@
               <tr>
                   <td width="30%" style="text-align: center">
                       <audio controls="controls">
-                          <source src="audio/ata/audio/1-dbc2l-source.mp3" autoplay="">Your browser does not support the audio element.
+                          <source src="../audio/getmusic/video/1-dbc2l-source.mp3" autoplay="">Your browser does not support the audio element.
                       </audio>
                   </td>
                   <td width="30%" style="text-align: center">
                       <audio controls="controls">
-                          <source src="audio/ata/audio/1-dbc2l.mp3" autoplay="">Your browser does not support the audio element.
+                          <source src="../audio/getmusic/video/1-dbc2l.mp3" autoplay="">Your browser does not support the audio element.
                       </audio>
                   </td>
               </tr>
               <tr>
                 <td width="30%" style="text-align: center">
                     <audio controls="controls">
-                        <source src="audio/ata/audio/2-dbc2l-source.mp3" autoplay="">Your browser does not support the audio element.
+                        <source src="../audio/getmusic/video/2-dbc2l-source.mp3" autoplay="">Your browser does not support the audio element.
                     </audio>
                 </td>
                 <td width="30%" style="text-align: center">
                     <audio controls="controls">
-                        <source src="audio/ata/audio/2-dbc2l.mp3" autoplay="">Your browser does not support the audio element.
+                        <source src="../audio/getmusic/video/2-dbc2l.mp3" autoplay="">Your browser does not support the audio element.
                     </audio>
                 </td>
             </tr>
@@ -268,24 +285,24 @@
               <tr>
                   <td width="30%" style="text-align: center">
                       <audio controls="controls">
-                          <source src="audio/ata/audio/1-b2s-source.mp3" autoplay="">Your browser does not support the audio element.
+                          <source src="../audio/getmusic/video/1-b2s-source.mp3" autoplay="">Your browser does not support the audio element.
                       </audio>
                   </td>
                   <td width="30%" style="text-align: center">
                       <audio controls="controls">
-                          <source src="audio/ata/audio/1-b2s.mp3" autoplay="">Your browser does not support the audio element.
+                          <source src="../audio/getmusic/video/1-b2s.mp3" autoplay="">Your browser does not support the audio element.
                       </audio>
                   </td>
               </tr>
               <tr>
                 <td width="30%" style="text-align: center">
                     <audio controls="controls">
-                        <source src="audio/ata/audio/2-b2s-source.mp3" autoplay="">Your browser does not support the audio element.
+                        <source src="../audio/getmusic/video/2-b2s-source.mp3" autoplay="">Your browser does not support the audio element.
                     </audio>
                 </td>
                 <td width="30%" style="text-align: center">
                     <audio controls="controls">
-                        <source src="audio/ata/audio/2-b2s.mp3" autoplay="">Your browser does not support the audio element.
+                        <source src="../audio/getmusic/video/2-b2s.mp3" autoplay="">Your browser does not support the audio element.
                     </audio>
                 </td>
             </tr>
@@ -301,24 +318,24 @@
               <tr>
                   <td width="30%" style="text-align: center">
                       <audio controls="controls">
-                          <source src="audio/ata/audio/1-s2bdgp-source.mp3" autoplay="">Your browser does not support the audio element.
+                          <source src="../audio/getmusic/video/1-s2bdgp-source.mp3" autoplay="">Your browser does not support the audio element.
                       </audio>
                   </td>
                   <td width="30%" style="text-align: center">
                       <audio controls="controls">
-                          <source src="audio/ata/audio/1-s2bdgp.mp3" autoplay="">Your browser does not support the audio element.
+                          <source src="../audio/getmusic/video/1-s2bdgp.mp3" autoplay="">Your browser does not support the audio element.
                       </audio>
                   </td>
               </tr>
               <tr>
                 <td width="30%" style="text-align: center">
                     <audio controls="controls">
-                        <source src="audio/ata/audio/2-s2bdgp-source.mp3" autoplay="">Your browser does not support the audio element.
+                        <source src="../audio/getmusic/video/2-s2bdgp-source.mp3" autoplay="">Your browser does not support the audio element.
                     </audio>
                 </td>
                 <td width="30%" style="text-align: center">
                     <audio controls="controls">
-                        <source src="audio/ata/audio/2-s2bdgp.mp3" autoplay="">Your browser does not support the audio element.
+                        <source src="../audio/getmusic/video/2-s2bdgp.mp3" autoplay="">Your browser does not support the audio element.
                     </audio>
                 </td>
             </tr>
